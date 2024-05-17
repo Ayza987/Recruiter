@@ -5,6 +5,7 @@ use App\Http\Api\PersonnelController;
 use App\Http\Api\CandidatController;
 use App\Http\Api\OffreController;
 use App\Http\Api\CongésController;
+use App\Http\Api\DocumentsController;
 
 
 
@@ -43,3 +44,11 @@ Route::post('congés', [CongésController::class, 'store']);
 Route::get('congés/{id}',[CongésController::class, 'show']);
 Route::put('congés/{id}/edit', [CongésController::class, 'update']);
 Route::delete('congés/{id}/delete', [CongésController::class, 'destroy']);
+
+//Documents routes
+
+Route::get('documents', [DocumentsController::class, 'index']);
+Route::post('documents', [DocumentsController::class, 'store']);
+Route::get('documents/{id}',[DocumentsController::class, 'show']);
+Route::put('documents/{id}/edit', [DocumentsController::class, 'update']);
+Route::delete('documents/{id}/delete', [DocumentsController::class, 'destroy']);

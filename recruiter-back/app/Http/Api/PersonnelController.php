@@ -6,6 +6,7 @@ use App\Models\Personnel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 
 class PersonnelController extends Controller
@@ -57,7 +58,7 @@ class PersonnelController extends Controller
                 'poste' => $request->poste,
                 'email' => $request->email,
                 'telephone' => $request->telephone,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'statut' => $request->statut
 
             ]);
@@ -112,7 +113,7 @@ class PersonnelController extends Controller
                 'poste' => $request->poste,
                 'email' => $request->email,
                 'telephone' => $request->telephone,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'statut' => $request->statut
 
             ]);

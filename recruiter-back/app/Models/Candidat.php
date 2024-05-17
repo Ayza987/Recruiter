@@ -5,21 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Personnel extends Model
+class Candidat extends Model
 {
     use HasFactory;
 
-    protected $table ='personnel';
+    protected $table ='candidat';
     public $timestamps = false;
 
     protected $fillable = [
         'nom',
         'prenom',
-        'poste',
         'email',
-        'telephone',
-        'password',
-        'statut'
+        'telephone'
         
     ];
 }

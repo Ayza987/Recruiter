@@ -35,7 +35,7 @@ class CandidatController extends Controller
         $validator = Validator::make($request->all(), [
             'nom' => 'required|string',
             'prenom' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:candidat',
             'telephone' => 'required|string'
 
         ]);

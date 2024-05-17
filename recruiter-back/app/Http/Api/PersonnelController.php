@@ -36,7 +36,7 @@ class PersonnelController extends Controller
             'nom' => 'required|string',
             'prenom' => 'required|string',
             'poste' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:personnel',
             'telephone' => 'required|string',
             'password' => 'required|string',
             'statut' => 'required|string'

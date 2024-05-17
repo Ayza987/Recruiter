@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Api\PersonnelController;
 use App\Http\Api\CandidatController;
 use App\Http\Api\OffreController;
+use App\Http\Api\CongésController;
+
 
 
 Route::get('/form', function () {
@@ -33,3 +35,11 @@ Route::post('offre', [OffreController::class, 'store']);
 Route::get('offre/{id}',[OffreController::class, 'show']);
 Route::put('offre/{id}/edit', [OffreController::class, 'update']);
 Route::delete('offre/{id}/delete', [OffreController::class, 'destroy']);
+
+//Congés routes
+
+Route::get('congés', [CongésController::class, 'index']);
+Route::post('congés', [CongésController::class, 'store']);
+Route::get('congés/{id}',[CongésController::class, 'show']);
+Route::put('congés/{id}/edit', [CongésController::class, 'update']);
+Route::delete('congés/{id}/delete', [CongésController::class, 'destroy']);

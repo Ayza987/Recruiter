@@ -40,11 +40,9 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function me()
-    {
-        # Here we just get information about current user
-        return response()->json(auth()->user());
-    }
-
+{
+    return response()->json(auth()->guard('api')->user());
+}
     /**
      * Log the user out (Invalidate the token).
      *

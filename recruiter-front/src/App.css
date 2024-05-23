@@ -45,12 +45,13 @@ body {
 
 .header p {
   margin: 10px 0 0;
-  font-size: 25px;
+  font-size: 24px;
   color: black;
 }
 
 .header a {
   color: #003366;
+  font-weight: Semibold;
   text-decoration: none;
 }
 
@@ -97,6 +98,7 @@ body {
   align-items: center;
   margin-bottom: 15px;
   text-align: left;
+  font-size: 14px;
 }
 
 .form-container .checkbox-container input[type="radio"] {
@@ -104,13 +106,17 @@ body {
 }
 .form-container .checkbox-container .a {
   margin-right: 10px;
-  background-color: red;
+  
 }
 
 .form-container button {
   padding: 10px;
   background-color: #003366;
   color: white;
+  width: 300px;
+  margin-left: 50px;
+  margin-top: 20px;
+  font-size: 15px;
   border: none;
   border-radius: 20px;
   cursor: pointer;

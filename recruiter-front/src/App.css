@@ -52,11 +52,12 @@ body {
 .header a {
   color: #003366;
   font-weight: Semibold;
-  text-decoration: none;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .header a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .form-container {
@@ -139,8 +140,9 @@ footer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 200px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .footer-links a {
@@ -150,6 +152,7 @@ footer {
 }
 
 .footer-links a:hover {
+  color: #0055cc;
   text-decoration: underline;
 }
 
@@ -165,5 +168,5 @@ footer {
 }
 
 .social-icons a:hover {
-  color: #cccccc;
+  color: #0055cc;
 }

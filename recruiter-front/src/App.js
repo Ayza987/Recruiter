@@ -43,15 +43,15 @@ function App() {
         <div className="footer-links">
           <a href="#">About</a>
           <a href="#">Contact Us</a>
-          <a href="#">Our socials</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
-        </div>
-        <div className="social-icons">
+          <div className="social-icons">
           <a href="#"><FaInstagram /></a>
           <a href="#"><FaLinkedinIn /></a>
           <a href="#"><FaFacebookF /></a>
         </div>
+        </div>
+       
       </footer>
     </div>
   );

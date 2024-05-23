@@ -1,38 +1,163 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e6f0f5;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  padding: 20px;
+}
+
+.header {
+  text-align: left;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: justify;
+  margin-right: 100px;
+  color: #003366;
+}
+
+.header p {
+  margin: 10px 0 0;
+  font-size: 25px;
+  color: black;
+}
+
+.header a {
+  color: #003366;
+  text-decoration: none;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.form-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  text-align: center;
+  width: 400px;
+  max-width: 100%;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-container label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: black;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container input[type="password"] {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  background-color: #EDF0F2;
+  border-radius: 20px;
+  width: calc(100% - 22px);
+}
+
+.form-container .checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-container .checkbox-container input[type="radio"] {
+  margin-right: 10px;
+}
+.form-container .checkbox-container .a {
+  margin-right: 10px;
+  background-color: red;
+}
+
+.form-container button {
+  padding: 10px;
+  background-color: #003366;
   color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.form-container button:hover {
+  background-color: #0055cc;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 20px;
+}
+
+.social-icons a:hover {
+  color: #cccccc;
 }

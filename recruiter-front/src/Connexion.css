@@ -9,7 +9,6 @@
  * @copyright 
  */
 
-
  body {
     font-family: Arial, sans-serif;
     background-color: #e6f0f5;
@@ -35,8 +34,6 @@
     align-items: center;
     padding: 20px;
   }
-  
-  
   
   .form-container h2 {
     margin: 0;
@@ -70,10 +67,8 @@
     gap: 10px;
   }
   
-
   .form-container input[type="email"],
   .form-container input[type="password"] {
-    margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #cccccc;
     background-color: #EDF0F2;
@@ -81,6 +76,13 @@
     width: calc(100% - 22px);
   }
   
+  .form-container input[type="email"] {
+    margin-bottom: 40px; 
+  }
+  
+  .form-container input[type="password"] {
+    margin-bottom: 25px;
+  }
   
   .form-container .form-row {
     display: flex;
@@ -106,8 +108,7 @@
     font-size: 14px;
   }
   
-  .container{
-
+  .container {
     display: flex;
     margin-bottom: 0px;
     margin-top: 35px;
@@ -117,18 +118,17 @@
     color: #003366;
     cursor: pointer;
   }
-
+  
   .container a {
     color: #003366;
     cursor: pointer;
     text-decoration: underline;
   }
-
-  .container a:hover{
+  
+  .container a:hover {
     color: #0055cc;
     text-decoration: none;
   }
- 
   
   .form-container .checkbox-container a {
     margin-right: 10px;
@@ -138,7 +138,6 @@
   
   .form-container .checkbox-container a:hover {
     color: #0055cc;
-    
   }
   
   .form-container button {
@@ -201,7 +200,6 @@
   .social-icons a:hover {
     color: #0055cc;
   }
-  
   
   @media (max-width: 768px) {
     .header h2 {
@@ -267,11 +265,4 @@
       font-size: 14px;
     }
   }
-
-
-
-
-
-
-
-
+  

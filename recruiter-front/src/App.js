@@ -5,6 +5,7 @@
 import React from 'react';
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import './App.css'; 
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <div className="header">
           <h2>Créez votre compte</h2>
           <h2>GSC Recruiter</h2>
-          <p>Déjà un compte ? <a href="#">Connectez vous</a></p>
+          <p>Déjà un compte ? <a href="#"><Link to="/connexion">Connectez vous</Link></a></p>
         </div>
         <div className="form-container">
           <form>

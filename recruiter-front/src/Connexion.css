@@ -1,0 +1,277 @@
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
+/**
+ * @file Connexion.css
+ * @description 
+ * @author 
+ * @copyright 
+ */
+
+
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f0f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  
+  
+  .form-container h2 {
+    margin: 0;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 80px;
+    color: #003366;
+  }
+  
+  .form-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    text-align: center;
+    width: 400px;
+    max-width: 100%;
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .form-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: black;
+    gap: 10px;
+  }
+  
+
+  .form-container input[type="email"],
+  .form-container input[type="password"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    background-color: #EDF0F2;
+    border-radius: 20px;
+    width: calc(100% - 22px);
+  }
+  
+  
+  .form-container .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+  
+  .form-container .form-group {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .form-container .form-group:last-child {
+    margin-right: 0;
+  }
+  
+  .form-container .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  .container{
+
+    display: flex;
+    margin-bottom: 0px;
+    margin-top: 35px;
+    text-align: center;
+    font-size: 15px;
+    margin-left: 80px;
+    color: #003366;
+    cursor: pointer;
+  }
+
+  .container a {
+    color: #003366;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .container a:hover{
+    color: #0055cc;
+    text-decoration: none;
+  }
+ 
+  
+  .form-container .checkbox-container a {
+    margin-right: 10px;
+    color: #003366;
+    cursor: pointer;
+  }
+  
+  .form-container .checkbox-container a:hover {
+    color: #0055cc;
+    
+  }
+  
+  .form-container button {
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    width: 300px;
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #0055cc;
+  }
+  
+  footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 200px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .footer-links a:hover {
+    color: #0055cc;
+    text-decoration: underline;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .social-icons a {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .social-icons a:hover {
+    color: #0055cc;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .header h2 {
+      font-size: 40px;
+      margin-right: 0;
+    }
+  
+    .header p {
+      font-size: 20px;
+    }
+  
+    .form-container {
+      padding: 30px 20px;
+      width: 100%;
+    }
+  
+    .form-container button {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .form-container .form-row {
+      flex-direction: column;
+    }
+  
+    .form-container .form-group,
+    .form-container .form-group-department {
+      margin-right: 0;
+      width: 100%;
+    }
+  
+    .form-container .form-group-department {
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header h2 {
+      font-size: 30px;
+    }
+  
+    .header p {
+      font-size: 18px;
+    }
+  
+    .form-container {
+      padding: 20px 10px;
+    }
+  
+    .form-container label {
+      font-size: 14px;
+    }
+  
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="tel"],
+    .form-container input[type="password"] {
+      padding: 8px;
+    }
+  
+    .form-container button {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+
+
+
+
+
+
+
+

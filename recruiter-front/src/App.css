@@ -51,7 +51,7 @@ body {
 
 .header a {
   color: #003366;
-  font-weight: Semibold;
+  font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
 }

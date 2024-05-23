@@ -36,7 +36,7 @@ function App() {
             <button type="submit">Se connecter</button>
             <div className="container">
             <label htmlFor="text">
-                Pas encore de compte ? <a href="#"><Link to="/">S'inscrire</Link></a>
+                Pas encore de compte ? <a href="#"><Link to="/">Inscrivez-vous</Link></a>
               </label>
               </div>
           </form>

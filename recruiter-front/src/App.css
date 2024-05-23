@@ -104,9 +104,11 @@ body {
 
 .form-container .checkbox-container input[type="radio"] {
   margin-right: 10px;
+  cursor: pointer;
 }
-.form-container .checkbox-container .a {
+.form-container .checkbox-container a {
   margin-right: 10px;
+  color: red;
   
 }
 

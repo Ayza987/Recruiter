@@ -221,6 +221,14 @@
       margin-left: 0;
     }
   
+    .form-container input[type="email"] {
+      margin-bottom: 40px;
+    }
+  
+    .form-container input[type="password"] {
+      margin-bottom: 25px;
+    }
+  
     .form-container .form-row {
       flex-direction: column;
     }
@@ -253,11 +261,17 @@
       font-size: 14px;
     }
   
-    .form-container input[type="text"],
     .form-container input[type="email"],
-    .form-container input[type="tel"],
     .form-container input[type="password"] {
       padding: 8px;
+    }
+  
+    .form-container input[type="email"] {
+      margin-bottom: 40px;
+    }
+  
+    .form-container input[type="password"] {
+      margin-bottom: 25px;
     }
   
     .form-container button {
@@ -265,4 +279,3 @@
       font-size: 14px;
     }
   }
-  

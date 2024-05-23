@@ -25,8 +25,20 @@ function App() {
             <input type="email" id="email" />
             <label htmlFor="telephone">Téléphone</label>
             <input type="tel" id="telephone" />
-            <label htmlFor="poste">Poste</label>
-            <input type="text" id="poste" />
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="poste">Poste</label>
+                <input type="text" id="poste" />
+              </div>
+              <div class="form-group-department">
+        <select id="departement" title= 'Département' name="departement">
+          <option value="dept1">Département Marketing</option>
+          <option value="dept2">Département Soft</option>
+          <option value="dept3">Département Bon Comptoir</option>
+          <option value="dept3">Département Technique</option>
+        </select>
+              </div>
+            </div>
             <label htmlFor="password">Mot de passe</label>
             <input type="password" id="password" />
             <div className="checkbox-container">

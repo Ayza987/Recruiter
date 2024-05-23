@@ -94,6 +94,29 @@ body {
   width: calc(100% - 22px);
 }
 
+.form-group-department{
+  text-align: center;
+  color: #cccccc;
+  margin-top: 30px;
+
+}
+
+.form-container .form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.form-container .form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-container .form-group:last-child {
+  margin-right: 0;
+}
+
 .form-container .checkbox-container {
   display: flex;
   align-items: center;
@@ -106,10 +129,15 @@ body {
   margin-right: 10px;
   cursor: pointer;
 }
+
 .form-container .checkbox-container a {
   margin-right: 10px;
   color: red;
-  
+}
+
+.form-container .checkbox-container a:hover {
+  color: #003366;
+  cursor: pointer;
 }
 
 .form-container button {

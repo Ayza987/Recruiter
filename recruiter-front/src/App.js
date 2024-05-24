@@ -34,9 +34,9 @@ function App() {
               <div class="form-group-department">
         <select id="departement" title= 'Département' name="departement">
           <option value="dept1">Département Marketing</option>
-          <option value="dept2">Département Soft</option>
           <option value="dept3">Département Bon Comptoir</option>
           <option value="dept3">Département Technique</option>
+          <option value="dept2">Département Soft</option>
         </select>
               </div>
             </div>

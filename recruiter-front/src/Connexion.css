@@ -135,10 +135,12 @@
     margin-right: 10px;
     color: #003366;
     cursor: pointer;
+    text-decoration: underline;
   }
   
   .form-container .checkbox-container a:hover {
     color: #0055cc;
+    text-decoration: none;
   }
   
   .form-container button {

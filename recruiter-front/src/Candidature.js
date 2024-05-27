@@ -20,13 +20,13 @@ function App() {
         <p>INTERNSHIP - 70H / SEMAINE</p>
         <a href="#description" className="back-link">Retour à la description de l'offre</a>
       </header>
+       
+      <div className="App-container">
       <form className="form">
         <h2>Informations générales</h2>
-        <label>Prénom</label>
-        <input type="text" name="prenom" />
+        <label>Prénom</label> <input type="text" name="prenom" />
 
-        <label>Nom</label>
-        <input type="text" name="nom" />
+        <label>Nom</label> <input type="text" name="nom" />
 
         <label>Date de naissance</label>
         <input type="date" name="date_naissance" />
@@ -54,7 +54,7 @@ function App() {
 
         <h2>Votre Profil *</h2>
         <div className="file-upload">
-          <label>+ Mon CV</label>
+          <label>+ Curriculum Vitae</label>
           <input type="file" name="cv" accept="application/pdf" />
           {/* <p>Aucun fichier choisi</p> */}
         </div>
@@ -75,6 +75,7 @@ function App() {
 
         <button type="submit">ENVOYER MA CANDIDATURE</button>
       </form>
+      </div>
     </div>
   );
 }

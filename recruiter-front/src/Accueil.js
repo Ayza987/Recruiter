@@ -25,8 +25,9 @@ const Accueil = () => {
       </nav>
       <div className="hero-content">
       <button className="apply-button">
-  Postuler <FaBriefcase />
+  Postuler <FaBriefcase className="icon" />
 </button>
+
 
         <div className="hero-text">
           <h1>Trouvez les meilleures</h1>

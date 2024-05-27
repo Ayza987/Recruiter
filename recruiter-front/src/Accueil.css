@@ -30,8 +30,9 @@
   }
   
   .logo {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 40px;
+    font-family: Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
     margin-right: 0px;
     margin-left:30px;
     color: #003366;
@@ -40,33 +41,38 @@
   .nav-links {
     font-size: 20px;
     display: flex;
-    margin-left: -20px;
-    margin-right: 90px;
-    right: 70%;
-    margin-top: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;;
+    /* margin-left: -20px; */
+    /* margin-right: 90px; */
+    right: 40%;
+    left:50%;
+    margin-top: 20px;
     gap: 110px;
   }
   
   .nav-links a {
     text-decoration: none;
-    color: #003366;
-    font-weight: bold;
+    color: #0E4078;
+    font-weight: medium;
   }
   
   .nav-links a:hover {
     color: #108CCE;
+    transition: 2ms;
     text-decoration: underline;
   }
   
   .login-button {
     width: 180px;
     height: 40px;
+    font-size:15px;
     background-color: #108CCE;
     color: white;
     border: none;
     margin-bottom: 5px;
     padding: 10px 20px;
-    margin-left: 90px;
+    left:20%;
+    right:50%;
     border-radius: 20px;
     cursor: pointer;
   }
@@ -101,13 +107,13 @@
   
   .apply-button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 25px;
+    font-size: 50px;
     font-weight: bold;
     position: absolute;
     top: 45%;
     left: 20%;
     transform: translate(-50%, -50%);
-    background-color: #003366;
+    background-color: #0E4078;
     color: white;
     border: none;
     width: 280px;
@@ -116,6 +122,12 @@
     border-radius: 90px;
     cursor: pointer;
     font-size: 20px;
+  }
+  
+  .apply-button .icon {
+    margin-left: 12px; 
+    width: 25px;
+    height: 20px;
   }
   
   .apply-button:hover {

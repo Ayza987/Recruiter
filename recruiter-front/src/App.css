@@ -132,11 +132,11 @@ body {
 
 .form-container .checkbox-container a {
   margin-right: 10px;
-  color: red;
+  color: #D92416 
 }
 
 .form-container .checkbox-container a:hover {
-  color: #003366;
+  color: #0055cc;
   cursor: pointer;
 }
 

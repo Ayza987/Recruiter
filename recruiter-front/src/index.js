@@ -8,6 +8,7 @@ import './index.css';
 import App from './App';
 import Connexion from './Connexion'; 
 import Accueil from './Accueil';
+import Candidature from './Candidature';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/accueil" element={<Accueil />} />
+        <Route path="/candidature" element={<Candidature />} />
       </Routes>
     </Router>
   </React.StrictMode>

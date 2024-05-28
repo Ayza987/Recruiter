@@ -31,34 +31,34 @@ function App() {
                 </th>
                 <tr>
                     <td><label >Prénom</label></td>
-                    <td><input type="text" name="prenom" /></td>
+                    <td><input type="text" name="prenom" required/></td>
                 </tr>
                 <tr>
                     <td><label >Nom</label></td>
-                    <td><input type="text" name="nom" /></td>
+                    <td><input type="text" name="nom" required/></td>
                 </tr>
                 <tr>
                     <td><label >Date de naissance</label></td>
-                    <td><input type="text" name="date_naissance" /></td>
+                    <td><input type="text" name="date_naissance" required/></td>
                 </tr>
                 <tr>
                     <td><label >Email</label></td>
-                    <td><input type="text" name="email" /></td>
+                    <td><input type="text" name="email" required/></td>
                 </tr>
                 <tr>
                     <td><label >Téléphone</label></td>
-                    <td><input type="text" name="telephone" /></td>
+                    <td><input type="text" name="telephone" required/></td>
                 </tr>
                 <tr>
                     <td><label >Adresse</label></td>
-                    <td><input type="text" name="adresse" /></td>
+                    <td><input type="text" name="adresse" required/></td>
                 </tr>
                 <tr>
-                    <td><label >Genre</label></td>
+                    <td><label >Sexe</label></td>
                     <td><label>
-            <input type="radio" name="genre" value="femme" />Femme</label></td>
+            <input type="radio" name="genre" value="femme" />Féminin</label></td>
                     <td><label>
-            <input type="radio" name="genre" value="homme" /> Homme</label></td>
+            <input type="radio" name="genre" value="homme" /> Masculin</label></td>
                 </tr>
                 <tr >
                     <td ><h2>Votre Profil *</h2></td>
@@ -70,9 +70,9 @@ function App() {
                     
                 </tr>
                 <tr>
-                    <td><input type="file" name="cv" accept="application/pdf" /></td>
-                    <td><input type="file" name="lettre_motivation" accept="application/pdf" /></td>
-                    <td><input type="file" name="diplomes" accept="application/pdf" /></td>
+                    <td><input type="file" name="cv" accept="application/pdf" required/></td>
+                    <td><input type="file" name="lettre_motivation" accept="application/pdf" required/></td>
+                    <td><input type="file" name="diplomes" accept="application/pdf" required/></td>
                 </tr>
                 <tr >
                     <td colspan="2"><p class="note">*Taille maximum 5Mo, format PDF</p></td>

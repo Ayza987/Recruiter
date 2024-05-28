@@ -1,4 +1,4 @@
-/*
+ /*
  *   Copyright (c) 2024 
  *   All rights reserved.
  */
@@ -10,7 +10,9 @@
  */
 
 import React from 'react';
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import './Candidature.css';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -22,60 +24,84 @@ function App() {
       </header>
        
       <div className="App-container">
-      <form className="form">
-        <h2>Informations générales</h2>
-        <label>Prénom</label> <input type="text" name="prenom" />
-
-        <label>Nom</label> <input type="text" name="nom" />
-
-        <label>Date de naissance</label>
-        <input type="date" name="date_naissance" />
-
-        <label>Email</label>
-        <input type="email" name="email" />
-
-        <label>Téléphone</label>
-        <input type="tel" name="telephone" />
-
-        <label>Adresse</label>
-        <input type="text" name="adresse" />
-
-        <label>Genre</label>
-        <div className="gender">
-          <label>
-            <input type="radio" name="genre" value="femme" />
-            Femme
-          </label>
-          <label>
-            <input type="radio" name="genre" value="homme" />
-            Homme
-          </label>
-        </div>
-
-        <h2>Votre Profil *</h2>
-        <div className="file-upload">
-          <label>+ Curriculum Vitae</label>
-          <input type="file" name="cv" accept="application/pdf" />
-          {/* <p>Aucun fichier choisi</p> */}
-        </div>
-
-        <div className="file-upload">
-          <label>+ Lettre de motivation</label>
-          <input type="file" name="lettre_motivation" accept="application/pdf" />
-          {/* <p>Aucun fichier choisi</p> */}
-        </div>
-
-        <div className="file-upload">
-          <label>+ Diplômes requis</label>
-          <input type="file" name="diplomes" accept="application/pdf" />
-          {/* <p>Aucun fichier choisi</p> */}
-        </div>
-
-        <p className="note">*Taille maximum 5Mo, format PDF</p>
-
-        <button type="submit">ENVOYER MA CANDIDATURE</button>
-      </form>
+      <form class="form">
+            <table  width="70%" align="center">
+                <th >
+                    <h2>Informations générales</h2>  
+                </th>
+                <tr>
+                    <td><label >Prénom</label></td>
+                    <td><input type="text" name="prenom" /></td>
+                </tr>
+                <tr>
+                    <td><label >Nom</label></td>
+                    <td><input type="text" name="nom" /></td>
+                </tr>
+                <tr>
+                    <td><label >Date de naissance</label></td>
+                    <td><input type="text" name="date_naissance" /></td>
+                </tr>
+                <tr>
+                    <td><label >Email</label></td>
+                    <td><input type="text" name="email" /></td>
+                </tr>
+                <tr>
+                    <td><label >Téléphone</label></td>
+                    <td><input type="text" name="telephone" /></td>
+                </tr>
+                <tr>
+                    <td><label >Adresse</label></td>
+                    <td><input type="text" name="adresse" /></td>
+                </tr>
+                <tr>
+                    <td><label >Genre</label></td>
+                    <td><label>
+            <input type="radio" name="genre" value="femme" />Femme</label></td>
+                    <td><label>
+            <input type="radio" name="genre" value="homme" /> Homme</label></td>
+                </tr>
+                <tr >
+                    <td ><h2>Votre Profil *</h2></td>
+                </tr>
+                <tr>
+                    <td><label >+ Curriculum Vitae</label></td>
+                    <td><label >+ Lettre de motivation</label></td>
+                    <td><label >+ Diplômes requis</label></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="file" name="cv" accept="application/pdf" /></td>
+                    <td><input type="file" name="lettre_motivation" accept="application/pdf" /></td>
+                    <td><input type="file" name="diplomes" accept="application/pdf" /></td>
+                </tr>
+                <tr >
+                    <td colspan="2"><p class="note">*Taille maximum 5Mo, format PDF</p></td>
+                    
+                </tr>
+                <tr >
+                    <td></td>
+                    <td colspan="2"><button type="submit">ENVOYER MA CANDIDATURE</button></td>
+                    
+                </tr>
+            </table>
+          
+         
+        </form>
       </div>
+      <footer>
+        <div className="footer-links">
+          <a href="#"><Link to="/Accueil">Accueil</Link></a>
+          <a href="#">Contact Us</a>
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <div className="social-icons">
+          <a href="#"><FaInstagram /></a>
+          <a href="#"><FaLinkedinIn /></a>
+          <a href="#"><FaFacebookF /></a>
+        </div>
+        </div>
+       
+      </footer>
     </div>
   );
 }

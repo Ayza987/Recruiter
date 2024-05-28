@@ -9,14 +9,14 @@ import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <div className="content">
-        <div className="header">
+    <div className="App-container">
+      <div className="App-content">
+        <div className="App-header">
           <h2>Créez votre compte</h2>
           <h2>GSC Recruiter</h2>
           <p>Déjà un compte ? <a href="#"><Link to="/connexion">Connectez vous</Link></a></p>
         </div>
-        <div className="form-container">
+        <div className="App-form-container">
           <form>
             <label htmlFor="nom">Nom</label>
             <input type="text" id="nom" />
@@ -31,7 +31,7 @@ function App() {
                 <label htmlFor="poste">Poste</label>
                 <input type="text" id="poste" />
               </div>
-              <div class="form-group-department">
+              <div class="App-form-group-department">
         <select id="departement" title= 'Département' name="departement">
           <option value="dept1">Département Marketing</option>
           <option value="dept3">Département Bon Comptoir</option>
@@ -42,7 +42,7 @@ function App() {
             </div>
             <label htmlFor="password">Mot de passe</label>
             <input type="password" id="password" />
-            <div className="checkbox-container">
+            <div className="App-checkbox-container">
               <input type="radio" id="terms" />
               <label htmlFor="terms">
                 J'ai lu et j'accepte les <a href="#">conditions générales de confidentialité</a>
@@ -53,12 +53,12 @@ function App() {
         </div>
       </div>
       <footer>
-        <div className="footer-links">
-          <a href="#">About</a>
+        <div className="App-footer-links">
+          <a href="#"><Link to="/Accueil">Accueil</Link></a>
           <a href="#">Contact Us</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
-          <div className="social-icons">
+          <div className="App-social-icons">
           <a href="#"><FaInstagram /></a>
           <a href="#"><FaLinkedinIn /></a>
           <a href="#"><FaFacebookF /></a>

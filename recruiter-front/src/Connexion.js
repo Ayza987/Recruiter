@@ -41,7 +41,7 @@ function App() {
       </div>
       <footer>
         <div className="Connexion-footer-links">
-          <a href="#">About</a>
+        <a href="#"><Link to="/Accueil">Accueil</Link></a>
           <a href="#">Contact Us</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>

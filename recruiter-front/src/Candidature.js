@@ -11,20 +11,20 @@
 
 import React from 'react';
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
-import './Candidature.css';
+import styles from './Candidature.module.css';
 import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="container">
+    <div className={styles.candidatureContainer}>
       <header>
         <h1>Développeur Front-end</h1>
         <p>INTERNSHIP - 70H / SEMAINE</p>
         <a href="#description" className="back-link">Retour à la description de l'offre</a>
       </header>
        
-      <div className="App-container">
-      <form class="form">
+      <div className={styles.content}>
+      <form class={styles.form}>
             <table  width="70%" align="center">
                 <th >
                     <h2>Informations générales</h2>  
@@ -89,12 +89,12 @@ function App() {
         </form>
       </div>
       <footer>
-        <div className="footer-links">
+        <div className={styles.candidatureFooterLinks}>
           <a href="#"><Link to="/Accueil">Accueil</Link></a>
           <a href="#">Contact Us</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
-          <div className="social-icons">
+          <div className={styles.socialIcons}>
           <a href="#"><FaInstagram /></a>
           <a href="#"><FaLinkedinIn /></a>
           <a href="#"><FaFacebookF /></a>

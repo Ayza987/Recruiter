@@ -4,19 +4,19 @@
  */
 import React from 'react';
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
-import './App.css'; 
 import { Link } from 'react-router-dom';
+import styles from './App.module.css'; 
 
 function App() {
   return (
-    <div className="App-container">
-      <div className="App-content">
-        <div className="App-header">
+    <div className={styles.appContainer}>
+      <div className={styles.appContent}>
+        <div className={styles.appHeader}>
           <h2>Créez votre compte</h2>
           <h2>GSC Recruiter</h2>
           <p>Déjà un compte ? <a href="#"><Link to="/connexion">Connectez vous</Link></a></p>
         </div>
-        <div className="App-form-container">
+        <div className={styles.appFormContainer}>
           <form>
             <label htmlFor="nom">Nom</label>
             <input type="text" id="nom" />
@@ -26,23 +26,23 @@ function App() {
             <input type="email" id="email" />
             <label htmlFor="telephone">Téléphone</label>
             <input type="tel" id="telephone" />
-            <div className="form-row">
-              <div className="form-group">
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
                 <label htmlFor="poste">Poste</label>
                 <input type="text" id="poste" />
               </div>
-              <div class="App-form-group-department">
-        <select id="departement" title= 'Département' name="departement">
-          <option value="dept1">Département Marketing</option>
-          <option value="dept3">Département Bon Comptoir</option>
-          <option value="dept3">Département Technique</option>
-          <option value="dept2">Département Soft</option>
-        </select>
+              <div className={styles.appFormGroupDepartment}>
+                <select id="departement" title='Département' name="departement">
+                  <option value="dept1">Département Marketing</option>
+                  <option value="dept3">Département Bon Comptoir</option>
+                  <option value="dept3">Département Technique</option>
+                  <option value="dept2">Département Soft</option>
+                </select>
               </div>
             </div>
             <label htmlFor="password">Mot de passe</label>
             <input type="password" id="password" />
-            <div className="App-checkbox-container">
+            <div className={styles.checkboxContainer}>
               <input type="radio" id="terms" />
               <label htmlFor="terms">
                 J'ai lu et j'accepte les <a href="#">conditions générales de confidentialité</a>
@@ -53,18 +53,17 @@ function App() {
         </div>
       </div>
       <footer>
-        <div className="App-footer-links">
+        <div className={styles.appFooterLinks}>
           <a href="#"><Link to="/Accueil">Accueil</Link></a>
           <a href="#">Contact Us</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
-          <div className="App-social-icons">
+        </div>
+        <div className={styles.appSocialIcons}>
           <a href="#"><FaInstagram /></a>
           <a href="#"><FaLinkedinIn /></a>
           <a href="#"><FaFacebookF /></a>
         </div>
-        </div>
-       
       </footer>
     </div>
   );

@@ -9,6 +9,7 @@ import App from './App';
 import Connexion from './Connexion'; 
 import Accueil from './Accueil';
 import Candidature from './Candidature';
+import Offres from './Offres';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ root.render(
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/accueil" element={<Accueil />} />
         <Route path="/candidature" element={<Candidature />} />
+        <Route path="/offres" element={<Offres />} />
       </Routes>
     </Router>
   </React.StrictMode>

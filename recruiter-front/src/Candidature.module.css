@@ -11,7 +11,7 @@ body {
    padding: 0;
  }
  
- .container {
+ .candidatureContainer {
    max-width: 100%;
    margin: 0 auto;
    padding: 20px;
@@ -142,7 +142,7 @@ body {
   text-align: center;
 }
 
-footer {
+.candidatureFooter {
   background-color: #333333;
   color: white;
   text-align: center;
@@ -151,7 +151,7 @@ footer {
   position: relative;
 }
 
-.footer-links {
+.candidatureFooterLinks {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -160,28 +160,28 @@ footer {
   margin-top: 10px;
 }
 
-.footer-links a {
+.candidatureFooterLinks a {
   color: white;
   text-decoration: none;
   margin: 0 5px;
 }
 
-.footer-links a:hover {
+.candidatureFooterLinks a:hover {
   color: #0055cc;
   text-decoration: underline;
 }
 
-.social-icons {
+.socialIcons {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-.social-icons a {
+.socialIcons a {
   color: white;
   font-size: 20px;
 }
 
-.social-icons a:hover {
+.socialIcons a:hover {
   color: #0055cc;
 }

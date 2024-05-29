@@ -38,25 +38,25 @@
     color: #003366;
   }
   
-  .nav-links {
+  .navLinks {
     font-size: 20px;
     display: flex;
     font-family: Verdana, Geneva, Tahoma, sans-serif;;
     gap: 110px;
   }
-  .nav-links a {
-    text-decoration: none;
+  .navLinks a {
+  Text-decoration: none;
     color: #0E4078;
     font-weight: medium;
   }
   
-  .nav-links a:hover {
+  .navLinks a:hover {
     color: #108CCE;
     transition: 2ms;
-    text-decoration: underline;
+  Text-decoration: underline;
   }
   
-  .login-button {
+  .loginButton {
     width: 180px;
     height: 40px;
     font-size:15px;
@@ -68,17 +68,17 @@
     cursor: pointer;
   }
   
-  .login-button:hover {
+  .loginButton:hover {
     background-color: #003366;
   }
   
-  .hero-content {
+  .heroContent {
     position: relative; 
     width: 100%;
     height: calc(100vh - 80px); 
   }
   
-  .hero-text {
+  .heroText {
     position: absolute;
     top: 45%;
     right: 5%;
@@ -87,16 +87,16 @@
     font-size: 25px;
     font-weight: bold;
     transform: translateY(-50%);
-    text-align: center;
+  Text-align: center;
     color: white;
   }
 
-  .hero-text h1 {
+  .heroText h1 {
     line-height: 0.8; 
   }
   
   
-  .apply-button {
+  .applyButton {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 50px;
     font-weight: bold;
@@ -115,22 +115,22 @@
     font-size: 20px;
   }
   
-  .apply-button .icon {
+  .applyButton .icon {
     margin-left: 12px; 
     width: 25px;
     height: 20px;
   }
   
-  .apply-button:hover {
+  .applyButton:hover {
     background-color: #0055cc;
   }
   
   @media (max-width: 768px) {
-    .hero-text {
+    .heroText {
       font-size: 20px;
     }
   
-    .apply-button {
+    .applyButton {
       width: 180px;
       height: 50px;
       font-size: 16px;
@@ -138,11 +138,11 @@
   }
   
   @media (max-width: 480px) {
-    .hero-text {
+    .heroText {
       font-size: 18px;
     }
   
-    .apply-button {
+    .applyButton {
       width: 160px;
       height: 40px;
       font-size: 14px;

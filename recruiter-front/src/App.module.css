@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
 }
 
-.App-container {
+.appContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,7 +20,7 @@ body {
   width: 100%;
 }
 
-.App-content {
+.appContent {
   flex: 1;
   display: flex;
   background-color: #ECF8FC ;
@@ -29,13 +29,13 @@ body {
   padding: 20px;
 }
 
-.App-header {
+.appHeader {
   text-align: left;
   margin-left: 0px;
   margin-bottom: 20px;
 }
 
-.App-header h2 {
+.appHeader h2 {
   margin: 0;
   font-size: 50px;
   font-weight: bold;
@@ -44,24 +44,24 @@ body {
   color: #003366;
 }
 
-.App-header p {
+.appHeader p {
   margin: 10px 0 0;
   font-size: 24px;
   color: black;
 }
 
-.hApp-header a {
+.appHeader a {
   color: #003366;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.App-header a:hover {
+.appHeader a:hover {
   text-decoration: none;
 }
 
-.App-form-container {
+.appFormContainer {
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -71,22 +71,22 @@ body {
   max-width: 100%;
 }
 
-.App-form-container form {
+.appFormContainer form {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
-.App-form-container label {
+.appFormContainer label {
   margin-bottom: 5px;
   font-weight: bold;
   color: black;
 }
 
-.App-form-container input[type="text"],
-.App-form-container input[type="email"],
-.App-form-container input[type="tel"],
-.App-form-container input[type="password"] {
+.appFormContainer input[type="text"],
+.appFormContainer input[type="email"],
+.appFormContainer input[type="tel"],
+.appFormContainer input[type="password"] {
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #cccccc;
@@ -95,30 +95,30 @@ body {
   width: calc(100% - 22px);
 }
 
-.App-form-group-department{
+.appFormGroupDepartment{
   text-align: center;
   color: #cccccc;
   margin-top: 30px;
 
 }
 
-.App-form-container .form-row {
+.appFormContainer .formRow {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
   gap: 15px;
 }
 
-.App-form-container .form-group {
+.appFormContainer .formGroup {
   flex: 1;
   margin-right: 10px;
 }
 
-.App-form-container .form-group:last-child {
+.appFormContainer .formGroup:last-child {
   margin-right: 0;
 }
 
-.App-form-container .checkbox-container {
+.appFormContainer .checkboxcontainer {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -126,22 +126,22 @@ body {
   font-size: 14px;
 }
 
-.App-form-container .checkbox-container input[type="radio"] {
+.appFormContainer .checkboxcontainer input[type="radio"] {
   margin-right: 10px;
   cursor: pointer;
 }
 
-.App-form-container .checkbox-container a {
+.appFormContainer .checkboxcontainer a {
   margin-right: 10px;
   color: #D92416 
 }
 
-.App-form-container .checkbox-container a:hover {
+.appFormContainer .checkboxcontainer a:hover {
   color: #0055cc;
   cursor: pointer;
 }
 
-.App-form-container button {
+.appFormContainer button {
   padding: 10px;
   background-color: #003366;
   color: white;
@@ -154,7 +154,7 @@ body {
   cursor: pointer;
 }
 
-.App-form-container button:hover {
+.appFormContainer button:hover {
   background-color: #0055cc;
 }
 
@@ -167,102 +167,102 @@ footer {
   position: relative;
 }
 
-.App-footer-links {
+.appFooterLinks {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 200px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 200px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-.App-footer-links a {
+.appFooterLinks a {
   color: white;
-  text-decoration: none;
-  margin: 0 5px;
+    text-decoration: none;
+    margin: 0 5px;
 }
 
-.App-footer-links a:hover {
+.appFooterLinks a:hover {
   color: #0055cc;
   text-decoration: underline;
 }
 
-.App-social-icons {
+.appSocialIcons {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+    justify-content: center;
+    gap: 10px;
 }
 
-.App-social-icons a {
+.appSocialIcons a {
   color: white;
-  font-size: 20px;
+    font-size: 20px;
 }
 
-.App-social-icons a:hover {
+.appSocialIcons a:hover {
   color: #0055cc;
 }
 
 
 @media (max-width: 768px) {
-  .App-header h2 {
+  .appHeader h2 {
     font-size: 40px;
     margin-right: 0;
   }
 
-  .App-header p {
+  .appHeader p {
     font-size: 20px;
   }
 
-  .App-form-container {
+  .appFormContainer {
     padding: 30px 20px;
     width: 100%;
   }
 
-  .App-form-container button {
+  .appFormContainer button {
     width: 100%;
     margin-left: 0;
   }
 
-  .App-form-container .form-row {
+  .appFormContainer .form-row {
     flex-direction: column;
   }
 
-  .App-form-container .form-group,
-  .App-form-container .form-group-department {
+  .appFormContainer .formGroup,
+  .appFormContainer .formGroupDepartment {
     margin-right: 0;
     width: 100%;
   }
 
-  .App-form-container .form-group-department {
+  .appFormContainer .formGroupDepartment {
     margin-left: 0;
   }
 }
 
 @media (max-width: 480px) {
-  .App-header h2 {
+  .appHeader h2 {
     font-size: 30px;
   }
 
-  .App-header p {
+  .appHeader p {
     font-size: 18px;
   }
 
-  .App-form-container {
+  .appFormContainer {
     padding: 20px 10px;
   }
 
-  .App-form-container label {
+  .appFormContainer label {
     font-size: 14px;
   }
 
-  .App-form-container input[type="text"],
-  .App-form-container input[type="email"],
-  .App-form-container input[type="tel"],
-  .App-form-container input[type="password"] {
+  .appFormContainer input[type="text"],
+  .appFormContainer input[type="email"],
+  .appFormContainer input[type="tel"],
+  .appFormContainer input[type="password"] {
     padding: 8px;
   }
 
-  .App-form-container button {
+  .appFormContainer button {
     padding: 8px;
     font-size: 14px;
   }

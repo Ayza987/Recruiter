@@ -9,6 +9,7 @@ import App from './App';
 import Connexion from './Connexion';
 import Dashboard from './Dashboard'; 
 import Accueil from './Accueil';
+import Congés from './Congés';
 import Candidature from './Candidature';
 // import Offres from './Offres';
 import reportWebVitals from './reportWebVitals';
@@ -23,6 +24,7 @@ root.render(
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/accueil" element={<Accueil />} />
         <Route path="/candidature" element={<Candidature />} />
+        <Route path="/congés" element={<Congés />} />
         {/* <Route path="/offres" element={<Offres />} /> */}
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>

@@ -71,7 +71,7 @@
 ul {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Ecart entre les éléments de la navbar */
+  gap: 20px; 
 }
 
 li a {
@@ -79,7 +79,7 @@ li a {
   color: #ffff;
   display: flex;
   align-items: center;
-  gap: 10px; /* Espace entre icône et texte */
+  gap: 10px; 
 }
 
 .logout {

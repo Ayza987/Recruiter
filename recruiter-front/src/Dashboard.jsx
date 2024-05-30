@@ -29,13 +29,7 @@ const dashboards = () => {
               </a>
             </li>
             <li>
-              <a href="#">
-                <FaChartBar />
-                <span className={styles.dashboardNavItem}>Offres d'emploi</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              <a href="/Congés">
                 <FaTasks />
                 <span className={styles.dashboardNavItem}>Gestion des congés</span>
               </a>

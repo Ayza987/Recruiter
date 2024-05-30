@@ -1,0 +1,166 @@
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
+/**
+ * @file Dashboard.module.css
+ * @description 
+ * @author 
+ * @copyright 
+ */
+
+ .dashboardContainer {
+    display: flex;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .sidebar {
+    background-color: #2c3e50;
+    color: #fff;
+    width: 200px; /* Adjusted to reduce space */
+    padding: 20px;
+  }
+  
+  .logo {
+    margin-bottom: 20px; /* Reduced spacing */
+    text-align: center;
+  }
+  
+  .navList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .navItem {
+    margin: 20px 0;
+  }
+  
+  .navLink {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .navLink:hover {
+    background-color: #3498db;
+  }
+  
+  .navItemActive .navLink {
+    background-color: #3498db;
+  }
+  
+  .mainContent {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align elements to space-between */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .headerLogo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Add space between buttons and search bar */
+  }
+  
+  .postButton {
+    background-color: #f8b6b6;
+    border: none;
+    padding: 8px 16px; /* Reduced size */
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .searchContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchInput {
+    width: 250px; /* Adjust width to match image */
+    padding: 8px 16px; /* Reduced padding */
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #eaf3ff;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    right: 10px; /* Adjusted to place inside input */
+    color: #ccc;
+  }
+  
+  .sortButton {
+    background-color: #eaf3ff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .tableSection {
+    margin-top: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea; /* Remove border bottom */
+  }
+  
+  .table th {
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .table td {
+    border-bottom: 1px solid #f8f8f8;
+  }
+  
+  .documentButton {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .approveButton {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .rejectButton {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  

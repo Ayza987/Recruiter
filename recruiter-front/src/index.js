@@ -6,7 +6,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Connexion from './Connexion'; 
+import Connexion from './Connexion';
+import Dashboard from './Dashboard'; 
 import Accueil from './Accueil';
 import Candidature from './Candidature';
 import Offres from './Offres';
@@ -23,6 +24,7 @@ root.render(
         <Route path="/accueil" element={<Accueil />} />
         <Route path="/candidature" element={<Candidature />} />
         <Route path="/offres" element={<Offres />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   </React.StrictMode>

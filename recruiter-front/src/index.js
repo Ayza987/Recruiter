@@ -10,7 +10,7 @@ import Connexion from './Connexion';
 import Dashboard from './Dashboard'; 
 import Accueil from './Accueil';
 import Candidature from './Candidature';
-import Offres from './Offres';
+// import Offres from './Offres';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ root.render(
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/accueil" element={<Accueil />} />
         <Route path="/candidature" element={<Candidature />} />
-        <Route path="/offres" element={<Offres />} />
+        {/* <Route path="/offres" element={<Offres />} /> */}
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>

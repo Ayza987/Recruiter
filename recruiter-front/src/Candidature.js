@@ -17,14 +17,14 @@ import { Link } from 'react-router-dom';
 function App() {
   return (
     <div className={styles.candidatureContainer}>
-      <header>
+      <header className={styles.candidatureHeader}>
         <h1>Développeur Front-end</h1>
         <p>INTERNSHIP - 70H / SEMAINE</p>
-        <a href="#description" className="back-link">Retour à la description de l'offre</a>
+        <a href="#description" className={styles.candidatureBackLink}>Retour à la description de l'offre</a>
       </header>
        
-      <div className={styles.content}>
-      <form class={styles.form}>
+      <div className={styles.candidatureContent}>
+      <form class={styles.candidatureForm}>
             <table  width="70%" align="center">
                 <th >
                     <h2>Informations générales</h2>  
@@ -80,7 +80,7 @@ function App() {
                 </tr>
                 <tr >
                     <td></td>
-                    <td colspan="2"><button type="submit">ENVOYER MA CANDIDATURE</button></td>
+                    <td colspan="2"><button type="submit" className={styles.candidatureButton}>ENVOYER MA CANDIDATURE</button></td>
                     
                 </tr>
             </table>
@@ -94,7 +94,7 @@ function App() {
           <a href="#">Contact Us</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
-          <div className={styles.socialIcons}>
+          <div className={styles.candidatureSocialIcons}>
           <a href="#"><FaInstagram /></a>
           <a href="#"><FaLinkedinIn /></a>
           <a href="#"><FaFacebookF /></a>

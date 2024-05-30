@@ -17,57 +17,57 @@ import { FaUser, FaChartBar, FaTasks, FaDochub, FaCog, FaQuestionCircle, FaSignO
 const Offres = () => {
   return (
     <div className={styles.offreContainer}>
-      <nav>
+      <nav className={styles.offreNav}>
         <div className={styles.offreNavbar}>
-          <div className={styles.logo}>
+          <div className={styles.offreLogo}>
             <h1>DASHBOARD</h1>
           </div>
           <ul>
             <li>
               <a href="#">
                 <FaUser />
-                <span className={styles.navItem}>Accueil</span>
+                <span className={styles.offreNavItem}>Accueil</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <FaChartBar />
-                <span className={styles.navItem}>Offres d'emploi</span>
+                <span className={styles.offreNavItem}>Offres d'emploi</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <FaTasks />
-                <span className={styles.navItem}>Gestion des congés</span>
+                <span className={styles.offreNavItem}>Gestion des congés</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <FaQuestionCircle />
-                <span className={styles.navItem}>Contact</span>
+                <span className={styles.offreNavItem}>Contact</span>
               </a>
             </li>
             <li>
-              <a href="#" className={styles.logout}>
+              <a href="#" className={styles.offreLogout}>
                 <FaSignOutAlt />
-                <span className={styles.navItem}>Déconnexion</span>
+                <span className={styles.offreNavItem}>Déconnexion</span>
               </a>
             </li>
           </ul>
         </div>
       </nav>
 
-      <section className={styles.main}>
-        <div className={styles.mainTop}>
+      <section className={styles.offreMain}>
+        <div className={styles.offreMainTop}>
           <p>GSC Recruiter</p>
         </div>
-        <div className={styles.mainBody}>
+        <div className={styles.offreMainBody}>
           <h1>Offres Récentes</h1>
 
-          <div className={styles.searchBar}>
+          <div className={styles.offreSearchBar}>
             <input type="search" placeholder="Search job here..." />
             
-            <select className={styles.filter}>
+            <select className={styles.offreFilter}>
               <option>Département Soft</option>
               <option>Département Bon Comptoir</option>
               <option>Département Marketing</option>
@@ -75,8 +75,8 @@ const Offres = () => {
             </select>
           </div>
 
-          <div className={styles.tagsBar}>
-            <div className={styles.tag}>
+          <div className={styles.offreTagsBar}>
+            <div className={styles.offreTag}>
               
               
               <span>Publier une offre</span>
@@ -84,7 +84,7 @@ const Offres = () => {
             
           </div>
 
-          <div className={styles.row}>
+          <div className={styles.offreRow}>
             <p>There are more than <span>400</span> Jobs</p>
             <a href="#">See all</a>
           </div>

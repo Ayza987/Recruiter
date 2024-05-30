@@ -11,7 +11,7 @@
 
  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-* {
+.offreContainer * {
   margin: 0;
   padding: 0;
   outline: none;
@@ -22,7 +22,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
+.offreContainer body {
   background: rgb(247, 247, 247);
 }
 
@@ -32,7 +32,7 @@ body {
   margin: auto;
 }
 
-nav {
+.offreNav {
   position: sticky;
   top: 0;
   left: 0;
@@ -47,20 +47,20 @@ nav {
   margin: 0 auto;
 }
 
-.logo {
+.offreLogo {
   margin: 2rem 0 1rem 0;
   padding-bottom: 3rem;
   display: flex;
   align-items: center;
 }
 
-.logo img {
+.offreLogo img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.logo h1 {
+.offreLogo h1 {
   margin-left: 1rem;
   color: #ffff;
   text-transform: uppercase;
@@ -79,9 +79,9 @@ li a {
   color: #ffff;
 }
 
-.navItem {}
+.offreNavItem {}
 
-nav i {
+.offreNav i {
   width: 50px;
   font-size: 18px;
   text-align: center;
@@ -92,12 +92,12 @@ nav i {
   bottom: 20px;
 }
 
-/* Main Section */
-.main {
+/* offreMain Section */
+.offreMain {
   width: 100%;
 }
 
-.mainTop {
+.offreMainTop {
   width: 100%;
   background: #fff;
   padding: 10px;
@@ -108,7 +108,7 @@ nav i {
   color: rgb(43, 43, 43);
 }
 
-.mainBody {
+.offreMainBody {
   padding: 10px 10px 10px 20px;
 }
 
@@ -116,14 +116,14 @@ h1 {
   margin: 20px 10px;
 }
 
-.searchBar {
+.offreSearchBar {
   display: flex;
   
   padding: 10px;
   justify-content: space-between;
 }
 
-.searchBar input {
+.offreSearchBar input {
     background-color: #e8f8ff  ;
   width: 50%;
   padding: 10px;
@@ -131,11 +131,11 @@ h1 {
   border: 1px solid rgb(190, 190, 190);
 }
 
-.searchBar input:focus {
+.offreSearchBar input:focus {
   border: 1px solid #003366;
 }
 
-.searchBar select {
+.offreSearchBar select {
    
   border: 1px solid rgb(190, 190, 190);
   padding: 10px;
@@ -146,14 +146,14 @@ h1 {
   width: 300px;
 }
 
-.tagsBar {
+.offreTagsBar {
   width: 55%;
   display: flex;
   padding: 10px;
   justify-content: space-between;
 }
 
-.tag {
+.offreTag {
   background: #fff;
   padding: 10px 15px;
   border-radius: 20px;
@@ -164,23 +164,23 @@ h1 {
   cursor: pointer;
 }
 
-.tag i {
+.offreTag i {
   margin-right: 0.7rem;
 }
 
-.row {
+.OffreRow {
   display: flex;
   padding: 10px;
   margin-top: 1.3rem;
   justify-content: space-between;
 }
 
-.row p {
+.OffreRow p {
   color: rgb(54, 54, 54);
   font-size: 15px;
 }
 
-.row p span {
+.OffreRow p span {
   color: blueviolet;
 }
 

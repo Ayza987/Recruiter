@@ -77,95 +77,77 @@ const Offres = () => {
 
           <div className={styles.offreTagsBar}>
             <div className={styles.offreTag}>
-              
-              
-              <span>Publier une offre</span>
+            <button className={styles.offreButton}>Publier une offre</button>
             </div>
-            
           </div>
 
           <div className={styles.offreRow}>
-            <p>There are more than <span>400</span> Jobs</p>
-            <a href="#">See all</a>
+            <p>There are more than <span>400</span> Jobs</p> <a href="#">See all</a>
+            
           </div>
 
           <div className={styles.jobCard}>
             <div className={styles.jobDetails}>
-              <div className={styles.img}>
-                <FaGoogleDrive />
-              </div>
+              
               <div className={styles.text}>
                 <h2>UX Designer</h2>
                 <span>Google Drive - Junior Post</span>
               </div>
             </div>
             <div className={styles.jobSalary}>
-              <h4>$6.7 - $12.5k /yr</h4>
-              <span>1 days ago</span>
+            <button className={styles.consultButton}>Consulter</button>
             </div>
           </div>
 
           <div className={styles.jobCard}>
             <div className={styles.jobDetails}>
-              <div className={styles.img}>
-                <FaGoogle />
-              </div>
+              
               <div className={styles.text}>
                 <h2>JavaScript Developer</h2>
                 <span>Google - Senior Post</span>
               </div>
             </div>
             <div className={styles.jobSalary}>
-              <h4>$8.7 - $13.2k /yr</h4>
-              <span>2 days ago</span>
+            <button className={styles.consultButton}>Consulter</button>
             </div>
           </div>
 
           <div className={styles.jobCard}>
             <div className={styles.jobDetails}>
-              <div className={styles.img}>
-                <FaFacebook />
-              </div>
+              
               <div className={styles.text}>
                 <h2>Product Developer</h2>
                 <span>Facebook - Manager Post</span>
               </div>
             </div>
             <div className={styles.jobSalary}>
-              <h4>$11 - $18.5k /yr</h4>
-              <span>2 days ago</span>
+            <button className={styles.consultButton}>Consulter</button>
             </div>
           </div>
 
           <div className={styles.jobCard}>
             <div className={styles.jobDetails}>
-              <div className={styles.img}>
-                <FaGitAlt />
-              </div>
+             
               <div className={styles.text}>
                 <h2>Programmer</h2>
                 <span>Github - Junior Post</span>
               </div>
             </div>
             <div className={styles.jobSalary}>
-              <h4>$6 - $11.5k /yr</h4>
-              <span>3 days ago</span>
+            <button className={styles.consultButton}>Consulter</button>
             </div>
           </div>
 
           <div className={styles.jobCard}>
             <div className={styles.jobDetails}>
-              <div className={styles.img}>
-                <FaYoutube />
-              </div>
+              
               <div className={styles.text}>
                 <h2>React.js Expert</h2>
                 <span>Youtube - VIP</span>
               </div>
             </div>
             <div className={styles.jobSalary}>
-              <h4>$12.5 - $25.5k /yr</h4>
-              <span>4 days ago</span>
+            <button className={styles.consultButton}>Consulter</button>
             </div>
           </div>
         </div>

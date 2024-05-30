@@ -20,10 +20,11 @@
   list-style: none;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+
 }
 
 .offreContainer body {
-  background: rgb(247, 247, 247);
+  background: rgb(255, 255, 255);
 }
 
 .offreContainer {
@@ -39,6 +40,7 @@
   bottom: 0;
   width: 280px;
   height: 110vh;
+ 
   background: #003366;
 }
 
@@ -67,11 +69,13 @@
 }
 
 ul {
+ 
   margin: 0 auto;
 }
 
 li {
   padding-bottom: 2rem;
+  
 }
 
 li a {
@@ -79,7 +83,9 @@ li a {
   color: #ffff;
 }
 
-.offreNavItem {}
+.offreNavItem {
+  
+}
 
 .offreNav i {
   width: 50px;
@@ -95,6 +101,7 @@ li a {
 /* offreMain Section */
 .offreMain {
   width: 100%;
+  background-color: #e9e8e8;
 }
 
 .offreMainTop {
@@ -124,7 +131,7 @@ h1 {
 }
 
 .offreSearchBar input {
-    background-color: #e8f8ff  ;
+    background-color: #ffff  ;
   width: 50%;
   padding: 10px;
   border-radius: 20px;
@@ -153,15 +160,47 @@ h1 {
   justify-content: space-between;
 }
 
-.offreTag {
-  background: #fff;
+ .consultButton {
+  background: #108CCE;
   padding: 10px 15px;
   border-radius: 20px;
   border: 1px solid rgb(190, 190, 190) ;
   display: flex;
+  color:#ffff;
   align-items: center;
+  font-weight: bold;
   font-size: 13px;
   cursor: pointer;
+} 
+.consultButton:hover {
+  background: #003366;
+}
+
+.consultButton:active{
+  border: 2px solid  #108CCE;
+  transition: 0.4s;
+}
+
+.offreButton {
+  background: #F14C3F;
+  color: #ffff;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid rgb(255, 164, 164);
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: bold; 
+  cursor: pointer;
+}
+
+.offreButton:hover {
+  background: #003366;
+}
+
+.offreButton:active {
+  border: 2px solid  #003366;
+  transition: 0.4s;
 }
 
 .offreTag i {
@@ -183,6 +222,7 @@ h1 {
 .OffreRow p span {
   color: blueviolet;
 }
+
 
 .jobCard {
   width: 100%;
@@ -230,6 +270,6 @@ h1 {
 }
 
 .jobCard:active {
-  border: 2px solid blueviolet;
+  border: 2px solid #108CCE;
   transition: 0.4s;
 }

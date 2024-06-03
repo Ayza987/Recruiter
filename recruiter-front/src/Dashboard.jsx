@@ -4,16 +4,39 @@
  */
 /**
  * @file dashboards.js
- * @description 
+ * @description Dashboard
  * @author 
  * @copyright 
  */
 
 import React from 'react';
+import axios from 'axios';
+import { FaUser, FaTasks, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Dashboard.module.css';
-import { FaUser, FaChartBar, FaTasks, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
 
-const dashboards = () => {
+const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    const token = localStorage.getItem('token'); 
+
+    axios.post('http://127.0.0.1:8000/api/auth/logout', {}, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        console.log(response.data);
+        localStorage.removeItem('token'); 
+        navigate('/'); 
+      })
+      .catch(error => {
+        console.error(error);
+        window.alert('Erreur lors de la déconnexion. Veuillez réessayer.');
+      });
+  };
+
   return (
     <div className={styles.dashboardContainer}>
       <nav className={styles.dashboardNav}>
@@ -23,16 +46,16 @@ const dashboards = () => {
           </div>
           <ul>
             <li>
-              <a href="/Accueil">
+              <Link to="/Accueil">
                 <FaUser />
                 <span className={styles.dashboardNavItem}>Accueil</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/Congés">
+              <Link to="/Congés">
                 <FaTasks />
                 <span className={styles.dashboardNavItem}>Gestion des congés</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#">
@@ -40,11 +63,9 @@ const dashboards = () => {
                 <span className={styles.dashboardNavItem}>Contact</span>
               </a>
             </li>
-            <li className={styles.logout}>
-              <a href="#">
-                <FaSignOutAlt />
-                <span className={styles.dashboardNavItem}>Déconnexion</span>
-              </a>
+            <li className={styles.logout} onClick={handleLogout}>
+              <FaSignOutAlt />
+              <button className={styles.dashboardNavItem}>Déconnexion</button>
             </li>
           </ul>
         </div>
@@ -70,7 +91,7 @@ const dashboards = () => {
 
           <div className={styles.dashboardTagsBar}>
             <div className={styles.dashboardTag}>
-            <button className={styles.dashboardButton}>Publier une offre</button>
+              <button className={styles.dashboardButton}>Publier une offre</button>
             </div>
           </div>
 
@@ -144,4 +165,4 @@ const dashboards = () => {
   );
 };
 
-export default dashboards;
+export default Dashboard;

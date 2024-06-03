@@ -16,7 +16,9 @@ class Candidat extends Model
         'nom',
         'prenom',
         'email',
-        'telephone'
+        'Date_de_naissance',
+        'telephone',
+        'Adresse'
         
     ];
 }

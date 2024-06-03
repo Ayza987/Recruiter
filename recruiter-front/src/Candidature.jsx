@@ -90,7 +90,7 @@ function App() {
       </div>
       <footer>
         <div className={styles.candidatureFooterLinks}>
-          <a href="#"><Link to="/Accueil">Accueil</Link></a>
+          <a href="#"><Link to="/">Accueil</Link></a>
           <a href="#">Contact Us</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>

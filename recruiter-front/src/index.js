@@ -5,6 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import styles from './index.module.css';
+import axios from 'axios';
 import App from './App';
 import Connexion from './Connexion';
 import Dashboard from './Dashboard'; 
@@ -15,14 +16,18 @@ import Candidature from './Candidature';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+
+// Configure axios
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Accueil />} />
         <Route path="/connexion" element={<Connexion />} />
-        <Route path="/accueil" element={<Accueil />} />
+        <Route path="/inscription" element={<App />} />
         <Route path="/candidature" element={<Candidature />} />
         <Route path="/congés" element={<Congés />} />
         {/* <Route path="/offres" element={<Offres />} /> */}

@@ -33,7 +33,7 @@ function App() {
             <button type="submit">Se connecter</button>
             <div className={styles.connexionContainer}>
             <label htmlFor="text">
-                Pas encore de compte ? <a href="#"><Link to="/">Inscrivez-vous</Link></a>
+                Pas encore de compte ? <a href="#"><Link to="/inscription">Inscrivez-vous</Link></a>
               </label>
               </div>
           </form>
@@ -41,7 +41,7 @@ function App() {
       </div>
       <footer>
         <div className={styles.connexionFooterLinks}>
-        <a href="#"><Link to="/Accueil">Accueil</Link></a>
+        <a href="#"><Link to="/">Accueil</Link></a>
           <a href="#">Contact Us</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>

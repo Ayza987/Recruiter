@@ -40,7 +40,7 @@ class PersonnelController extends Controller
             'email' => 'required|email|unique:personnel',
             'telephone' => 'required|string',
             'password' => 'required|string',
-            'statut' => 'required|string'
+            // 'statut' => 'required|string'
 
         ]);
 
@@ -59,7 +59,7 @@ class PersonnelController extends Controller
                 'email' => $request->email,
                 'telephone' => $request->telephone,
                 'password' => Hash::make($request->password),
-                'statut' => $request->statut
+                //'statut' => $request->statut
 
             ]);
 

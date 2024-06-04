@@ -9,12 +9,73 @@
  * @copyright 
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import styles from './Candidature.module.css';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-function App() {
+
+function Candidature() {
+    const [formData, setFormData] = useState({
+      nom: '',
+      prenom: '',
+      email: '',
+      telephone: '',
+      adresse: '',
+      genre: '',
+      cv: null,
+      lettre_motivation: null,
+      diplomes: null
+    });
+
+  
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+ 
+  const handleFileChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.files[0] });
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+
+    const formDataToSend = new FormData(); 
+    const fileData = new FormData(); 
+
+
+    for (let key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
+
+    fileData.append('cv', formData.cv);
+    fileData.append('diplomes', formData.diplomes);
+    fileData.append('lettre_motivation', formData.lettre_motivation);
+
+  
+    axios.post('http://127.0.0.1:8000/candidat', formDataToSend)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    
+   
+    axios.post('http://127.0.0.1:8000/upload', fileData)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+      
+
   return (
     <div className={styles.candidatureContainer}>
       <header className={styles.candidatureHeader}>
@@ -24,41 +85,41 @@ function App() {
       </header>
        
       <div className={styles.candidatureContent}>
-      <form class={styles.candidatureForm}>
+      <form onSubmit={handleSubmit} class={styles.candidatureForm}>
             <table  width="70%" align="center">
                 <th >
                     <h2>Informations générales</h2>  
                 </th>
                 <tr>
                     <td><label >Prénom</label></td>
-                    <td><input type="text" name="prenom" required/></td>
+                    <td><input type="text" name="prenom" onChange={handleChange} required/></td>
                 </tr>
                 <tr>
                     <td><label >Nom</label></td>
-                    <td><input type="text" name="nom" required/></td>
+                    <td><input type="text" name="nom" onChange={handleChange} required/></td>
                 </tr>
                 <tr>
                     <td><label >Date de naissance</label></td>
-                    <td><input type="text" name="date_naissance" required/></td>
+                    <td><input type="text" name="date_de_naissance"  placeholder='aaaa/mm/jj' onChange={handleChange} required/></td>
                 </tr>
                 <tr>
                     <td><label >Email</label></td>
-                    <td><input type="text" name="email" required/></td>
+                    <td><input type="text" name="email"  onChange={handleChange} required/></td>
                 </tr>
                 <tr>
                     <td><label >Téléphone</label></td>
-                    <td><input type="text" name="telephone" required/></td>
+                    <td><input type="text" name="telephone"  onChange={handleChange} required/></td>
                 </tr>
                 <tr>
                     <td><label >Adresse</label></td>
-                    <td><input type="text" name="adresse" required/></td>
+                    <td><input type="text" name="adresse" onChange={handleChange} required/></td>
                 </tr>
                 <tr>
                     <td><label >Sexe</label></td>
                     <td><label>
-            <input type="radio" name="genre" value="femme" />Féminin</label></td>
+            <input type="radio" name="genre" onChange={handleChange} value="femme" />Féminin</label></td>
                     <td><label>
-            <input type="radio" name="genre" value="homme" /> Masculin</label></td>
+            <input type="radio" name="genre" onChange={handleChange} value="homme" /> Masculin</label></td>
                 </tr>
                 <tr >
                     <td ><h2>Votre Profil *</h2></td>
@@ -70,9 +131,9 @@ function App() {
                     
                 </tr>
                 <tr>
-                    <td><input type="file" name="cv" accept="application/pdf" required/></td>
-                    <td><input type="file" name="lettre_motivation" accept="application/pdf" required/></td>
-                    <td><input type="file" name="diplomes" accept="application/pdf" required/></td>
+                    <td><input type="file" name="cv" accept="application/pdf"  onChange={handleFileChange} required/></td>
+                    <td><input type="file" name="lettre_motivation" accept="application/pdf" onChange={handleFileChange} required/></td>
+                    <td><input type="file" name="diplomes" accept="application/pdf" onChange={handleFileChange} required/></td>
                 </tr>
                 <tr >
                     <td colspan="2"><p class="note">*Taille maximum 5Mo, format PDF</p></td>
@@ -106,4 +167,4 @@ function App() {
   );
 }
 
-export default App;
+export default Candidature;

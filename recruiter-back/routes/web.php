@@ -52,3 +52,7 @@ Route::post('documents', [DocumentsController::class, 'store']);
 Route::get('documents/{id}',[DocumentsController::class, 'show']);
 Route::put('documents/{id}/edit', [DocumentsController::class, 'update']);
 Route::delete('documents/{id}/delete', [DocumentsController::class, 'destroy']);
+
+//Files routes
+
+Route::post('/upload', [FileUploadController::class, 'upload']);

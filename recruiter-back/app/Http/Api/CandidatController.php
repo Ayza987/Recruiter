@@ -36,7 +36,9 @@ class CandidatController extends Controller
             'nom' => 'required|string',
             'prenom' => 'required|string',
             'email' => 'required|email|unique:candidat',
-            'telephone' => 'required|string'
+            'telephone' => 'required|string',
+            'Date_de_naissance' => 'required|date',
+            'Adresse' => 'required|string',
 
         ]);
 
@@ -52,7 +54,9 @@ class CandidatController extends Controller
                 'nom' => $request->nom,
                 'prenom' => $request->prenom,
                 'email' => $request->email,
-                'telephone' => $request->telephone
+                'telephone' => $request->telephone,
+                'Date_de_naissance' => $request->date_de_naissance,
+                'Adresse' => $request->adresse
 
             ]);
 

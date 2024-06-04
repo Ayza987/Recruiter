@@ -6,6 +6,7 @@ use App\Http\Api\CandidatController;
 use App\Http\Api\OffreController;
 use App\Http\Api\CongésController;
 use App\Http\Api\DocumentsController;
+use App\Http\Controllers\FileUploadController;
 
 
 

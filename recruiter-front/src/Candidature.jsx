@@ -21,9 +21,9 @@ function Candidature() {
       nom: '',
       prenom: '',
       email: '',
+      Date_de_naissance: '',
       telephone: '',
-      adresse: '',
-      genre: '',
+      Adresse: '',
       cv: null,
       lettre_motivation: null,
       diplomes: null
@@ -66,15 +66,16 @@ function Candidature() {
       });
     
    
-    axios.post('http://127.0.0.1:8000/upload', fileData)
-      .then(response => {
+    axios.post('http://127.0.0.1:8000/upload', fileData, {
+      headers: {"Content-Type": "multipart/form-data"}
+    }).then(response => {
         console.log(response.data);
       })
       .catch(error => {
         console.error(error);
       });
   };
-      
+ 
 
   return (
     <div className={styles.candidatureContainer}>
@@ -85,7 +86,7 @@ function Candidature() {
       </header>
        
       <div className={styles.candidatureContent}>
-      <form onSubmit={handleSubmit} class={styles.candidatureForm}>
+      <form onSubmit={handleSubmit} className={styles.candidatureForm}>
             <table  width="70%" align="center">
                 <th >
                     <h2>Informations générales</h2>  
@@ -100,7 +101,7 @@ function Candidature() {
                 </tr>
                 <tr>
                     <td><label >Date de naissance</label></td>
-                    <td><input type="text" name="date_de_naissance"  placeholder='aaaa/mm/jj' onChange={handleChange} required/></td>
+                    <td><input type="text" name="Date_de_naissance"  placeholder='aaaa/mm/jj' onChange={handleChange} required/></td>
                 </tr>
                 <tr>
                     <td><label >Email</label></td>
@@ -112,7 +113,7 @@ function Candidature() {
                 </tr>
                 <tr>
                     <td><label >Adresse</label></td>
-                    <td><input type="text" name="adresse" onChange={handleChange} required/></td>
+                    <td><input type="text" name="Adresse" onChange={handleChange} required/></td>
                 </tr>
                 <tr>
                     <td><label >Sexe</label></td>

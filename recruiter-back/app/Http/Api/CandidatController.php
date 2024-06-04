@@ -55,8 +55,8 @@ class CandidatController extends Controller
                 'prenom' => $request->prenom,
                 'email' => $request->email,
                 'telephone' => $request->telephone,
-                'Date_de_naissance' => $request->date_de_naissance,
-                'Adresse' => $request->adresse
+                'Date_de_naissance' => $request->Date_de_naissance,
+                'Adresse' => $request->Adresse
 
             ]);
 

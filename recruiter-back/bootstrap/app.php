@@ -17,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         '/personnel',
         '/candidat',
         '/upload',
+        '/offre/*',
         '/api'
     ]);
 })

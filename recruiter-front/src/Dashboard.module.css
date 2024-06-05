@@ -166,6 +166,19 @@ h1 {
   font-size: 13px;
   cursor: pointer;
 }
+.deleteButton {
+  background: #F32211 ;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid rgb(190, 190, 190);
+  display: flex;
+  color: #ffff;
+  margin-top: 10px;
+  align-items: center;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+}
 
 .consultButton:hover {
   background: #003366;

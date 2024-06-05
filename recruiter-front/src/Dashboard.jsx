@@ -9,7 +9,7 @@
  * @copyright 
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaUser, FaTasks, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,6 +17,24 @@ import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [search, setSearch] = useState('');
+
+  const [jobs, setJobs] = useState([]);
+  
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/offre')
+      .then(response => {
+        console.log(response)
+        setJobs(response.data.offres);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
 
   const handleLogout = () => {
     const token = localStorage.getItem('token'); 
@@ -36,6 +54,19 @@ const Dashboard = () => {
         window.alert('Erreur lors de la déconnexion. Veuillez réessayer.');
       });
   };
+
+  const handleDelete = (id) => {
+    axios.delete(`http://127.0.0.1:8000/offre/${id}/delete`)
+      .then(response => {
+        console.log(response.data);
+        setJobs(jobs.filter(job => job.id !== id));
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+    
 
   return (
     <div className={styles.dashboardContainer}>
@@ -78,7 +109,7 @@ const Dashboard = () => {
         <div className={styles.dashboardMainBody}>
           <h1>Offres Récentes</h1>
 
-          <div className={styles.dashboardSearchBar}>
+          <div className={styles.dashboardSearchBar} onChange={handleSearchChange}>
             <input type="search" placeholder="Search job here..." />
             
             <select className={styles.dashboardFilter}>
@@ -96,69 +127,26 @@ const Dashboard = () => {
           </div>
 
           <div className={styles.dashboardRow}>
-            <p>There are more than <span>400</span> Jobs</p>
+            <p>Il y'a <span>{jobs.length}</span> offre(s) d'emploi disponible(s)</p>
             <a href="#">See all</a>
           </div>
 
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>UX Designer</h2>
-                <span>Google Drive - Junior Post</span>
+          {jobs.filter(job => job.intitulé.toLowerCase().includes(search.toLowerCase())).map(job => (
+            <div className={styles.jobCard} key={job.id}>
+              <div className={styles.jobDetails}>
+                <div className={styles.text}>
+                  <h2>{job.intitulé}</h2>
+                
+                  <span>{job.description}</span> <br />
+                  <h4>{job.departement}</h4>
+                </div>
+              </div>
+              <div className={styles.jobSalary}>
+                <button className={styles.consultButton}>Consulter</button>
+                <button className={styles.deleteButton} onClick={() => handleDelete(job.id)}>Supprimer</button>
               </div>
             </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
-
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>JavaScript Developer</h2>
-                <span>Google - Senior Post</span>
-              </div>
-            </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
-
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>Product Developer</h2>
-                <span>Facebook - Manager Post</span>
-              </div>
-            </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
-
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>Programmer</h2>
-                <span>Github - Junior Post</span>
-              </div>
-            </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
-
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>React.js Expert</h2>
-                <span>Youtube - VIP</span>
-              </div>
-            </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>

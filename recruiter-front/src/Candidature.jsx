@@ -60,6 +60,8 @@ function Candidature() {
     axios.post('http://127.0.0.1:8000/candidat', formDataToSend)
       .then(response => {
         console.log(response.data);
+        window.location.reload()
+        alert("Votre candidature a été envoyée avec succès, vous recevrez un mail de confirmation")
       })
       .catch(error => {
         console.error(error);
@@ -68,6 +70,7 @@ function Candidature() {
    
     axios.post('http://127.0.0.1:8000/upload', fileData, {
       headers: {"Content-Type": "multipart/form-data"}
+
     }).then(response => {
         console.log(response.data);
       })

@@ -30,7 +30,7 @@ function Connexion() {
       .then(response => {
         console.log(response.data);
         localStorage.setItem('token', response.data.access_token); 
-        navigate('/dashboard'); // Redirection vers le tableau de bord
+        navigate('/dashboard'); 
       })
       .catch(error => {
         console.error(error);

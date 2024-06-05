@@ -12,16 +12,16 @@ class FileUploadController extends Controller
         $lettre_motivation = $request->file('lettre_motivation');
         $diplomes = $request->file('diplomes');
 
-        $cv->move('uploads/cv');
-        $lettre_motivation->move('uploads/lettre_motivation');  
-        $diplomes->move('uploads/diplomes');
-
-        
-        if (!$cv->move('uploads/cv')) {
-            return response()->json(['message' => 'Erreur lors du déplacement du CV']);
-        }else{
-            return response()->json(['message' => 'Fichiers téléchargés avec succès']);
+        if ($cv) {
+            $cv->move('uploads/cv');
         }
-        
+        if ($lettre_motivation) {
+            $lettre_motivation->move('uploads/lettre_motivation');
+        }
+        if ($diplomes) {
+            $diplomes->move('uploads/diplomes');
+        }
+
+        return response()->json(['message' => 'Fichiers téléchargés avec succès']);
     }
 }

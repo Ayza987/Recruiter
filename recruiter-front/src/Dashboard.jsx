@@ -77,7 +77,7 @@ const Dashboard = () => {
           </div>
           <ul>
             <li>
-              <Link to="/Accueil">
+              <Link to="/">
                 <FaUser />
                 <span className={styles.dashboardNavItem}>Accueil</span>
               </Link>

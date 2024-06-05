@@ -136,9 +136,9 @@ const Dashboard = () => {
               <div className={styles.jobDetails}>
                 <div className={styles.text}>
                   <h2>{job.intitulé}</h2>
-                
-                  <span>{job.description}</span> <br />
-                  <h4>{job.departement}</h4>
+                  <span>Offre valide jusqu'à la date : <strong>{job.date_butoir}</strong></span> <br />
+                  <span>Publiée par le département : <strong>{job.departement}</strong></span>
+                  
                 </div>
               </div>
               <div className={styles.jobSalary}>

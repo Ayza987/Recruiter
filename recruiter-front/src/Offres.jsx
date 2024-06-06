@@ -3,7 +3,6 @@
  *   All rights reserved.
  */
 
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
@@ -13,6 +12,7 @@ import offer from './offer.jpg';
 
 const Offres = () => {
   const [offres, setOffres] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/offre')
@@ -23,6 +23,10 @@ const Offres = () => {
         console.error('There was an error!', error);
       });
   }, []);
+
+  const handlePostuler = (intitule) => {
+    navigate('/candidature', { state: { intitule } });
+  };
 
   return (
     <div className={styles.offresContainer}>
@@ -36,7 +40,7 @@ const Offres = () => {
           <p>{offre.description}</p>
           <h3>Offre valide jusqu'à la date :  </h3>
           <p> {offre.date_butoir} </p>
-          <button className={styles.postulerBtn}>Postuler</button>
+          <button className={styles.postulerBtn} onClick={() => handlePostuler(offre.intitulé)}>Postuler</button>
         </section>
       ))}
       <footer className={styles.offresFooter}>

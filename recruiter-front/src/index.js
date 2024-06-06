@@ -31,6 +31,7 @@ root.render(
         <Route path="/candidature" element={<Candidature />} />
         <Route path="/congés" element={<Congés />} />
         <Route path="/offres" element={<Offres />} /> 
+        <Route path="/candidature" element={<Candidature />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>

@@ -55,6 +55,16 @@ class OffreController extends Controller
         }
     }
 
+    public function getByDepartment($departement){
+        $offres = Offre::where('departement', $departement)->get();
+        if($offres->count() > 0){
+            return response()->json(['offres' => $offres], 200);
+        }else{
+            return response()->json(['message' => 'No Offre found'], 404);
+        }
+    }
+    
+
     public function update(Request $request, int $id){
         $offre = Offre::find($id);
         if($offre){

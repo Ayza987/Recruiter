@@ -18,8 +18,10 @@ import styles from './Dashboard.module.css';
 const Dashboard = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
-
+  const [department, setDepartment] = useState('');
   const [jobs, setJobs] = useState([]);
+  
+  
   
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/offre')
@@ -32,10 +34,38 @@ const Dashboard = () => {
       });
   }, []);
 
+  
+
+  const handleDepartmentChange = (e) => { 
+    setDepartment(e.target.value);
+    if (e.target.value === '') {
+      axios.get('http://127.0.0.1:8000/offre')
+        .then(response => {
+          setJobs(response.data.offres);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    } else {
+      axios.get(`http://127.0.0.1:8000/offre/department/${e.target.value}`)
+        .then(response => {
+          console.log(response)
+          setJobs(response.data.offres);
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 404) {
+            setJobs([]);
+          console.error(error);
+    }});
+    }
+  };
+  
+
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
 
+  
   const handleLogout = () => {
     const token = localStorage.getItem('token'); 
 
@@ -112,11 +142,12 @@ const Dashboard = () => {
           <div className={styles.dashboardSearchBar} onChange={handleSearchChange}>
             <input type="search" placeholder="Search job here..." />
             
-            <select className={styles.dashboardFilter}>
-              <option>Département Soft</option>
-              <option>Département Bon Comptoir</option>
-              <option>Département Marketing</option>
-              <option>Département Technique</option>
+            <select className={styles.dashboardFilter} onChange={handleDepartmentChange}>
+            <option value="" defaultValue>Tous les départements</option>
+              <option value="Soft">Soft</option>
+              <option value="Bon Comptoir">Bon Comptoir</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Technique">Technique</option>
             </select>
           </div>
 

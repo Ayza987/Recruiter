@@ -9,3 +9,84 @@
  * @copyright 
  */
 
+ .offresContainer {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .offresHeader {
+    width: 100%;
+    margin-top: -10px;
+    margin-left: -30px;
+    background-image: url('./offer.jpg');
+    padding: 20px;
+    text-align: center;
+  }
+
+  .offresHeader h1 {
+    font-size: 50px;
+  }
+  
+  .offre {
+    padding: 20px;
+  }
+  
+  .postulerBtn {
+    width: 150px;
+    height: 40px;
+    font-size:15px;
+    background-color: #108CCE;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .offresFooter {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: -240px;
+  }
+  
+  .offresFooterLinks {
+    display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 200px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+  }
+  
+  .offresFooterLinks a {
+    color: white;
+      text-decoration: none;
+      margin: 0 5px;
+  }
+  
+  .offresFooterLinks a:hover {
+    color: #0055cc;
+    text-decoration: underline;
+  }
+  
+  .offresSocialIcons {
+    display: flex;
+      justify-content: center;
+      gap: 10px;
+  }
+  
+  .offresSocialIcons a {
+    color: white;
+      font-size: 20px;
+  }
+  
+  .offresSocialIcons a:hover {
+    color: #0055cc;
+  }

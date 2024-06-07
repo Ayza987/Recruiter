@@ -17,7 +17,7 @@ const Accueil = () => {
           <Link to="/offres">Les Offres</Link>
           <Link to="/conges">Mes Congés</Link>
           <Link to="/dashboard">Dashboard</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="https://www.gsc-technology.com/contact/">Contact</Link>
           <Link to="/connexion">
             <button className={styles.loginButton}>Se connecter</button>
           </Link>

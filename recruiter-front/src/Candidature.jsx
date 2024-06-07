@@ -154,13 +154,13 @@ const Candidature = () => {
       <footer>
         <div className={styles.candidatureFooterLinks}>
           <a href="#"><Link to="/">Accueil</Link></a>
-          <a href="#">Contact Us</a>
+          <a href="https://www.gsc-technology.com/contact/">Contact Us</a>
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
           <div className={styles.candidatureSocialIcons}>
             <a href="#"><FaInstagram /></a>
-            <a href="#"><FaLinkedinIn /></a>
-            <a href="#"><FaFacebookF /></a>
+            <a href="https://td.linkedin.com/company/global-soft-and-communication"><FaLinkedinIn /></a>
+            <a href="https://m.facebook.com/Global-Soft-and-Communication-101543078277756/"><FaFacebookF /></a>
           </div>
         </div>
       </footer>

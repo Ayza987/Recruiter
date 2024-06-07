@@ -119,7 +119,7 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <a href="#">
+              <a href="https://www.gsc-technology.com/contact/">
                 <FaQuestionCircle />
                 <span className={styles.dashboardNavItem}>Contact</span>
               </a>

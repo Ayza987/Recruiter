@@ -3,7 +3,10 @@
 namespace App\Http\Api;
 
 use App\Models\Candidat;
+use App\Mail\CandidatMail;
+use App\Mail\AdminMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
@@ -61,6 +64,14 @@ class CandidatController extends Controller
             ]);
 
             if ($candidat){
+                
+                // Envoyer un email de confirmation au candidat
+                Mail::to($request->email)
+                 ->send(new CandidatMail());
+
+                // Envoyer un email à l'administrateur
+                Mail::to('denise.ndongo@2027.ucac-icam.com')
+                 ->send(new AdminMail());
 
                 return response()->json([
                     'message' => 'Candidat added'

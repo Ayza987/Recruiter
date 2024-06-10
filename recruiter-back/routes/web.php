@@ -1,6 +1,9 @@
 <?php
+use App\Mail\AdminMail;
+use App\Mail\CandidatMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Api\PersonnelController;
 use App\Http\Api\CandidatController;
 use App\Http\Api\OffreController;
@@ -10,7 +13,9 @@ use App\Http\Controllers\FileUploadController;
 
 
 
-Route::get('/form', function () {
+Route::get('/mail', function () {
+    // Mail::to('denise.ndongo@2027.ucac-icam.com')
+    // ->send(new HelloMail());
     return view('welcome');
 });
 

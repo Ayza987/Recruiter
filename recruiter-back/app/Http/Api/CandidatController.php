@@ -70,7 +70,7 @@ class CandidatController extends Controller
                  ->send(new CandidatMail());
 
                 // Envoyer un email à l'administrateur
-                Mail::to('denise.ndongo@2027.ucac-icam.com')
+                Mail::to('gsc@gsc-technology.com')
                  ->send(new AdminMail());
 
                 return response()->json([

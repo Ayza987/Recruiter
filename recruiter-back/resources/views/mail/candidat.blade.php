@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirmation de réception de candidature</title>
+    <title>Confirmation de candidature</title>
 </head>
 <body>
-    <h1>Merci pour votre candidature</h1>
-    <p>Votre candidature a été reçue avec succès.</p>
+    <h3>Merci pour votre candidature</h3>
+    <p>Votre candidature a été reçue avec succès à Global Soft & Communication. Nous vous recontacterons en cas de besoin.</p>
 </body>
 </html>

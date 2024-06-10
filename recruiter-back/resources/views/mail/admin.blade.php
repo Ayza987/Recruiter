@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nouvelle candidature reçue</title>
+    <title>Nouvelle candidature</title>
 </head>
 <body>
-    <h1>Nouvelle candidature reçue</h1>
-    <p>Une nouvelle candidature a été déposée.</p>
+    <h3>Nouvelle candidature reçue</h3>
+    <p>Une nouvelle candidature a été déposée sur GSC Recruiter. Consulter le profil du candidat dans le dashboard de l'appllication.</p>
 </body>
 </html>

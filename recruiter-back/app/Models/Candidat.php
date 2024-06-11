@@ -18,7 +18,8 @@ class Candidat extends Model
         'email',
         'Date_de_naissance',
         'telephone',
-        'Adresse'
+        'Adresse',
+        'intitule'
         
     ];
 }

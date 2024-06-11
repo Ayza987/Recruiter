@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('telephone');
             $table->date('Date_de_naissance');
             $table->string('Adresse');
+            $table->string('intitule');
         });
     }
 

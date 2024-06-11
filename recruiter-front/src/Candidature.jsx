@@ -27,7 +27,8 @@ const Candidature = () => {
     Adresse: '',
     cv: null,
     lettre_motivation: null,
-    diplomes: null
+    diplomes: null,
+    intitule: intitule || 'Intitulé non spécifié'
   });
 
   const handleChange = (e) => {

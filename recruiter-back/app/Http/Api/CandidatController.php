@@ -42,6 +42,7 @@ class CandidatController extends Controller
             'telephone' => 'required|string',
             'Date_de_naissance' => 'required|date',
             'Adresse' => 'required|string',
+            'intitule' => 'required|string'
 
         ]);
 
@@ -59,17 +60,18 @@ class CandidatController extends Controller
                 'email' => $request->email,
                 'telephone' => $request->telephone,
                 'Date_de_naissance' => $request->Date_de_naissance,
-                'Adresse' => $request->Adresse
+                'Adresse' => $request->Adresse,
+                'intitule' => $request->intitule
 
             ]);
 
             if ($candidat){
               
                 Mail::to($request->email)
-                 ->send(new CandidatMail());
+                 ->send(new CandidatMail($candidat));
 
-                Mail::to('gsc@gsc-technology.com')
-                 ->send(new AdminMail());
+                Mail::to('denise.ndongo@2027.ucac-icam.com')
+                 ->send(new AdminMail($candidat));
 
                 return response()->json([
                     'message' => 'Candidat added'

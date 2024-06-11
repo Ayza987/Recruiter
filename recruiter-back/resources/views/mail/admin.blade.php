@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nouvelle candidature</title>
+    <title>Nouvelle Candidature</title>
 </head>
 <body>
-    <h3>Nouvelle candidature reçue</h3>
-    <p>Une nouvelle candidature a été déposée sur GSC Recruiter. Consulter le profil du candidat dans le dashboard de l'appllication.</p>
+    <h1>Nouvelle Candidature</h1>
+    <p>Une candidature pour le poste de {{ $intitule }} vient d'être déposée sur GSC Recruiter.</p>
+    <p>Consultez le profil du candidat dans le dashboard de l'application.</p>
 </body>
 </html>

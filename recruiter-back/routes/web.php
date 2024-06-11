@@ -14,8 +14,6 @@ use App\Http\Controllers\FileUploadController;
 
 
 Route::get('/mail', function () {
-    // Mail::to('denise.ndongo@2027.ucac-icam.com')
-    // ->send(new HelloMail());
     return view('welcome');
 });
 

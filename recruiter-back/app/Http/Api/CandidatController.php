@@ -64,12 +64,10 @@ class CandidatController extends Controller
             ]);
 
             if ($candidat){
-                
-                // Envoyer un email de confirmation au candidat
+              
                 Mail::to($request->email)
                  ->send(new CandidatMail());
 
-                // Envoyer un email à l'administrateur
                 Mail::to('gsc@gsc-technology.com')
                  ->send(new AdminMail());
 

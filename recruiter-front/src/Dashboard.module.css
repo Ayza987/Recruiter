@@ -36,8 +36,8 @@
 
 .dashboardNav {
   position: sticky;
-  top: 0;
-  left: 0;
+  margin-top: -20px;
+  margin-left: -160px;
   bottom: 0;
   width: 280px;
   height: 110vh;
@@ -95,6 +95,7 @@ li a {
 /*.dashboardMain Section */
 .dashboardMain {
   width: 100%;
+  margin-right: -200px;
   background-color: #e9e8e8;
 }
 
@@ -113,6 +114,7 @@ li a {
 
 .dashboardMainBody {
   padding: 10px 10px 10px 20px;
+
 }
 
 h1 {
@@ -180,8 +182,26 @@ h1 {
   cursor: pointer;
 }
 
+.publishButton {
+  background: #003366;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid rgb(190, 190, 190);
+  display: flex;
+  color: #ffff;
+  margin-top: 10px;
+  align-items: center;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+}
+
 .consultButton:hover {
   background: #003366;
+}
+
+.publishButton:hover {
+  background: #108CCE;
 }
 
 .consultButton:active {
@@ -281,3 +301,78 @@ h1 {
   border: 2px solid #108CCE;
   transition: 0.4s;
 }
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: "Poppins", sans-serif;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  width: 400px; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.modal form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.modal form input[type="text"],
+.modal form textarea,
+.modal form input[type="date"] {
+  width: calc(100% - 16px);
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal form button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.modal form button:hover {
+  background-color: #0056b3;
+}
+
+.modal form button[type="submit"] {
+  background-color: #003366;
+}
+
+.modal form button[type="submit"]:hover {
+  background-color:  #F32211;
+}
+
+.modal form button[type="close"] {
+  background-color: #dc3545;
+}
+
+.modal form button[type="close"]:hover {
+  background-color: #c82333;
+}
+

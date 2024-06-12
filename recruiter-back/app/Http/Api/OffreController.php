@@ -24,7 +24,8 @@ class OffreController extends Controller
             'description' => 'required|string',
             'departement' => 'required|string',
             'statut_offre' => 'required|string',
-            'date_butoir' => 'required|date'
+            'date_butoir' => 'required|date',
+            'type_offre' => 'required|string',
         ]);
 
         if ($validator->fails()){
@@ -35,7 +36,8 @@ class OffreController extends Controller
                 'description' => $request->description,
                 'departement' => $request->departement,
                 'statut_offre' => $request->statut_offre,
-                'date_butoir' => $request->date_butoir
+                'date_butoir' => $request->date_butoir,
+                'type_offre' => $request->type_offre,
             ]);
 
             if ($offre){
@@ -73,7 +75,8 @@ class OffreController extends Controller
                 'description' => $request->description,
                 'departement' => $request->departement,
                 'statut_offre' => $request->statut_offre,
-                'date_butoir' => $request->date_butoir
+                'date_butoir' => $request->date_butoir,
+                'type_offre' => $request->type_offre,
             ]);
             return response()->json(['message' => 'Offre updated'], 200);
         }else{

@@ -17,7 +17,8 @@ class Offre extends Model
         'description',
         'departement',
         'statut_offre',
-        'date_butoir'
+        'date_butoir',
+        'type_offre'
         
     ];
 }

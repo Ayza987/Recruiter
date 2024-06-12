@@ -24,9 +24,9 @@ const Accueil = () => {
         </div>
       </nav>
       <div className={styles.heroContent}>
-      <button className={styles.applyButton}>
+      <Link to="/offres"><button className={styles.applyButton}>
   Postuler <FaBriefcase className={styles.icon} />
-</button>
+</button></Link>
 
 
         <div className={styles.heroText}>

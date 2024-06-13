@@ -15,7 +15,7 @@ const Offres = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/offre')
+    axios.get('http://127.0.0.1:8000/offre/publish')
       .then(response => {
         setOffres(response.data.offres);
       })

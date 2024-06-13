@@ -18,6 +18,16 @@ class OffreController extends Controller
         }
     }
 
+    public function publish(){
+        $offres = Offre::where('statut_offre', 'Publié')->get();
+        if ($offres->count() > 0){
+            return response()->json(['offres' => $offres], 200);
+        }else{
+            return response()->json(['message' => 'No data found'], 404);
+        }
+    }
+    
+
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
             'intitulé' => 'required|string',

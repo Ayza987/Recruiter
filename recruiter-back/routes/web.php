@@ -36,6 +36,7 @@ Route::delete('candidat/{id}/delete', [CandidatController::class, 'destroy']);
 //Offre routes
 
 Route::get('offre', [OffreController::class, 'index']);
+Route::get('offre/publish', [OffreController::class, 'publish']);
 Route::post('offre', [OffreController::class, 'store']);
 Route::get('offre/{id}',[OffreController::class, 'show']);
 Route::get('offre/department/{departement}',[OffreController::class, 'getByDepartment']);

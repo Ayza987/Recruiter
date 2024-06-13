@@ -28,6 +28,7 @@ const Dashboard = () => {
     departement: '',
     statut_offre: '',
     date_butoir: '',
+    type_offre:''
   });
 
   useEffect(() => {
@@ -99,6 +100,16 @@ const Dashboard = () => {
       });
   };
 
+  const handleToggleStatus = (id) => {
+    axios.put(`http://127.0.0.1:8000/offre/${id}/toggle-status`)
+      .then(response => {
+        setJobs(jobs.map(job => job.id === id ? response.data.offre : job));
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -123,6 +134,7 @@ const Dashboard = () => {
           departement: '',
           statut_offre: '',
           date_butoir: '',
+          type_offre: ''
         });
         closeModal();
         window.location.reload();
@@ -206,12 +218,17 @@ const Dashboard = () => {
                   <br />
                   <span>Offre valide jusqu'à la date : <strong>{job.date_butoir}</strong></span> <br />
                   <span>Publiée par le département : <strong>{job.departement}</strong></span> <br />
-                  <span className={styles.offerSpan}>{job.type_offre}</span>
+                  <span className={styles.offerSpan}>Type d'offre : <strong>{job.type_offre}</strong></span>
                 </div>
               </div>
               <div className={styles.jobSalary}>
                 <button className={styles.consultButton}>Consulter</button>
-                <button className={styles.publishButton} onClick={() => handleDelete(job.id)}>Dépublier</button>
+                <button
+                  className={styles.publishButton}
+                  onClick={() => handleToggleStatus(job.id)}
+                >
+                  {job.statut_offre === 'Publié' ? 'Dépublier' : 'Publier'}
+                </button>
                 <button className={styles.deleteButton} onClick={() => handleDelete(job.id)}>Supprimer</button>
                 
               </div>
@@ -236,7 +253,7 @@ const Dashboard = () => {
           <label>Département:</label>
           <input type="text" name='departement'  value={newJob.departement} onChange={handleInputChange} required />
           <label>Type d'offre:</label>
-          <input type="text" name='statut_offre'  value={newJob.statut_offre} onChange={handleInputChange} required />
+          <input type="text" name='type_offre'  value={newJob.type_offre} onChange={handleInputChange} required />
           <label>Date Butoir:</label>
           <input type="text" name='date_butoir'  value={newJob.date_butoir} onChange={handleInputChange} required />
           <button type="submit">Publier</button>

@@ -37,10 +37,11 @@ Route::delete('candidat/{id}/delete', [CandidatController::class, 'destroy']);
 
 Route::get('offre', [OffreController::class, 'index']);
 Route::get('offre/publish', [OffreController::class, 'publish']);
-Route::post('offre', [OffreController::class, 'store']);
 Route::get('offre/{id}',[OffreController::class, 'show']);
 Route::get('offre/department/{departement}',[OffreController::class, 'getByDepartment']);
+Route::post('offre', [OffreController::class, 'store']);
 Route::put('offre/{id}/edit', [OffreController::class, 'update']);
+Route::put('offre/{id}/toggle-status', [OffreController::class, 'toggleStatus']);
 Route::delete('offre/{id}/delete', [OffreController::class, 'destroy']);
 
 //Congés routes

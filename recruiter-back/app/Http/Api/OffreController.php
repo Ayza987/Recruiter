@@ -27,13 +27,27 @@ class OffreController extends Controller
         }
     }
     
+    public function toggleStatus($id)
+{
+    $offres = Offre::find($id);
+
+    if ($offres) {
+        $offres->statut_offre = $offres->statut_offre === 'Publié' ? 'Dépublié' : 'Publié';
+        $offres->save();
+
+        return response()->json(['message' => 'Statut de l\'offre mis à jour avec succès.', 'offre' => $offres]);
+    }
+
+    return response()->json(['message' => 'Offre non trouvée.'], 404);
+}
+
+
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
             'intitulé' => 'required|string',
             'description' => 'required|string',
             'departement' => 'required|string',
-            'statut_offre' => 'required|string',
             'date_butoir' => 'required|date',
             'type_offre' => 'required|string',
         ]);
@@ -45,7 +59,6 @@ class OffreController extends Controller
                 'intitulé' => $request->intitulé,
                 'description' => $request->description,
                 'departement' => $request->departement,
-                'statut_offre' => $request->statut_offre,
                 'date_butoir' => $request->date_butoir,
                 'type_offre' => $request->type_offre,
             ]);
@@ -84,7 +97,6 @@ class OffreController extends Controller
                 'intitulé' => $request->intitulé,
                 'description' => $request->description,
                 'departement' => $request->departement,
-                'statut_offre' => $request->statut_offre,
                 'date_butoir' => $request->date_butoir,
                 'type_offre' => $request->type_offre,
             ]);

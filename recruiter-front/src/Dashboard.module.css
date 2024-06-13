@@ -12,7 +12,7 @@
  /* Ajout des imports */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-/* Application de styles globaux */
+
 .dashboardContainer * {
   margin: 0;
   padding: 0;
@@ -288,6 +288,20 @@ h1 {
   margin-left: 2.3rem;
 }
 
+.jobDetails .text .jobStatus {
+  background: #fff ;
+  color: green;
+  padding: 10px 15px;
+  width: 70px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid green;
+  display: flex;
+  text-align: justify;
+  align-items: center;
+  font-size: 11.5px;
+  font-weight: medium;
+}
 .jobDetails .text span {
   color: rgb(116, 112, 112);
 }

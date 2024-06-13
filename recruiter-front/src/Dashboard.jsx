@@ -214,8 +214,9 @@ const Dashboard = () => {
             <div className={styles.jobCard} key={job.id}>
               <div className={styles.jobDetails}>
                 <div className={styles.text}>
-                  <h2>{job.intitulé}</h2>
+                  <h2>{job.intitulé}</h2> <span className={styles.jobStatus}>{job.statut_offre}</span>
                   <br />
+                 
                   <span>Offre valide jusqu'à la date : <strong>{job.date_butoir}</strong></span> <br />
                   <span>Publiée par le département : <strong>{job.departement}</strong></span> <br />
                   <span className={styles.offerSpan}>Type d'offre : <strong>{job.type_offre}</strong></span>
@@ -225,8 +226,7 @@ const Dashboard = () => {
                 <button className={styles.consultButton}>Consulter</button>
                 <button
                   className={styles.publishButton}
-                  onClick={() => handleToggleStatus(job.id)}
-                >
+                  onClick={() => handleToggleStatus(job.id)}>
                   {job.statut_offre === 'Publié' ? 'Dépublier' : 'Publier'}
                 </button>
                 <button className={styles.deleteButton} onClick={() => handleDelete(job.id)}>Supprimer</button>

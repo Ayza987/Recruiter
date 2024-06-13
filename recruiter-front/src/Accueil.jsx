@@ -15,6 +15,7 @@ import { FaBriefcase } from 'react-icons/fa';
 
 const Accueil = () => {
   const isLoggedIn = localStorage.getItem('token');
+  
 
   const handleClick = (event) => {
     if (!isLoggedIn) {

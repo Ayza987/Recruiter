@@ -1,18 +1,39 @@
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
+/**
+ * @file Calendar.js
+ * @description 
+ * @author 
+ * @copyright 
+ */
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Modal from 'react-modal';
 import styles from './Calendar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
 
 const Calendar = () => {
   const navigate = useNavigate();
-  const [jobs, setJobs] = useState([]);
+  const [conges, setConges] = useState([]);
   const [search, setSearch] = useState('');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [newConge, setNewConge] = useState({
+    nom_personnel: '',
+    date_debut: '',
+    date_fin: '',
+    type_congés: '',
+    statut_congés: ''
+  });
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/candidat')
+    axios.get('http://127.0.0.1:8000/congés')
       .then(response => {
-        setJobs(response.data.candidats);
+        setConges(response.data.congés);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -42,21 +63,62 @@ const Calendar = () => {
       });
   };
 
-  const filteredJobs = jobs.filter(job => 
-    job.nom.toLowerCase().includes(search.toLowerCase()) || 
-    job.prenom.toLowerCase().includes(search.toLowerCase()) ||
-    job.email.toLowerCase().includes(search.toLowerCase()) ||
-    job.telephone.toLowerCase().includes(search.toLowerCase()) ||
-    job.Adresse.toLowerCase().includes(search.toLowerCase()) ||
-    job.intitule.toLowerCase().includes(search.toLowerCase())
+  const filteredConges = conges.filter(conge => 
+    conge.id.toString().includes(search) ||
+    conge.nom_personnel.toString().includes(search) || 
+    conge.date_debut.toLowerCase().includes(search.toLowerCase()) || 
+    conge.date_fin.toLowerCase().includes(search.toLowerCase()) ||
+    conge.type_congés.toLowerCase().includes(search.toLowerCase()) ||
+    conge.statut_congés.toLowerCase().includes(search.toLowerCase())
   );
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewConge(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formattedConge = {
+      ...newConge,
+      date_debut: new Date(newConge.date_debut).toISOString().split('T')[0],
+      date_fin: new Date(newConge.date_fin).toISOString().split('T')[0]
+    };
+    axios.post('http://127.0.0.1:8000/congés', formattedConge)
+      .then(response => {
+        console.log(response.data);
+        closeModal();
+        // Re-fetch congés to include the new one
+        axios.get('http://127.0.0.1:8000/congés')
+          .then(response => {
+            setConges(response.data.congés);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      })
+      .catch(error => {
+        console.error('Error adding congé:', error);
+      });
+  };
 
   return (
     <div className={styles.calendarContainer}>
       <nav className={styles.calendarNav}>
         <div className={styles.calendarNavbar}>
           <div className={styles.calendarLogo}>
-            <h1>calendar</h1>
+            <h1>dashboard</h1>
           </div>
           <ul>
             <li>
@@ -107,13 +169,18 @@ const Calendar = () => {
           <div className={styles.calendarSearchBar}>
             <input 
               type="search" 
-              placeholder="Search job here..." 
+              placeholder="Rechercher un congé..." 
               value={search}
               onChange={handleSearchChange}
             />
           </div>
+          <div className={styles.calendarTagsBar}>
+            <div className={styles.calendarTag}>
+              <button className={styles.calendarButton} onClick={openModal}>Ajouter un congé</button>
+            </div>
+          </div>
           <div className={styles.calendarRow}>
-            <p>Il y a <span>{filteredJobs.length}</span> candidature(s).</p>
+            <p>Il y a <span>{filteredConges.length}</span> congé(s).</p>
           </div>
 
           <div className={styles.calendarTable}>
@@ -122,23 +189,21 @@ const Calendar = () => {
                 <tr>
                   <th>ID</th>
                   <th>Nom</th>
-                  <th>Prénom</th>
-                  <th>Email</th>
-                  <th>Téléphone</th>
-                  <th>Adresse</th>
-                  <th>Offre</th>
+                  <th>Date de Début</th>
+                  <th>Date de Fin</th>
+                  <th>Type de Congés</th>
+                  <th>Statut des Congés</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredJobs.map(job => (
-                  <tr key={job.id}>
-                    <td>{job.id}</td>
-                    <td>{job.nom}</td>
-                    <td>{job.prenom}</td>
-                    <td>{job.email}</td>
-                    <td>{job.telephone}</td>
-                    <td>{job.Adresse}</td>
-                    <td>{job.intitule}</td>
+                {filteredConges.map(conge => (
+                  <tr key={conge.id}>
+                    <td>{conge.id}</td>
+                    <td>{conge.nom_personnel}</td>
+                    <td>{conge.date_debut}</td>
+                    <td>{conge.date_fin}</td>
+                    <td>{conge.type_congés}</td>
+                    <td>{conge.statut_congés}</td>
                   </tr>
                 ))}
               </tbody>
@@ -146,6 +211,30 @@ const Calendar = () => {
           </div>
         </div>
       </section>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Ajouter un nouveau congé"
+        className={styles.modal}
+        overlayClassName={styles.overlay}
+      >
+        <h2>Ajouter un nouveau congé</h2>
+        <form onSubmit={handleSubmit}>
+          <label>ID Personnel:</label>
+          <input type="text" name='nom_personnel' value={newConge.id_personnel} onChange={handleInputChange} required />
+          <label>Date de Début:</label>
+          <input type="date" name='date_debut' value={newConge.date_debut} onChange={handleInputChange} required />
+          <label>Date de Fin:</label>
+          <input type="date" name='date_fin' value={newConge.date_fin} onChange={handleInputChange} required />
+          <label>Type de Congés:</label>
+          <input type="text" name='type_congés' value={newConge.type_congés} onChange={handleInputChange} required />
+          <label>Statut des Congés:</label>
+          <input type="text" name='statut_congés' value={newConge.statut_congés} onChange={handleInputChange} required />
+          <button type="submit">Ajouter</button>
+        </form>
+        <button type="button" onClick={closeModal}>Fermer</button>
+      </Modal>
     </div>
   );
 };

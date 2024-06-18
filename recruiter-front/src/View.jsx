@@ -128,35 +128,34 @@ const View = () => {
             <p>Il y a <span>{filteredJobs.length}</span> candidature(s).</p>
           </div>
 
-          <div className={styles.viewTagsBar}>
-            <div className={styles.viewTag}>
-              <span className={styles.viewBar}>
-                <span className={styles.viewBarItems}>ID</span>
-                <span className={styles.viewBarItems}>Nom</span>
-                <span className={styles.viewBarItems}>Prénom</span>
-                <span className={styles.viewBarItems}>Email</span>
-                <span className={styles.viewBarItems}>Téléphone</span>
-                <span className={styles.viewBarItems}>Adresse</span>
-                <span className={styles.viewBarItems}>Offre</span>
-              </span>
-            </div>
+          <div className={styles.calendarTable}>
+            <table className={styles.jobTable}>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Email</th>
+                  <th>Téléphone</th>
+                  <th>Adresse</th>
+                  <th>Offre</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredJobs.map(job => (
+                  <tr key={job.id}>
+                    <td>{job.id}</td>
+                    <td>{job.nom}</td>
+                    <td>{job.prenom}</td>
+                    <td>{job.email}</td>
+                    <td>{job.telephone}</td>
+                    <td>{job.Adresse}</td>
+                    <td>{job.intitule}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-
-          {filteredJobs.map(job => (
-            <div key={job.id} className={styles.jobCard}>
-              <div className={styles.jobDetails}>
-                <div className={styles.text}>
-                  <span className={styles.textItems}>{job.id}</span>
-                  <span className={styles.textItems}>{job.nom}</span>
-                  <span className={styles.textItems}>{job.prenom}</span>
-                  <span className={styles.textItems}>{job.email}</span>
-                  <span className={styles.textItems}>{job.telephone}</span>
-                  <span className={styles.textItems}>{job.Adresse}</span>
-                  <span className={styles.textItems}>{job.intitule}</span>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
     </div>

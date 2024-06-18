@@ -20,7 +20,7 @@ class CongésController extends Controller
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
-            'id_personnel' => 'required|integer',
+            'nom_personnel' => 'required|integer',
             'date_debut' => 'required|date',
             'date_fin' => 'required|date',
             'type_congés' => 'required|string',
@@ -31,7 +31,7 @@ class CongésController extends Controller
             return response()->json(['errors' => $validator->messages()], 422);
         }else{
             $congés = Congés::create([
-                'id_personnel' => $request->id_personnel,
+                'nom_personnel' => $request->nom_personnel,
                 'date_debut' => $request->date_debut,
                 'date_fin' => $request->date_fin,
                 'type_congés' => $request->type_congés,
@@ -59,7 +59,7 @@ class CongésController extends Controller
         $congés = Congés::find($id);
         if($congés){
             $congés->update([
-                'id_personnel' => $request->id_personnel,
+                'nom_personnel' => $request->nom_personnel,
                 'date_debut' => $request->date_debut,
                 'date_fin' => $request->date_fin,
                 'type_congés' => $request->type_congés,

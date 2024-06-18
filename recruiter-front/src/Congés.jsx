@@ -13,7 +13,7 @@ import React from 'react';
 import styles from './Dashboard.module.css';
 import { FaUser, FaChartBar, FaTasks, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
 
-const dashboards = () => {
+const conges = () => {
   return (
     <div className={styles.dashboardContainer}>
       <nav className={styles.dashboardNav}>
@@ -98,4 +98,4 @@ const dashboards = () => {
   );
 };
 
-export default dashboards;
+export default conges;

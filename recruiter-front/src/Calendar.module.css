@@ -168,19 +168,26 @@ h1 {
   justify-content: space-between;
 }
 
-.consultButton,
-.deleteButton,
-.publishButton,
 .calendarButton {
+  background: #F32211 ;
+  color: #ffff;
   padding: 10px 15px;
   border-radius: 20px;
-  border: 1px solid rgb(190, 190, 190);
+  border: 1px solid rgb(255, 164, 164);
   display: flex;
-  color: #ffff;
   align-items: center;
-  font-weight: bold;
   font-size: 13px;
+  font-weight: bold;
   cursor: pointer;
+}
+
+.calendarButton:hover {
+  background: #003366;
+}
+
+.calendarButton:active {
+  border: 2px solid #003366;
+  transition: 0.4s;
 }
 
 .calendarBar{
@@ -196,45 +203,6 @@ h1 {
   cursor: pointer;
 }
 
-.consultButton {
-  background: #108cce;
-}
-
-.deleteButton {
-  background: #f32211;
-  margin-top: 10px;
-}
-
-.publishButton {
-  background: #003366;
-  margin-top: 10px;
-}
-
-.consultButton:hover,
-.publishButton:hover,
-.calendarButton:hover {
-  background: #003366;
-}
-
-.consultButton:active,
-.publishButton:active,
-.calendarButton:active {
-  border: 2px solid #003366;
-  transition: 0.4s;
-}
-
-.calendarButton {
-  background: #f32211;
-}
-
-.calendarButton:hover {
-  background: #003366;
-}
-
-.calendarButton:active {
-  border: 2px solid #003366;
-  transition: 0.4s;
-}
 
 .calendarTag i {
   margin-right: 0.7rem;
@@ -278,13 +246,6 @@ h1 {
 
 
 
-.jobDetails .text {
-  
-
-  
-}
-
-
 .jobDetails .text .textItems {
   color: black;
   text-align: center;
@@ -301,16 +262,57 @@ h1 {
   transition: 0.4s;
 }
 
+
+.jobTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.jobTable thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.jobTable th,
+.jobTable td {
+  padding: 12px 15px;
+}
+
+.jobTable tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+.jobTable tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.jobTable tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.jobTable tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
+  font-family: "Poppins", sans-serif;
   transform: translate(-50%, -50%);
   background: white;
   padding: 20px;
   border-radius: 8px;
   max-width: 80%;
-  width: 400px;
+  width: 400px; 
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -363,7 +365,7 @@ h1 {
 }
 
 .modal form button[type="submit"]:hover {
-  background-color: #f32211;
+  background-color:  #F32211;
 }
 
 .modal form button[type="close"] {
@@ -374,16 +376,3 @@ h1 {
   background-color: #c82333;
 }
 
-  .jobTable th,
-  .jobTable td {
-    border: 1px medium #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  .jobTable th {
-    background-color: #f2f2f2;
-    color: #333;
-
-  }
-  

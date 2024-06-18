@@ -13,7 +13,7 @@ class Congés extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id_personnel',
+        'nom_personnel',
         'date_debut',
         'date_fin',
         'type_congés',

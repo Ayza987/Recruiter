@@ -362,3 +362,42 @@ h1 {
 .modal form button[type="close"]:hover {
   background-color: #c82333;
 }
+
+.jobTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.jobTable thead tr {
+  background-color: #1785D1;
+  color: #ffffff;
+  text-align: left;
+}
+
+.jobTable th,
+.jobTable td {
+  padding: 12px 15px;
+}
+
+.jobTable tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+.jobTable tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.jobTable tbody tr:last-of-type {
+  border-bottom: 2px solid #1785D1;
+}
+
+.jobTable tbody tr.active-row {
+  font-weight: bold;
+  color: #1785D1;
+}

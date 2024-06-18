@@ -40,6 +40,8 @@ const Offres = () => {
           <p>{offre.description}</p>
           <h3>Offre valide jusqu'à la date :  </h3>
           <p> {offre.date_butoir} </p>
+          <h3>Type d'offre :  {offre.type_offre}  </h3>
+          
           <button className={styles.postulerBtn} onClick={() => handlePostuler(offre.intitulé)}>Postuler</button>
         </section>
       ))}

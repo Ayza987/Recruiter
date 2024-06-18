@@ -13,6 +13,8 @@ import Accueil from './Accueil';
 import Congés from './Congés';
 import Candidature from './Candidature';
 import Offres from './Offres';
+import View from './View';
+import Calendar from './Calendar';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -31,7 +33,8 @@ root.render(
         <Route path="/candidature" element={<Candidature />} />
         <Route path="/congés" element={<Congés />} />
         <Route path="/offres" element={<Offres />} /> 
-        <Route path="/candidature" element={<Candidature />} />
+        <Route path="/view" element={<View />} />
+        <Route path="/calendar" element={<Calendar />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
@@ -42,3 +45,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+

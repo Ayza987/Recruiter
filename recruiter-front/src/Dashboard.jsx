@@ -12,7 +12,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
-import { FaUser, FaTasks, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 
@@ -165,6 +165,18 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
+              <a href="/Dashboard">
+                <FaChartBar />
+                <span className={styles.dashboardNavItem}>Offres d'emploi</span>
+              </a>
+            </li>
+            <li>
+              <Link to="/View">
+                <FaTasks />
+                <span className={styles.dashboardNavItem}>Gestion des candidats</span>
+              </Link>
+            </li>
+            <li>
               <a href="https://www.gsc-technology.com/contact/">
                 <FaQuestionCircle />
                 <span className={styles.dashboardNavItem}>Contact</span>
@@ -204,7 +216,7 @@ const Dashboard = () => {
 
           <div className={styles.dashboardRow}>
             <p>Il y'a <span>{jobs.length}</span> offre(s) d'emploi disponible(s)</p>
-            <a href="#">See all</a>
+           
           </div>
 
           {jobs
@@ -223,7 +235,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className={styles.jobSalary}>
-                <button className={styles.consultButton}>Consulter</button>
+                {/* <button className={styles.consultButton}>Consulter</button> */}
                 <button
                   className={styles.publishButton}
                   onClick={() => handleToggleStatus(job.id)}>

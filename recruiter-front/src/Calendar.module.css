@@ -3,17 +3,28 @@
  *   All rights reserved.
  */
 /**
- * @file.dashboards.module.css
+ * @file Calendar.module.css
  * @description 
  * @author 
  * @copyright 
  */
 
- /* Ajout des imports */
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
+
+/**
+ * @file calendars.module.css
+ * @description 
+ * @author 
+ * @copyright 
+ */
+
+/* Ajout des imports */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-
-.dashboardContainer * {
+.calendarContainer * {
   margin: 0;
   padding: 0;
   outline: none;
@@ -24,17 +35,17 @@
   font-family: "Poppins", sans-serif;
 }
 
-.dashboardContainer body {
-  background: rgb(255, 255, 255);
-}
-
-.dashboardContainer {
+.calendarContainer {
   display: flex;
   width: 1200px;
   margin: auto;
 }
 
-.dashboardNav {
+.calendarContainer body {
+  background: rgb(255, 255, 255);
+}
+
+.calendarNav {
   position: sticky;
   margin-top: -20px;
   margin-left: -160px;
@@ -44,25 +55,27 @@
   background: #003366;
 }
 
-.dashboardNavbar {
+.calendarNavbar {
   width: 80%;
   margin: 0 auto;
 }
 
-.dashboardLogo {
+
+
+.calendarLogo {
   margin: 2rem 0 1rem 0;
   padding-bottom: 3rem;
   display: flex;
   align-items: center;
 }
 
-.dashboardLogo img {
+.calendarLogo img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.dashboardLogo h1 {
+.calendarLogo h1 {
   margin-left: 1rem;
   color: #ffff;
   text-transform: uppercase;
@@ -92,14 +105,13 @@ li a {
   bottom: 20px;
 }
 
-/*.dashboardMain Section */
-.dashboardMain {
+.calendarMain {
   width: 100%;
   margin-right: -200px;
   background-color: #e9e8e8;
 }
 
-.dashboardMainTop {
+.calendarMainTop {
   width: 100%;
   background: #fff;
   padding: 10px;
@@ -107,28 +119,27 @@ li a {
   font-size: 30px;
   font-weight: bolder;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: #003366;
 }
 
-.dashboardMainBody {
+.calendarMainBody {
   padding: 10px 10px 10px 20px;
-
 }
 
 h1 {
   margin: 20px 10px;
 }
 
-.dashboardSearchBar {
+.calendarSearchBar {
   display: flex;
   padding: 10px;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
 }
 
-.dashboardSearchBar input {
+.calendarSearchBar input {
   background-color: #ffff;
   width: 50%;
   padding: 10px;
@@ -136,11 +147,11 @@ h1 {
   border: 1px solid rgb(190, 190, 190);
 }
 
-.dashboardSearchBar input:focus {
+.calendarSearchBar input:focus {
   border: 1px solid #003366;
 }
 
-.dashboardSearchBar select {
+.calendarSearchBar select {
   border: 1px solid rgb(190, 190, 190);
   padding: 10px;
   margin-left: 2rem;
@@ -150,15 +161,17 @@ h1 {
   width: 300px;
 }
 
-.dashboardTagsBar {
+.calendarTagsBar {
   width: 55%;
   display: flex;
   padding: 10px;
   justify-content: space-between;
 }
 
-/* .consultButton {
-  background: #108CCE;
+.consultButton,
+.deleteButton,
+.publishButton,
+.calendarButton {
   padding: 10px 15px;
   border-radius: 20px;
   border: 1px solid rgb(190, 190, 190);
@@ -168,98 +181,88 @@ h1 {
   font-weight: bold;
   font-size: 13px;
   cursor: pointer;
-} */
-.deleteButton {
-  background:  #003366;
+}
+
+.calendarBar{
   padding: 10px 15px;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid rgb(190, 190, 190);
   display: flex;
-  color: #ffff;
-  margin-top: 10px;
+  color: #003366;
   align-items: center;
-  font-weight: bold;
-  font-size: 13px;
+  font-weight: medium;
+  gap: 102px;
+  font-size: 15px;
   cursor: pointer;
+}
+
+.consultButton {
+  background: #108cce;
+}
+
+.deleteButton {
+  background: #f32211;
+  margin-top: 10px;
 }
 
 .publishButton {
-  background: #108CCE;
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 1px solid rgb(190, 190, 190);
-  display: flex;
-  color: #ffff;
+  background: #003366;
   margin-top: 10px;
-  align-items: center;
-  font-weight: bold;
-  font-size: 13px;
-  cursor: pointer;
 }
 
-.deleteButton:hover {
-  background: #F32211 ;
-}
-
-.publishButton:hover {
+.consultButton:hover,
+.publishButton:hover,
+.calendarButton:hover {
   background: #003366;
 }
 
-.consultButton:active {
-  border: 2px solid #108CCE;
-  transition: 0.4s;
-}
-
-.dashboardButton {
-  background: #F32211 ;
-  color: #ffff;
-  padding: 10px 15px;
-  border-radius: 20px;
-  border: 1px solid rgb(255, 164, 164);
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.dashboardButton:hover {
-  background: #003366;
-}
-
-.dashboardButton:active {
+.consultButton:active,
+.publishButton:active,
+.calendarButton:active {
   border: 2px solid #003366;
   transition: 0.4s;
 }
 
-.dashboardTag i {
+.calendarButton {
+  background: #f32211;
+}
+
+.calendarButton:hover {
+  background: #003366;
+}
+
+.calendarButton:active {
+  border: 2px solid #003366;
+  transition: 0.4s;
+}
+
+.calendarTag i {
   margin-right: 0.7rem;
 }
 
-.dashboardRow {
+.calendarRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  margin-top: 1.3rem;
- 
+  margin-top: 1.0rem;
 }
 
-.dashboardRow p {
+.calendarRow p {
   color: rgb(54, 54, 54);
-  font-size: 16px;
+  font-size: 15px;
 }
 
-.dashboardRow p span {
-  color: #108CCE;
+.calendarRow p span {
+  color: #108cce;
 }
 
 .jobCard {
-  width: 100%;
+  width: 88%;
   padding: 15px;
   cursor: pointer;
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   background: #fff;
   margin-bottom: 15px;
   justify-content: space-between;
@@ -269,43 +272,23 @@ h1 {
 
 .jobDetails {
   display: flex;
+  
+  font-size: 15px
 }
 
-.jobDetails .img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.jobDetails .img i {
-  width: 70px;
-  font-size: 3rem;
-  margin-left: 1rem;
-  padding: 10px;
-  color: rgb(82, 22, 138);
-  background: rgb(216, 205, 226);
-}
 
 .jobDetails .text {
-  margin-left: 2.3rem;
+  
+
+  
 }
 
-.jobDetails .text .jobStatus {
-  background: #13DACB;
-  color: #ffff;
-  padding: 10px 15px;
-  width: 70px;
-  height: 30px;
-  border-radius: 15px;
-  border: 1px solid #13DACB;
-  display: flex;
-  text-align: justify;
-  align-items: center;
-  font-size: 11.5px;
-  font-weight: medium;
-}
-.jobDetails .text span {
-  color: rgb(116, 112, 112);
+
+.jobDetails .text .textItems {
+  color: black;
+  text-align: center;
+  margin-right: 3.0rem; 
 }
 
 .jobSalary {
@@ -314,7 +297,7 @@ h1 {
 }
 
 .jobCard:active {
-  border: 2px solid #108CCE;
+  border: 2px solid #108cce;
   transition: 0.4s;
 }
 
@@ -322,13 +305,12 @@ h1 {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-family: "Poppins", sans-serif;
   transform: translate(-50%, -50%);
   background: white;
   padding: 20px;
   border-radius: 8px;
   max-width: 80%;
-  width: 400px; 
+  width: 400px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -381,7 +363,7 @@ h1 {
 }
 
 .modal form button[type="submit"]:hover {
-  background-color:  #F32211;
+  background-color: #f32211;
 }
 
 .modal form button[type="close"] {
@@ -392,3 +374,16 @@ h1 {
   background-color: #c82333;
 }
 
+  .jobTable th,
+  .jobTable td {
+    border: 1px medium #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .jobTable th {
+    background-color: #f2f2f2;
+    color: #333;
+
+  }
+  

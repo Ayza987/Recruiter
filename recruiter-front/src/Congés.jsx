@@ -91,53 +91,7 @@ const dashboards = () => {
             </div>
           </div>
 
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>JavaScript Developer</h2>
-                <span>Google - Senior Post</span>
-              </div>
-            </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
-
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>Product Developer</h2>
-                <span>Facebook - Manager Post</span>
-              </div>
-            </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
-
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>Programmer</h2>
-                <span>Github - Junior Post</span>
-              </div>
-            </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
-
-          <div className={styles.jobCard}>
-            <div className={styles.jobDetails}>
-              <div className={styles.text}>
-                <h2>React.js Expert</h2>
-                <span>Youtube - VIP</span>
-              </div>
-            </div>
-            <div className={styles.jobSalary}>
-              <button className={styles.consultButton}>Consulter</button>
-            </div>
-          </div>
+         
         </div>
       </section>
     </div>

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('congés', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_personnel');
+            $table->integer('nom_personnel');
             $table->date('date_debut');
             $table->date('date_fin');
             $table->string('type_congés');

@@ -14,7 +14,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import styles from './Calendar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaRegTrashAlt, FaRegEdit } from 'react-icons/fa';
+import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaRegTrashAlt, FaRegEdit, FaSearch } from 'react-icons/fa';
 
 const Calendar = () => {
   const navigate = useNavigate();
@@ -243,7 +243,7 @@ const Calendar = () => {
               type="search" 
               placeholder="Rechercher un congé..." 
               value={search}
-              onChange={handleSearchChange}
+              onChange={handleSearchChange} 
             />
           </div>
           <div className={styles.calendarTagsBar}>
@@ -335,7 +335,7 @@ const Calendar = () => {
           <label>Statut des Congés:</label>
           <input type="text" name='statut_congés' value={editConge.statut_congés} onChange={handleEditInputChange} required />
           <button type="submit">Modifier</button>
-          <button type="close">Annuler</button>
+          <button type="close" onClick={closeModal}>Annuler</button>
         </form>
       </Modal>
 

@@ -38,7 +38,7 @@ class CandidatController extends Controller
         $validator = Validator::make($request->all(), [
             'nom' => 'required|string',
             'prenom' => 'required|string',
-            'email' => 'required|email|unique:candidat',
+            'email' => 'required|email',
             'telephone' => 'required|string',
             'Date_de_naissance' => 'required|date',
             'Adresse' => 'required|string',
@@ -119,7 +119,10 @@ class CandidatController extends Controller
                 'nom' => $request->nom,
                 'prenom' => $request->prenom,
                 'email' => $request->email,
-                'telephone' => $request->telephone
+                'telephone' => $request->telephone,
+                'Date_de_naissance' => $request->Date_de_naissance,
+                'Adresse' => $request->Adresse,
+                'intitule' => $request->intitule
 
             ]);
             return response()->json([

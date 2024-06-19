@@ -1,129 +1,190 @@
-/*
- *   Copyright (c) 2024 
- *   All rights reserved.
- */
-/* Copyright (c) 2024 
- * All rights reserved.
- */
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url('./recruit.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden; /* Ajouter cette ligne */
+}
 
- .homepage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100vh; 
-    background-image: url('./recruit.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    position: relative;
-  }
-  
-  .navbar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    font-size: 40px;
-    font-family: Geneva, Tahoma, sans-serif;
-    font-weight: bolder;
-    margin-right: 0px;
-    margin-left:30px;
-    color: #003366;
-  }
-  
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ajouter cette ligne */
+  z-index: 10; /* Ajouter cette ligne */
+}
+
+.logo {
+  font-size: 40px;
+  font-family: Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  margin-right: 0px;
+  margin-left: 30px;
+  color: #003366;
+}
+
+.navLinks {
+  font-size: 20px;
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  gap: 110px;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #0E4078;
+  font-weight: medium;
+}
+
+.navLinks a:hover {
+  color: #108CCE;
+  transition: 0.2s;
+  text-decoration: underline;
+}
+
+.loginButton {
+  width: 180px;
+  height: 40px;
+  font-size: 15px;
+  background-color: #108CCE;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  background-color: #003366;
+}
+
+.heroContent {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 80px);
+}
+
+.heroText {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  margin-bottom: 90px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  transform: translateY(-50%);
+  text-align: center;
+  color: white;
+  z-index: 1; /* Ajouter cette ligne */
+}
+
+.heroText h1 {
+  line-height: 0.8;
+}
+
+.applyButton {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  background-color: #0E4078;
+  color: white;
+  border: none;
+  width: 280px;
+  height: 90px;
+  padding: 15px 30px;
+  border-radius: 90px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.applyButton .icon {
+  margin-left: 12px;
+  width: 25px;
+  height: 20px;
+}
+
+.applyButton:hover {
+  background-color: #0055cc;
+}
+
+/* Styles pour le menu hamburger */
+.menuIcon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Media Queries pour la responsivité */
+@media (max-width: 768px) {
   .navLinks {
-    font-size: 20px;
-    display: flex;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;;
-    gap: 110px;
-  }
-  .navLinks a {
-  Text-decoration: none;
-    color: #0E4078;
-    font-weight: medium;
-  }
-  
-  .navLinks a:hover {
-    color: #108CCE;
-    transition: 2ms;
-  Text-decoration: underline;
-  }
-  
-  .loginButton {
-    width: 180px;
-    height: 40px;
-    font-size:15px;
-    background-color: #108CCE;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-  
-  .loginButton:hover {
-    background-color: #003366;
-  }
-  
-  .heroContent {
-    position: relative; 
-    width: 100%;
-    height: calc(100vh - 80px); 
-  }
-  
-  .heroText {
-    position: absolute;
-    top: 45%;
-    right: 5%;
-    margin-bottom: 90px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    transform: translateY(-50%);
-  Text-align: center;
-    color: white;
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000; /* Ajouter cette ligne */
   }
 
-  .heroText h1 {
-    line-height: 0.8; 
+  .menuIcon {
+      display: block;
   }
-  
-  
+
+  .heroText {
+      font-size: 20px;
+      top: 35%;
+      right: 10%;
+  }
+
   .applyButton {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
-    font-weight: bold;
-    position: absolute;
-    top: 45%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    background-color: #0E4078;
-    color: white;
-    border: none;
-    width: 280px;
-    height: 90px;
-    padding: 15px 30px;
-    border-radius: 90px;
-    cursor: pointer;
-    font-size: 20px;
+      font-size: 18px;
+      width: 200px;
+      height: 60px;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
   }
-  
-  .applyButton .icon {
-    margin-left: 12px; 
-    width: 25px;
-    height: 20px;
+}
+
+.navLinksOpen {
+  display: flex !important;
+}
+
+@media (max-width: 480px) {
+  .logo {
+      font-size: 30px;
   }
-  
-  .applyButton:hover {
-    background-color: #0055cc;
+
+  .heroText {
+      font-size: 18px;
+      top: 30%;
+      right: 5%;
   }
-  
-  
-  
+
+  .applyButton {
+      font-size: 16px;
+      width: 180px;
+      height: 50px;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+}

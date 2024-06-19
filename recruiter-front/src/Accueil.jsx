@@ -3,19 +3,14 @@
  *   All rights reserved.
  */
 
-
-
-
-
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Accueil.module.css';
-import { FaBriefcase } from 'react-icons/fa';
+import { FaBriefcase, FaList } from 'react-icons/fa';
 
 const Accueil = () => {
   const isLoggedIn = localStorage.getItem('token');
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleClick = (event) => {
     if (!isLoggedIn) {
@@ -29,11 +24,15 @@ const Accueil = () => {
     window.location.href = '/';
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className={styles.homepage}>
       <nav className={styles.navbar}>
         <div className={styles.logo}>GSC Recruiter</div>
-        <div className={styles.navLinks}>
+        <div className={isMenuOpen ? `${styles.navLinks} ${styles.navLinksOpen}` : styles.navLinks}>
           <Link to="/offres">Les Offres</Link>
           <Link to="/calendar" onClick={handleClick}>Mes Congés</Link>
           <Link to="/dashboard" onClick={handleClick}>Dashboard</Link>
@@ -47,6 +46,9 @@ const Accueil = () => {
               <button className={styles.loginButton}>Se connecter</button>
             </Link>
           )}
+        </div>
+        <div className={styles.menuIcon} onClick={toggleMenu}>
+          <FaList />
         </div>
       </nav>
       <div className={styles.heroContent}>

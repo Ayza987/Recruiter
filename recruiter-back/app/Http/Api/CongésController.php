@@ -20,7 +20,7 @@ class CongésController extends Controller
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
-            'nom_personnel' => 'required|integer',
+            'nom_personnel' => 'required|string',
             'date_debut' => 'required|date',
             'date_fin' => 'required|date',
             'type_congés' => 'required|string',

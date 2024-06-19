@@ -27,17 +27,15 @@ class FileUploadController extends Controller
 
     private function storeFile($file, $destinationPath)
     {
-        // Récupérer le nom d'origine et l'extension du fichier
         $originalName = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
         $filename = pathinfo($originalName, PATHINFO_FILENAME) . '.' . $extension;
 
-        // Assurez-vous que le dossier de destination existe
         if (!file_exists(public_path($destinationPath))) {
             mkdir(public_path($destinationPath), 0755, true);
         }
 
-        // Déplacer le fichier vers le dossier de destination avec son nom et son extension d'origine
+
         $file->move(public_path($destinationPath), $filename);
     }
 }

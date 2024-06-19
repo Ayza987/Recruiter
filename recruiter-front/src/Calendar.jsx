@@ -9,7 +9,6 @@
  * @copyright 
  */
 
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -23,8 +22,17 @@ const Calendar = () => {
   const [search, setSearch] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [confirmDeleteModalIsOpen, setConfirmDeleteModalIsOpen] = useState(false);
+  const [editModalIsOpen, setEditModalIsOpen] = useState(false);
   const [selectedCongeId, setSelectedCongeId] = useState(null);
   const [newConge, setNewConge] = useState({
+    nom_personnel: '',
+    date_debut: '',
+    date_fin: '',
+    type_congés: '',
+    statut_congés: ''
+  });
+  const [editConge, setEditConge] = useState({
+    id: '',
     nom_personnel: '',
     date_debut: '',
     date_fin: '',
@@ -82,6 +90,15 @@ const Calendar = () => {
     setModalIsOpen(false);
   };
 
+  const openEditModal = (conge) => {
+    setEditConge(conge);
+    setEditModalIsOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setEditModalIsOpen(false);
+  };
+
   const openConfirmDeleteModal = (id) => {
     setSelectedCongeId(id);
     setConfirmDeleteModalIsOpen(true);
@@ -95,6 +112,14 @@ const Calendar = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewConge(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleEditInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditConge(prevState => ({
       ...prevState,
       [name]: value
     }));
@@ -121,6 +146,30 @@ const Calendar = () => {
       })
       .catch(error => {
         console.error('Error adding congé:', error);
+      });
+  };
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    const formattedConge = {
+      ...editConge,
+      date_debut: new Date(editConge.date_debut).toISOString().split('T')[0],
+      date_fin: new Date(editConge.date_fin).toISOString().split('T')[0]
+    };
+    axios.put(`http://127.0.0.1:8000/congés/${editConge.id}/edit`, formattedConge)
+      .then(response => {
+        console.log(response.data);
+        closeEditModal();
+        axios.get('http://127.0.0.1:8000/congés')
+          .then(response => {
+            setConges(response.data.congés);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      })
+      .catch(error => {
+        console.error('Error updating congé:', error);
       });
   };
 
@@ -229,8 +278,9 @@ const Calendar = () => {
                     <td>{conge.type_congés}</td>
                     <td>{conge.statut_congés}</td>
                     <td>
-                      <FaRegTrashAlt onClick={() => openConfirmDeleteModal(conge.id)} /> <br />
-                      <FaRegEdit />
+                      <span className={styles.calendarIcons}>  <FaRegTrashAlt onClick={() => openConfirmDeleteModal(conge.id)} /> <br />
+                      <FaRegEdit onClick={() => openEditModal(conge)} /></span>
+                     
                     </td>
                   </tr>
                 ))}
@@ -264,6 +314,32 @@ const Calendar = () => {
       </Modal>
 
       <Modal
+        isOpen={editModalIsOpen}
+        onRequestClose={closeEditModal}
+        contentLabel="Modifier le congé"
+        className={styles.modal}
+        overlayClassName={styles.overlay}
+      >
+        <h2>Modifier le congé</h2>
+        <form onSubmit={handleEditSubmit}>
+          <label>ID:</label>
+          <input type="text" name='id' value={editConge.id} readOnly />
+          <label>ID Personnel:</label>
+          <input type="text" name='nom_personnel' value={editConge.nom_personnel} onChange={handleEditInputChange} required />
+          <label>Date de Début:</label>
+          <input type="date" name='date_debut' value={editConge.date_debut} onChange={handleEditInputChange} required />
+          <label>Date de Fin:</label>
+          <input type="date" name='date_fin' value={editConge.date_fin} onChange={handleEditInputChange} required />
+          <label>Type de Congés:</label>
+          <input type="text" name='type_congés' value={editConge.type_congés} onChange={handleEditInputChange} required />
+          <label>Statut des Congés:</label>
+          <input type="text" name='statut_congés' value={editConge.statut_congés} onChange={handleEditInputChange} required />
+          <button type="submit">Modifier</button>
+          <button type="close">Annuler</button>
+        </form>
+      </Modal>
+
+      <Modal
         isOpen={confirmDeleteModalIsOpen}
         onRequestClose={closeConfirmDeleteModal}
         contentLabel="Confirmer la suppression"
@@ -273,8 +349,8 @@ const Calendar = () => {
         <h2>Confirmer la suppression</h2>
         <p>Êtes-vous sûr de vouloir supprimer ce congé ?</p>
         <div className={styles.modalButtons}>
-          <button onClick={handleDeleteConge}>Oui</button>
-          <button onClick={closeConfirmDeleteModal}>Non</button>
+          <button onClick={handleDeleteConge}>Supprimer</button> 
+          <button onClick={closeConfirmDeleteModal}>Annuler</button>
         </div>
       </Modal>
     </div>
@@ -282,4 +358,3 @@ const Calendar = () => {
 };
 
 export default Calendar;
-

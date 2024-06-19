@@ -225,6 +225,11 @@ h1 {
   color: #108cce;
 }
 
+.calendarIcons {
+  font-size: 18px; 
+}
+
+
 .jobCard {
   width: 88%;
   padding: 15px;
@@ -288,6 +293,7 @@ h1 {
 .jobTable tbody tr {
   border-bottom: thin solid #dddddd;
 }
+
 
 .jobTable tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
@@ -356,6 +362,7 @@ h1 {
   cursor: pointer;
 }
 
+
 .modal form button:hover {
   background-color: #0056b3;
 }
@@ -365,14 +372,20 @@ h1 {
 }
 
 .modal form button[type="submit"]:hover {
-  background-color:  #F32211;
+  background-color:  #0056b3;
 }
 
 .modal form button[type="close"] {
   background-color: #dc3545;
+  margin-left: 235px;
 }
 
 .modal form button[type="close"]:hover {
-  background-color: #c82333;
+  background-color: #003366;
 }
+
+.modal form button[type="close"]:active {
+  background-color: #0056b3;
+}
+
 

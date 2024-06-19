@@ -15,13 +15,15 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import styles from './Calendar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaRegTrashAlt, FaRegEdit } from 'react-icons/fa';
 
 const Calendar = () => {
   const navigate = useNavigate();
   const [conges, setConges] = useState([]);
   const [search, setSearch] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [confirmDeleteModalIsOpen, setConfirmDeleteModalIsOpen] = useState(false);
+  const [selectedCongeId, setSelectedCongeId] = useState(null);
   const [newConge, setNewConge] = useState({
     nom_personnel: '',
     date_debut: '',
@@ -80,6 +82,16 @@ const Calendar = () => {
     setModalIsOpen(false);
   };
 
+  const openConfirmDeleteModal = (id) => {
+    setSelectedCongeId(id);
+    setConfirmDeleteModalIsOpen(true);
+  };
+
+  const closeConfirmDeleteModal = () => {
+    setSelectedCongeId(null);
+    setConfirmDeleteModalIsOpen(false);
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewConge(prevState => ({
@@ -99,7 +111,6 @@ const Calendar = () => {
       .then(response => {
         console.log(response.data);
         closeModal();
-        // Re-fetch congés to include the new one
         axios.get('http://127.0.0.1:8000/congés')
           .then(response => {
             setConges(response.data.congés);
@@ -110,6 +121,18 @@ const Calendar = () => {
       })
       .catch(error => {
         console.error('Error adding congé:', error);
+      });
+  };
+
+  const handleDeleteConge = () => {
+    axios.delete(`http://127.0.0.1:8000/congés/${selectedCongeId}/delete`)
+      .then(response => {
+        console.log(response.data);
+        closeConfirmDeleteModal();
+        setConges(conges.filter(conge => conge.id !== selectedCongeId));
+      })
+      .catch(error => {
+        console.error('Error deleting congé:', error);
       });
   };
 
@@ -193,6 +216,7 @@ const Calendar = () => {
                   <th>Date de Fin</th>
                   <th>Type de Congés</th>
                   <th>Statut des Congés</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -204,6 +228,10 @@ const Calendar = () => {
                     <td>{conge.date_fin}</td>
                     <td>{conge.type_congés}</td>
                     <td>{conge.statut_congés}</td>
+                    <td>
+                      <FaRegTrashAlt onClick={() => openConfirmDeleteModal(conge.id)} /> <br />
+                      <FaRegEdit />
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -222,7 +250,7 @@ const Calendar = () => {
         <h2>Ajouter un nouveau congé</h2>
         <form onSubmit={handleSubmit}>
           <label>ID Personnel:</label>
-          <input type="text" name='nom_personnel' value={newConge.id_personnel} onChange={handleInputChange} required />
+          <input type="text" name='nom_personnel' value={newConge.nom_personnel} onChange={handleInputChange} required />
           <label>Date de Début:</label>
           <input type="date" name='date_debut' value={newConge.date_debut} onChange={handleInputChange} required />
           <label>Date de Fin:</label>
@@ -233,10 +261,25 @@ const Calendar = () => {
           <input type="text" name='statut_congés' value={newConge.statut_congés} onChange={handleInputChange} required />
           <button type="submit">Ajouter</button>
         </form>
-        <button type="button" onClick={closeModal}>Fermer</button>
+      </Modal>
+
+      <Modal
+        isOpen={confirmDeleteModalIsOpen}
+        onRequestClose={closeConfirmDeleteModal}
+        contentLabel="Confirmer la suppression"
+        className={styles.modal}
+        overlayClassName={styles.overlay}
+      >
+        <h2>Confirmer la suppression</h2>
+        <p>Êtes-vous sûr de vouloir supprimer ce congé ?</p>
+        <div className={styles.modalButtons}>
+          <button onClick={handleDeleteConge}>Oui</button>
+          <button onClick={closeConfirmDeleteModal}>Non</button>
+        </div>
       </Modal>
     </div>
   );
 };
 
 export default Calendar;
+

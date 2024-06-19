@@ -18,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
         '/candidat',
         '/upload',
         '/congés',
+        '/congés/*',
         '/offre',
         '/offre/*',
         '/api'

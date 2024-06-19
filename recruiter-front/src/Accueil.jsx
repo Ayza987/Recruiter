@@ -35,7 +35,7 @@ const Accueil = () => {
         <div className={styles.logo}>GSC Recruiter</div>
         <div className={styles.navLinks}>
           <Link to="/offres">Les Offres</Link>
-          <Link to="/conges" onClick={handleClick}>Mes Congés</Link>
+          <Link to="/calendar" onClick={handleClick}>Mes Congés</Link>
           <Link to="/dashboard" onClick={handleClick}>Dashboard</Link>
           <Link to="https://www.gsc-technology.com/contact/">Contact</Link>
           {isLoggedIn ? (

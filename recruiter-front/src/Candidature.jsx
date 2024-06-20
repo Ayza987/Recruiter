@@ -77,7 +77,7 @@ const Candidature = () => {
     <div className={styles.candidatureContainer}>
       <header className={styles.candidatureHeader}>
         <h1>{intitule || 'Postuler à cette offre'}</h1>
-        <p>JOB OFFER - 70H / SEMAINE</p>
+        <p>OFFRE D'EMPLOI - 70H / SEMAINE</p>
         <a href="/offres" className={styles.candidatureBackLink}>Retour à la description de l'offre</a>
       </header>
       <div className={styles.candidatureContent}>

@@ -49,13 +49,12 @@
 
  .candidatureBackLink:hover{
   color:#003366;
+  font-size: 15px;
   text-decoration: none;
  }
 
  
- .candidatureForm {
-
- }
+ 
  
  .candidatureForm h2 {
    font-size: 30px;

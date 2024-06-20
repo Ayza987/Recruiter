@@ -1,29 +1,19 @@
-/*
- *   Copyright (c) 2024 
- *   All rights reserved.
- */
-/**
- * @file View.js
- * @description 
- * @author 
- * @copyright 
- */
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './View.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaChartLine } from 'react-icons/fa';
 
 const View = () => {
   const navigate = useNavigate();
-  const [jobs, setJobs] = useState([]);
+  const [candidatures, setCandidatures] = useState([]);
   const [search, setSearch] = useState('');
+  const [offreMaxCandidatures, setOffreMaxCandidatures] = useState('');
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/candidat')
       .then(response => {
-        setJobs(response.data.candidats);
+        setCandidatures(response.data.candidats);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -34,8 +24,8 @@ const View = () => {
     setSearch(e.target.value);
   };
 
-  const filteredJobs = jobs.filter(job => 
-    job.nom.toLowerCase().includes(search.toLowerCase()) || 
+  const filteredJobs = candidatures.filter(job =>
+    job.nom.toLowerCase().includes(search.toLowerCase()) ||
     job.prenom.toLowerCase().includes(search.toLowerCase()) ||
     job.email.toLowerCase().includes(search.toLowerCase()) ||
     job.telephone.toLowerCase().includes(search.toLowerCase()) ||
@@ -44,7 +34,7 @@ const View = () => {
   );
 
   const handleLogout = () => {
-    const token = localStorage.getItem('token'); 
+    const token = localStorage.getItem('token');
 
     axios.post('http://127.0.0.1:8000/api/auth/logout', {}, {
       headers: {
@@ -53,14 +43,33 @@ const View = () => {
     })
       .then(response => {
         console.log(response.data);
-        localStorage.removeItem('token'); 
-        navigate('/'); 
+        localStorage.removeItem('token');
+        navigate('/');
       })
       .catch(error => {
         console.error(error);
         window.alert('Erreur lors de la déconnexion. Veuillez réessayer.');
       });
   };
+
+  useEffect(() => {
+    if (filteredJobs.length > 0) {
+      const offreCandidatures = filteredJobs.reduce((acc, job) => {
+        if (acc[job.intitule]) {
+          acc[job.intitule]++;
+        } else {
+          acc[job.intitule] = 1;
+        }
+        return acc;
+      }, {});
+
+      const offreMax = Object.keys(offreCandidatures).reduce((a, b) =>
+        offreCandidatures[a] > offreCandidatures[b] ? a : b
+      );
+
+      setOffreMaxCandidatures(offreMax);
+    }
+  }, [filteredJobs]);
 
   return (
     <div className={styles.viewContainer}>
@@ -70,13 +79,14 @@ const View = () => {
             <h1>dashboard</h1>
           </div>
           <ul>
-          <span className={styles.viewNavItem}>
-            <li>
-              <Link to="/">
-                <FaUser />
-                Accueil
-              </Link>
-            </li> </span>
+            <span className={styles.viewNavItem}>
+              <li>
+                <Link to="/">
+                  <FaUser />
+                  Accueil
+                </Link>
+              </li>
+            </span>
             <li>
               <Link to="/Calendar">
                 <FaTasks />
@@ -117,15 +127,26 @@ const View = () => {
           <h1>Candidatures récentes</h1>
 
           <div className={styles.viewSearchBar}>
-            <input 
-              type="search" 
-              placeholder="Search job here..." 
+            <input
+              type="search"
+              placeholder="Search job here..."
               value={search}
               onChange={handleSearchChange}
             />
           </div>
-          <div className={styles.viewRow}>
-            <p>Il y a <span>{filteredJobs.length}</span> candidature(s).</p>
+
+          <div className={styles.viewStat}>
+            <div className={styles.Charts}>
+              <p className={styles.chartsIcons}><FaChartLine /></p>
+              Nombre total de candidatures :
+              <p><span>{filteredJobs.length}</span></p>
+            </div>
+
+            <div className={styles.Charts}>
+              <p className={styles.chartsIcons}><FaChartLine /></p>
+              Offre ayant reçu le plus de candidatures :
+              <p><span>{offreMaxCandidatures}</span></p>
+            </div>
           </div>
 
           <div className={styles.calendarTable}>
@@ -145,12 +166,12 @@ const View = () => {
                 {filteredJobs.map(job => (
                   <tr key={job.id}>
                     <td data-label="ID">{job.id}</td>
-      <td data-label="Nom">{job.nom}</td>
-      <td data-label="Prénom">{job.prenom}</td>
-      <td data-label="Email">{job.email}</td>
-      <td data-label="Téléphone">{job.telephone}</td>
-      <td data-label="Adresse">{job.Adresse}</td>
-      <td data-label="Offre">{job.intitule}</td>
+                    <td data-label="Nom">{job.nom}</td>
+                    <td data-label="Prénom">{job.prenom}</td>
+                    <td data-label="Email">{job.email}</td>
+                    <td data-label="Téléphone">{job.telephone}</td>
+                    <td data-label="Adresse">{job.Adresse}</td>
+                    <td data-label="Offre">{job.intitule}</td>
                   </tr>
                 ))}
               </tbody>

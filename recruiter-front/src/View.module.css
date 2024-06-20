@@ -95,6 +95,48 @@ li a {
   bottom: 20px;
 }
 
+.viewStat {
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center;
+  padding: 20px;
+ 
+}
+
+.Charts {
+  background-color: #ADD8E6; 
+  border-radius: 10px; 
+  width: 30%; 
+  text-align: center; 
+  padding: 20px; 
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  color: #003366; 
+  font-size: 16px; 
+}
+.viewStat .Charts:nth-child(2) {
+  background-color: #ADD8E6; 
+}
+
+.viewStat .Charts:nth-child(3) span{
+  background-color: #ADD8E6; 
+  font-size: 20px;
+}
+
+.viewStat .chartsIcons {
+  font-size: 34px; 
+}
+.viewStat .Charts p span {
+  font-size: 30px; 
+  font-weight: bold; 
+}
+
+
+
+.Charts p {
+  margin-top: 10px; 
+}
+
+
 .viewMain {
   width: 100%;
   margin-right: -200px;
@@ -230,22 +272,7 @@ h1 {
   margin-right: 0.7rem;
 }
 
-.viewRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin-top: 1.0rem;
-}
 
-.viewRow p {
-  color: rgb(54, 54, 54);
-  font-size: 15px;
-}
-
-.viewRow p span {
-  color: #108cce;
-}
 
 .jobCard {
   width: 88%;
@@ -266,13 +293,6 @@ h1 {
   font-size: 15px
 }
 
-
-
-.jobDetails .text {
-  
-
-  
-}
 
 
 .jobDetails .text .textItems {

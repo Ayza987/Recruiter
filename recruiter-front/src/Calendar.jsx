@@ -261,7 +261,7 @@ if (filteredConges.length > 0) {
           <p>GSC Recruiter</p>
         </div>
         <div className={styles.calendarMainBody}>
-          <h1>Les congés</h1>
+        <h1>Liste des congés</h1> <br />
 
           <div className={styles.calendarSearchBar}>
             <input 
@@ -299,6 +299,7 @@ if (filteredConges.length > 0) {
 
 
           </div>
+          <br />
 
           <div className={styles.calendarTable}>
             <table className={styles.jobTable}>

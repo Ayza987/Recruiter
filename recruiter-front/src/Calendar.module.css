@@ -63,6 +63,7 @@
 }
 
 .calendarLogo h1 {
+
   margin-left: 1rem;
   color: #ffff;
   text-transform: uppercase;
@@ -157,6 +158,7 @@ li a {
 }
 
 h1 {
+
   margin: 20px 10px;
 }
 
@@ -165,6 +167,11 @@ h1 {
   padding: 10px;
   justify-content: space-between;
   width: 80%;
+
+}
+
+.calendarSearchBar input{
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
 }
 
 .calendarSearchBar input {
@@ -573,5 +580,21 @@ h1 {
   .modal form button[type="close"] {
     display: none;
   }
-  
 }
+
+@media screen and (max-width: 600px) {
+  .calendarStat {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .Charts {
+    text-align: center; 
+    margin-bottom: 10px; 
+  }
+
+  .chartsIcons {
+    display: none; 
+  }
+}
+

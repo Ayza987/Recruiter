@@ -255,6 +255,10 @@ const Calendar = () => {
             <p>Il y a <span>{filteredConges.length}</span> congé(s).</p>
           </div>
 
+          <div className={styles.calendarStat}>
+            
+          </div>
+
           <div className={styles.calendarTable}>
             <table className={styles.jobTable}>
               <thead>

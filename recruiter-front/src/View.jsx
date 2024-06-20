@@ -78,7 +78,7 @@ const View = () => {
               </Link>
             </li> </span>
             <li>
-              <Link to="/Congés">
+              <Link to="/Calendar">
                 <FaTasks />
                 <span className={styles.viewNavItem}>Gestion des congés</span>
               </Link>

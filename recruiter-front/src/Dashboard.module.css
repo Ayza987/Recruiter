@@ -157,18 +157,7 @@ h1 {
   justify-content: space-between;
 }
 
-/* .consultButton {
-  background: #108CCE;
-  padding: 10px 15px;
-  border-radius: 20px;
-  border: 1px solid rgb(190, 190, 190);
-  display: flex;
-  color: #ffff;
-  align-items: center;
-  font-weight: bold;
-  font-size: 13px;
-  cursor: pointer;
-} */
+
 .deleteButton {
   background:  #003366;
   padding: 10px 15px;
@@ -392,3 +381,106 @@ h1 {
   background-color: #c82333;
 }
 
+/* Responsivité pour les tablettes */
+@media (max-width: 768px) {
+  .dashboardContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dashboardNav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .dashboardNavbar {
+    width: 100%;
+  }
+
+  .dashboardMain {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .dashboardSearchBar, .dashboardTagsBar {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .dashboardSearchBar input, .dashboardSearchBar select, .filter {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .jobCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  li a{
+    gap: 50px; 
+  }
+
+  .logout {
+   
+    margin-top: 50px; 
+
+  }
+
+}
+
+/* Responsivité pour les mobiles */
+@media (max-width: 480px) {
+  .dashboardLogo h1, .dashboardMainTop {
+    font-size: 20px;
+  }
+
+  li a, .logout {
+    font-size: 14px;
+  }
+
+  .dashboardSearchBar input, .dashboardSearchBar select {
+    font-size: 14px;
+  }
+
+  .dashboardRow p {
+    font-size: 14px;
+  }
+
+  .deleteButton, .publishButton, .dashboardButton {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .jobDetails .text .jobStatus {
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+
+  .jobDetails .img i {
+    font-size: 2rem;
+    padding: 5px;
+  }
+
+  .modal {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .modal form input[type="text"], .modal form textarea, .modal form input[type="date"] {
+    font-size: 14px;
+  }
+
+  .modal form button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+  ul {
+    gap: 8px; 
+  }
+}

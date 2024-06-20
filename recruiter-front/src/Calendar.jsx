@@ -200,19 +200,19 @@ const Calendar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/Congés">
+              <Link to="/Calendar">
                 <FaTasks />
                 <span className={styles.calendarNavItem}>Gestion des congés</span>
               </Link>
             </li>
             <li>
-              <a href="/calendar">
+              <a href="/dashboard">
                 <FaChartBar />
                 <span className={styles.calendarNavItem}>Offres d'emploi</span>
               </a>
             </li>
             <li>
-              <Link to="/calendar">
+              <Link to="/view">
                 <FaTasks />
                 <span className={styles.calendarNavItem}>Gestion des candidats</span>
               </Link>

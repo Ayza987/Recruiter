@@ -14,7 +14,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import styles from './Calendar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaRegTrashAlt, FaRegEdit, FaSearch } from 'react-icons/fa';
+import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaRegTrashAlt, FaRegEdit, FaChartLine } from 'react-icons/fa';
 
 const Calendar = () => {
   const navigate = useNavigate();
@@ -81,6 +81,31 @@ const Calendar = () => {
     conge.type_congés.toLowerCase().includes(search.toLowerCase()) ||
     conge.statut_congés.toLowerCase().includes(search.toLowerCase())
   );
+
+  const nombreCongesEnCours = filteredConges.filter(conge => conge.statut_congés.toLowerCase() === 'en cours').length;
+
+  let congesParPersonnel = {};
+  let personnelMaxConges = '';
+  let maxConges = 0;
+if (filteredConges.length > 0) {
+  // Calculer le nombre de congés par personnel
+  congesParPersonnel = filteredConges.reduce((acc, conge) => {
+    if (acc[conge.nom_personnel]) {
+      acc[conge.nom_personnel]++;
+    } else {
+      acc[conge.nom_personnel] = 1;
+    }
+    return acc;
+  }, {});
+
+  // Trouver le personnel avec le plus grand nombre de congés
+  personnelMaxConges = Object.keys(congesParPersonnel).reduce((a, b) =>
+    congesParPersonnel[a] > congesParPersonnel[b] ? a : b
+  );
+  maxConges = congesParPersonnel[personnelMaxConges];
+}
+
+
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -252,11 +277,27 @@ const Calendar = () => {
             </div>
           </div>
           <div className={styles.calendarRow}>
-            <p>Il y a <span>{filteredConges.length}</span> congé(s).</p>
+            <p></p>
           </div>
 
           <div className={styles.calendarStat}>
-            
+            <div className={styles.Charts}>  
+              <p className={styles.chartsIcons}><FaChartLine /></p>
+              Nombre total de congés : 
+              <p><span>{filteredConges.length}</span></p>
+            </div>
+            <div className={styles.Charts}> 
+            <p className={styles.chartsIcons}><FaChartLine /></p>
+              Nombre de congés en cours: 
+              <p><span>{nombreCongesEnCours}</span></p> 
+            </div>
+            <div className={styles.Charts}> 
+            <p className={styles.chartsIcons}><FaChartLine /></p>
+              Personnel ayant pris le plus de congés : 
+              <p><span>{personnelMaxConges}</span></p> 
+            </div>
+
+
           </div>
 
           <div className={styles.calendarTable}>
@@ -303,7 +344,7 @@ const Calendar = () => {
       >
         <h2>Ajouter un nouveau congé</h2>
         <form onSubmit={handleSubmit}>
-          <label>ID Personnel:</label>
+          <label>Nom :</label>
           <input type="text" name='nom_personnel' value={newConge.nom_personnel} onChange={handleInputChange} required />
           <label>Date de Début:</label>
           <input type="date" name='date_debut' value={newConge.date_debut} onChange={handleInputChange} required />
@@ -328,7 +369,7 @@ const Calendar = () => {
         <form onSubmit={handleEditSubmit}>
           <label>ID:</label>
           <input type="text" name='id' value={editConge.id} readOnly />
-          <label>ID Personnel:</label>
+          <label>Nom:</label>
           <input type="text" name='nom_personnel' value={editConge.nom_personnel} onChange={handleEditInputChange} required />
           <label>Date de Début:</label>
           <input type="date" name='date_debut' value={editConge.date_debut} onChange={handleEditInputChange} required />

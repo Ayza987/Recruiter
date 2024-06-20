@@ -38,9 +38,8 @@ const Offres = () => {
           <h2>{offre.intitulé}</h2>
           <h3> <u>Description du poste </u></h3>
           <p>{offre.description}</p>
-          <h3>Offre valide jusqu'à la date :  </h3>
-          <p> {offre.date_butoir} </p>
-          <h3>Type d'offre :  {offre.type_offre}  </h3>
+          <p> Offre valide jusqu'à la date : <strong>{offre.date_butoir} </strong> </p>
+          <h4>Type d'offre :  {offre.type_offre}  </h4>
           
           <button className={styles.postulerBtn} onClick={() => handlePostuler(offre.intitulé)}>Postuler</button>
         </section>

@@ -225,7 +225,7 @@ const Calendar = () => {
             </li>
             <li className={styles.logout} onClick={handleLogout}>
               <FaSignOutAlt />
-              <button className={styles.calendarNavItem}>Déconnexion</button>
+              <button className={styles.logout}>Déconnexion</button>
             </li>
           </ul>
         </div>
@@ -271,13 +271,13 @@ const Calendar = () => {
               <tbody>
                 {filteredConges.map(conge => (
                   <tr key={conge.id}>
-                    <td>{conge.id}</td>
-                    <td>{conge.nom_personnel}</td>
-                    <td>{conge.date_debut}</td>
-                    <td>{conge.date_fin}</td>
-                    <td>{conge.type_congés}</td>
-                    <td>{conge.statut_congés}</td>
-                    <td>
+                    <td data-label='ID'>{conge.id}</td>
+                    <td data-label='Nom'>{conge.nom_personnel}</td>
+                    <td data-label='Date de début'>{conge.date_debut}</td>
+                    <td data-label='Date de fin'>{conge.date_fin}</td>
+                    <td data-label='Type de congés'>{conge.type_congés}</td>
+                    <td data-label='Statut '>{conge.statut_congés}</td>
+                    <td data-label='Action'>
                       <span className={styles.calendarIcons}>  <FaRegTrashAlt onClick={() => openConfirmDeleteModal(conge.id)} /> <br />
                       <FaRegEdit onClick={() => openEditModal(conge)} /></span>
                      

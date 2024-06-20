@@ -84,6 +84,7 @@ li a {
 
 .logout {
   font-size: 16px;
+  background-color: #003366;
   color: #ffff;
   display: flex;
   align-items: center;
@@ -376,3 +377,161 @@ h1 {
 }
 
 
+@media (max-width: 768px) {
+  .calendarContainer {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .calendarNav {
+    position: static; 
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    bottom: initial;
+  }
+
+  .calendarNavbar {
+    width: 100%;
+  }
+
+  .logout {
+    position: relative;
+    bottom: initial;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .calendarMain {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .calendarMainTop {
+    font-size: 20px;
+  }
+
+  .calendarSearchBar input {
+    width: 100%; 
+  }
+
+  .calendarTagsBar {
+    width: 100%; 
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .calendarBar {
+    gap: 20px; 
+  }
+
+  .jobTable {
+    min-width: 100%; 
+    font-size: 0.8em; 
+  }
+
+  .modal form button[type="close"] {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendarContainer {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .calendarNav {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    bottom: initial;
+  }
+
+  .calendarNavbar {
+    width: 100%;
+  }
+
+  .logout {
+    position: relative;
+    bottom: initial;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .calendarMain {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .calendarMainTop {
+    font-size: 20px;
+  }
+
+  .calendarSearchBar input {
+    width: 100%;
+  }
+
+  .calendarTagsBar {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .calendarBar {
+    gap: 20px;
+  }
+
+  .jobTable {
+    width: 100%;
+    font-size: 0.8em;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .jobTable thead,
+  .jobTable tbody,
+  .jobTable th,
+  .jobTable td,
+  .jobTable tr {
+    display: block;
+  }
+
+  .jobTable thead tr {
+    display: none;
+  }
+
+  .jobTable tr {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  .jobTable td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .jobTable td:before {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-label);
+    font-weight: bold;
+  }
+
+  .jobTable td:last-child {
+    border-bottom: none;
+  }
+  .modal form button[type="close"] {
+    display: none;
+  }
+  
+}

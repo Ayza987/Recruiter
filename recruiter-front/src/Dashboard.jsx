@@ -159,7 +159,7 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/Congés">
+              <Link to="/Calendar">
                 <FaTasks />
                 <span className={styles.dashboardNavItem}>Gestion des congés</span>
               </Link>
@@ -184,7 +184,7 @@ const Dashboard = () => {
             </li>
             <li className={styles.logout} onClick={handleLogout}>
               <FaSignOutAlt />
-              <button className={styles.dashboardNavItem}>Déconnexion</button>
+              <button className={styles.logout}>Déconnexion</button>
             </li>
           </ul>
         </div>

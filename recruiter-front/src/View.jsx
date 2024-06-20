@@ -103,7 +103,7 @@ const View = () => {
             </li>
             <li className={styles.logout} onClick={handleLogout}>
               <FaSignOutAlt />
-              <button className={styles.dashboardNavItem}>Déconnexion</button>
+              <button className={styles.logout}>Déconnexion</button>
             </li>
           </ul>
         </div>
@@ -144,13 +144,13 @@ const View = () => {
               <tbody>
                 {filteredJobs.map(job => (
                   <tr key={job.id}>
-                    <td>{job.id}</td>
-                    <td>{job.nom}</td>
-                    <td>{job.prenom}</td>
-                    <td>{job.email}</td>
-                    <td>{job.telephone}</td>
-                    <td>{job.Adresse}</td>
-                    <td>{job.intitule}</td>
+                    <td data-label="ID">{job.id}</td>
+      <td data-label="Nom">{job.nom}</td>
+      <td data-label="Prénom">{job.prenom}</td>
+      <td data-label="Email">{job.email}</td>
+      <td data-label="Téléphone">{job.telephone}</td>
+      <td data-label="Adresse">{job.Adresse}</td>
+      <td data-label="Offre">{job.intitule}</td>
                   </tr>
                 ))}
               </tbody>

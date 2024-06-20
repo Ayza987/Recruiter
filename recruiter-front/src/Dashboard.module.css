@@ -84,6 +84,7 @@ li a {
 
 .logout {
   font-size: 16px;
+  background-color: #003366;
   color: #ffff;
   display: flex;
   align-items: center;
@@ -389,11 +390,11 @@ h1 {
   }
 
   .dashboardNav {
+    position: static; /* Changement de sticky à static pour la navbar */
     width: 100%;
     height: auto;
-    position: relative;
     margin-left: 0;
-    margin-top: 0;
+    bottom: initial;
   }
 
   .dashboardNavbar {
@@ -422,14 +423,13 @@ h1 {
     align-items: flex-start;
   }
 
-  li a{
-    gap: 50px; 
-  }
+  
 
   .logout {
-   
-    margin-top: 50px; 
-
+    position: relative; /* Retour à la position relative */
+    bottom: initial;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
 }

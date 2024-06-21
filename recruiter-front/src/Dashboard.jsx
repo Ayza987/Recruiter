@@ -235,7 +235,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className={styles.jobSalary}>
-                {/* <button className={styles.consultButton}>Consulter</button> */}
+                
                 <button
                   className={styles.publishButton}
                   onClick={() => handleToggleStatus(job.id)}>
@@ -263,9 +263,19 @@ const Dashboard = () => {
           <label>Description:</label>
           <textarea name='description'  value={newJob.description} onChange={handleInputChange} required></textarea>
           <label>Département:</label>
-          <input type="text" name='departement'  value={newJob.departement} onChange={handleInputChange} required />
+          <select className={styles.dashboardFilter} name='departement' value={newJob.type_offre} onChange={handleInputChange} required>
+          <option value="Soft">Soft</option>
+              <option value="Bon Comptoir">Bon Comptoir</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Technique">Technique</option>
+            </select>
           <label>Type d'offre:</label>
-          <input type="text" name='type_offre'  value={newJob.type_offre} onChange={handleInputChange} required />
+          <select className={styles.dashboardFilter} name="type_offre" value={newJob.type_offre} onChange={handleInputChange} required>
+              <option value="CDI">CDI</option>
+              <option value="CDD">CDD</option>
+              <option value="Stage professionel">Stage professionel</option>
+              <option value="Stage académique">Stage académique</option>
+            </select>
           <label>Date Butoir:</label>
           <input type="text" name='date_butoir'  value={newJob.date_butoir} onChange={handleInputChange} required />
           <button type="submit">Publier</button>

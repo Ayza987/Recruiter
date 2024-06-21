@@ -40,7 +40,7 @@ const Accueil = () => {
               <Link to="/dashboard" onClick={handleClick}>Dashboard</Link>
             </div>
             
-          ): (<Link to="/calendar" onClick={handleClick}></Link>) }
+          ): (<Link ></Link>) }
           
           <Link to="https://www.gsc-technology.com/contact/">Contact</Link>
           {isLoggedIn ? (

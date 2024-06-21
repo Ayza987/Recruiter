@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './View.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaChartLine } from 'react-icons/fa';
+import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaChartLine, FaChartPie } from 'react-icons/fa';
 
 const View = () => {
   const navigate = useNavigate();
@@ -143,7 +143,7 @@ const View = () => {
             </div>
 
             <div className={styles.Charts}>
-              <p className={styles.chartsIcons}><FaChartLine /></p>
+              <p className={styles.chartsIcons}><FaChartPie /></p>
               Offre ayant reçu le plus de candidatures :
               <p><span>{offreMaxCandidatures}</span></p>
             </div>

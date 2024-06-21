@@ -88,7 +88,6 @@ const Calendar = () => {
   let personnelMaxConges = '';
   let maxConges = 0;
 if (filteredConges.length > 0) {
-  // Calculer le nombre de congés par personnel
   congesParPersonnel = filteredConges.reduce((acc, conge) => {
     if (acc[conge.nom_personnel]) {
       acc[conge.nom_personnel]++;

@@ -34,8 +34,14 @@ const Accueil = () => {
         <div className={styles.logo}>GSC Recruiter</div>
         <div className={isMenuOpen ? `${styles.navLinks} ${styles.navLinksOpen}` : styles.navLinks}>
           <Link to="/offres">Les Offres</Link>
-          <Link to="/calendar" onClick={handleClick}>Mes Congés</Link>
-          <Link to="/dashboard" onClick={handleClick}>Dashboard</Link>
+          {isLoggedIn ? (
+            <div>
+              <Link to="/calendar" onClick={handleClick}>Mes Congés</Link> &nbsp;
+              <Link to="/dashboard" onClick={handleClick}>Dashboard</Link>
+            </div>
+            
+          ): (<Link to="/calendar" onClick={handleClick}></Link>) }
+          
           <Link to="https://www.gsc-technology.com/contact/">Contact</Link>
           {isLoggedIn ? (
             <button className={styles.loginButton} onClick={handleLogout}>

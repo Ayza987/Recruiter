@@ -378,6 +378,7 @@ h1 {
 }
 
 .modal form input[type="text"],
+.modal form input[type="email"],
 .modal form textarea,
 .modal form input[type="date"] {
   width: calc(100% - 16px);

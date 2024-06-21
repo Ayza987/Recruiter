@@ -36,7 +36,7 @@ const Accueil = () => {
           <Link to="/offres">Les Offres</Link>
           {isLoggedIn ? (
             <div>
-              <Link to="/calendar" onClick={handleClick}>Mes Congés</Link> &nbsp;
+              <Link to="/calendar" onClick={handleClick}>Mes Congés</Link> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <Link to="/dashboard" onClick={handleClick}>Dashboard</Link>
             </div>
             

@@ -28,10 +28,15 @@ const Dashboard = () => {
     departement: '',
     statut_offre: '',
     date_butoir: '',
-    type_offre:''
+    type_offre: '',
+
   });
 
   useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  const fetchJobs = () => {
     axios.get('http://127.0.0.1:8000/offre')
       .then(response => {
         console.log(response);
@@ -40,18 +45,12 @@ const Dashboard = () => {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  };
 
-  const handleDepartmentChange = (e) => { 
+  const handleDepartmentChange = (e) => {
     setDepartment(e.target.value);
     if (e.target.value === '') {
-      axios.get('http://127.0.0.1:8000/offre')
-        .then(response => {
-          setJobs(response.data.offres);
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      fetchJobs();
     } else {
       axios.get(`http://127.0.0.1:8000/offre/department/${e.target.value}`)
         .then(response => {
@@ -61,8 +60,9 @@ const Dashboard = () => {
         .catch(error => {
           if (error.response && error.response.status === 404) {
             setJobs([]);
-          console.error(error);
-        }});
+            console.error(error);
+          }
+        });
     }
   };
 
@@ -93,7 +93,7 @@ const Dashboard = () => {
     axios.delete(`http://127.0.0.1:8000/offre/${id}/delete`)
       .then(response => {
         console.log(response.data);
-        setJobs(jobs.filter(job => job.id !== id));
+        fetchJobs();
       })
       .catch(error => {
         console.error(error);
@@ -103,7 +103,7 @@ const Dashboard = () => {
   const handleToggleStatus = (id) => {
     axios.put(`http://127.0.0.1:8000/offre/${id}/toggle-status`)
       .then(response => {
-        setJobs(jobs.map(job => job.id === id ? response.data.offre : job));
+        fetchJobs();
       })
       .catch(error => {
         console.error(error);
@@ -124,20 +124,13 @@ const Dashboard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://127.0.0.1:8000/offre', newJob)
+    
+
+    axios.post('http://127.0.0.1:8000/offre',newJob)
       .then(response => {
         console.log(response.data);
-        setJobs([...jobs, response.data.offre]);
-        setNewJob({
-          intitulé: '',
-          description: '',
-          departement: '',
-          statut_offre: '',
-          date_butoir: '',
-          type_offre: ''
-        });
         closeModal();
-        window.location.reload();
+        fetchJobs(); 
       })
       .catch(error => {
         console.error(error);
@@ -216,6 +209,7 @@ const Dashboard = () => {
 
           <div className={styles.dashboardRow}>
             <p>Il y'a <span>{jobs.length}</span> offre(s) d'emploi disponible(s)</p>
+            <a href="http://localhost:3000/Offres">See all</a>
            
           </div>
 
@@ -277,7 +271,7 @@ const Dashboard = () => {
               <option value="Stage académique">Stage académique</option>
             </select>
           <label>Date Butoir:</label>
-          <input type="text" name='date_butoir'  value={newJob.date_butoir} onChange={handleInputChange} required />
+          <input type="date" name='date_butoir'  value={newJob.date_butoir} onChange={handleInputChange} required />
           <button type="submit">Publier</button>
         </form>
         <button type="close" onClick={closeModal}>Fermer</button>

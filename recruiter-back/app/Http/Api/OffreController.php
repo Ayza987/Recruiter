@@ -50,6 +50,7 @@ class OffreController extends Controller
             'departement' => 'required|string',
             'date_butoir' => 'required|date',
             'type_offre' => 'required|string',
+           
         ]);
 
         if ($validator->fails()){
@@ -61,6 +62,7 @@ class OffreController extends Controller
                 'departement' => $request->departement,
                 'date_butoir' => $request->date_butoir,
                 'type_offre' => $request->type_offre,
+                
             ]);
 
             if ($offre){
@@ -99,6 +101,7 @@ class OffreController extends Controller
                 'departement' => $request->departement,
                 'date_butoir' => $request->date_butoir,
                 'type_offre' => $request->type_offre,
+                
             ]);
             return response()->json(['message' => 'Offre updated'], 200);
         }else{

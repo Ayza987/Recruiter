@@ -31,6 +31,7 @@ const Candidature = () => {
     intitule: intitule || 'Intitulé non spécifié'
   });
 
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -101,7 +102,7 @@ const Candidature = () => {
               </tr>
               <tr>
                 <td><label>Date de naissance</label></td>
-                <td><input type="text" name="Date_de_naissance" placeholder='aaaa/mm/jj' onChange={handleChange} required/></td>
+                <td><input type="date" name="Date_de_naissance" placeholder='aaaa/mm/jj' onChange={handleChange} required/></td>
               </tr>
               <tr>
                 <td><label>Email</label></td>

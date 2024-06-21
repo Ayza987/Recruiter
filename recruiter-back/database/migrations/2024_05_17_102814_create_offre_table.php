@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('departement');
             $table->string('statut_offre');
             $table->date('date_butoir');
+            
         });
     }
 

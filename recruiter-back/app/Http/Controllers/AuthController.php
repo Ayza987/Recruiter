@@ -24,15 +24,18 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function login()
-    {
-        $credentials = request(['email', 'password']);
+{
+    $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-        
-        return $this->respondWithToken($token); 
+    if (! $token = auth()->attempt($credentials)) {
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
+    
+    $user = auth()->user();
+
+    return $this->respondWithToken($token, $user->statut, $user->email); 
+}
+
 
     /**
      * Get the authenticated User.
@@ -74,13 +77,15 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function respondWithToken($token)
+    protected function respondWithToken($token, $statut, $email)
     {
         # This function is used to make JSON response with new
         # access token of current user
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
+            'statut' => $statut,
+            'email' => $email,
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }

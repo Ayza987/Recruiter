@@ -14,7 +14,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import styles from './Calendar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaRegTrashAlt, FaRegEdit, FaChartLine } from 'react-icons/fa';
+import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaRegTrashAlt, FaRegEdit, FaChartLine, FaChartPie } from 'react-icons/fa';
 
 const Calendar = () => {
   const navigate = useNavigate();
@@ -26,6 +26,7 @@ const Calendar = () => {
   const [selectedCongeId, setSelectedCongeId] = useState(null);
   const [newConge, setNewConge] = useState({
     nom_personnel: '',
+    email:'',
     date_debut: '',
     date_fin: '',
     type_congés: '',
@@ -34,6 +35,7 @@ const Calendar = () => {
   const [editConge, setEditConge] = useState({
     id: '',
     nom_personnel: '',
+     email:'',
     date_debut: '',
     date_fin: '',
     type_congés: '',
@@ -41,7 +43,13 @@ const Calendar = () => {
   });
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/congés')
+
+    const token = localStorage.getItem('token');
+    axios.get('http://127.0.0.1:8000/congés', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(response => {
         setConges(response.data.congés);
       })
@@ -79,7 +87,8 @@ const Calendar = () => {
     conge.date_debut.toLowerCase().includes(search.toLowerCase()) || 
     conge.date_fin.toLowerCase().includes(search.toLowerCase()) ||
     conge.type_congés.toLowerCase().includes(search.toLowerCase()) ||
-    conge.statut_congés.toLowerCase().includes(search.toLowerCase())
+    conge.statut_congés.toLowerCase().includes(search.toLowerCase()) ||
+    conge.email.toLowerCase().includes(search.toLowerCase())
   );
 
   const nombreCongesEnCours = filteredConges.filter(conge => conge.statut_congés.toLowerCase() === 'en cours').length;
@@ -97,7 +106,6 @@ if (filteredConges.length > 0) {
     return acc;
   }, {});
 
-  // Trouver le personnel avec le plus grand nombre de congés
   personnelMaxConges = Object.keys(congesParPersonnel).reduce((a, b) =>
     congesParPersonnel[a] > congesParPersonnel[b] ? a : b
   );
@@ -291,7 +299,7 @@ if (filteredConges.length > 0) {
               <p><span>{nombreCongesEnCours}</span></p> 
             </div>
             <div className={styles.Charts}> 
-            <p className={styles.chartsIcons}><FaChartLine /></p>
+            <p className={styles.chartsIcons}><FaChartPie /></p>
               Personnel ayant pris le plus de congés : 
               <p><span>{personnelMaxConges}</span></p> 
             </div>
@@ -306,6 +314,7 @@ if (filteredConges.length > 0) {
                 <tr>
                   <th>ID</th>
                   <th>Nom</th>
+                  <th>Email</th>
                   <th>Date de Début</th>
                   <th>Date de Fin</th>
                   <th>Type de Congés</th>
@@ -318,6 +327,7 @@ if (filteredConges.length > 0) {
                   <tr key={conge.id}>
                     <td data-label='ID'>{conge.id}</td>
                     <td data-label='Nom'>{conge.nom_personnel}</td>
+                    <td data-label='Email'>{conge.email}</td>
                     <td data-label='Date de début'>{conge.date_debut}</td>
                     <td data-label='Date de fin'>{conge.date_fin}</td>
                     <td data-label='Type de congés'>{conge.type_congés}</td>
@@ -346,6 +356,8 @@ if (filteredConges.length > 0) {
         <form onSubmit={handleSubmit}>
           <label>Nom :</label>
           <input type="text" name='nom_personnel' value={newConge.nom_personnel} onChange={handleInputChange} required />
+          <label>Email :</label>
+          <input type="email" name='email' value={newConge.email} onChange={handleInputChange} required />
           <label>Date de Début:</label>
           <input type="date" name='date_debut' value={newConge.date_debut} onChange={handleInputChange} required />
           <label>Date de Fin:</label>
@@ -371,6 +383,8 @@ if (filteredConges.length > 0) {
           <input type="text" name='id' value={editConge.id} readOnly />
           <label>Nom:</label>
           <input type="text" name='nom_personnel' value={editConge.nom_personnel} onChange={handleEditInputChange} required />
+          <label>Email :</label>
+          <input type="email" name='email' value={newConge.email} onChange={handleInputChange} required />
           <label>Date de Début:</label>
           <input type="date" name='date_debut' value={editConge.date_debut} onChange={handleEditInputChange} required />
           <label>Date de Fin:</label>

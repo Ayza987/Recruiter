@@ -14,6 +14,7 @@ class Congés extends Model
 
     protected $fillable = [
         'nom_personnel',
+        'email',
         'date_debut',
         'date_fin',
         'type_congés',

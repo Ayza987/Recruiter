@@ -9,18 +9,35 @@ use App\Http\Controllers\Controller;
 
 class CongésController extends Controller
 {
-    public function index(){
-        $congés = Congés::all();
-        if ($congés->count() > 0){
-            return response()->json(['congés' => $congés], 200);
-        }else{
-            return response()->json(['message' => 'No data found'], 404);
+    public function index()
+    {
+        
+        if (auth()->check()) {
+            $user = auth()->user();
+            $email = $user->email; 
+            
+            if ($user->statut == 'admin') {
+                
+                $congés = Congés::all();
+            } else {
+                
+                $congés = Congés::where('email', $email)->get();
+            }
+
+            if ($congés->count() > 0) {
+                return response()->json(['congés' => $congés], 200);
+            } else {
+                return response()->json(['message' => 'Aucun congé trouvé'], 404);
+            }
+        } else {
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
     }
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
             'nom_personnel' => 'required|string',
+            'email' => 'required|string',
             'date_debut' => 'required|date',
             'date_fin' => 'required|date',
             'type_congés' => 'required|string',
@@ -32,6 +49,7 @@ class CongésController extends Controller
         }else{
             $congés = Congés::create([
                 'nom_personnel' => $request->nom_personnel,
+                'email' => $request->email,
                 'date_debut' => $request->date_debut,
                 'date_fin' => $request->date_fin,
                 'type_congés' => $request->type_congés,
@@ -60,6 +78,7 @@ class CongésController extends Controller
         if($congés){
             $congés->update([
                 'nom_personnel' => $request->nom_personnel,
+                'email' => $request->email,
                 'date_debut' => $request->date_debut,
                 'date_fin' => $request->date_fin,
                 'type_congés' => $request->type_congés,

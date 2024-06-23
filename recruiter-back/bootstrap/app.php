@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     $middleware->validateCsrfTokens(except: [
         '/personnel',
         '/candidat',
+        '/candidat/*',
         '/upload',
         '/congés',
         '/congés/*',

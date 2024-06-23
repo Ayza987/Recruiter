@@ -29,6 +29,8 @@ Route::delete('personnel/{id}/delete', [PersonnelController::class, 'destroy']);
 
 Route::get('candidat', [CandidatController::class, 'index']);
 Route::post('candidat', [CandidatController::class, 'store']);
+Route::post('/candidat/approve', [CandidatController::class, 'approve']);
+Route::post('/candidat/reject', [CandidatController::class, 'reject']);
 Route::get('candidat/{id}',[CandidatController::class, 'show']);
 Route::put('candidat/{id}/edit', [CandidatController::class, 'update']);
 Route::delete('candidat/{id}/delete', [CandidatController::class, 'destroy']);

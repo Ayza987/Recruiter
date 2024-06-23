@@ -131,6 +131,39 @@ li a {
 }
 
 
+/* Container for buttons */
+.buttons {
+  display: flex;
+  gap: 10px; 
+}
+
+
+.approveButton {
+  background-color: #9CDD90; 
+  border: none;
+  color: black;
+  padding: 8px 16px; 
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px; 
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.rejectButton {
+  background-color: #F95757; 
+  border: none;
+  color: black;
+  padding: 8px 16px; 
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px; 
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 
 .Charts p {
   margin-top: 10px; 

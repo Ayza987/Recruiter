@@ -52,6 +52,37 @@ const View = () => {
       });
   };
 
+
+  const handleApprove = (job) => {
+    axios.post(`http://127.0.0.1:8000/candidat/approve`, {
+      email: job.email,
+      name: job.prenom,
+      surname: job.nom,
+      offer: job.intitule
+    })
+    .then(response => {
+      alert('Email sent successfully');
+    })
+    .catch(error => {
+      console.error('There was an error sending the email!', error);
+    });
+  };
+
+  const handleReject = (job) => {
+    axios.post(`http://127.0.0.1:8000/candidat/reject`, {
+      email: job.email,
+      name: job.prenom,
+      surname: job.nom,
+      offer: job.intitule
+    })
+    .then(response => {
+      alert('Email sent successfully');
+    })
+    .catch(error => {
+      console.error('There was an error sending the email!', error);
+    });
+  };
+
   useEffect(() => {
     if (filteredJobs.length > 0) {
       const offreCandidatures = filteredJobs.reduce((acc, job) => {
@@ -160,6 +191,7 @@ const View = () => {
                   <th>Téléphone</th>
                   <th>Adresse</th>
                   <th>Offre</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -172,6 +204,13 @@ const View = () => {
                     <td data-label="Téléphone">{job.telephone}</td>
                     <td data-label="Adresse">{job.Adresse}</td>
                     <td data-label="Offre">{job.intitule}</td>
+                    <td data-label="Action">
+                      <span className={styles.buttons}> 
+                      <button className={styles.approveButton} onClick={() => handleApprove(job)}>Approuver</button>
+                      <button className={styles.rejectButton} onClick={() => handleReject(job)}>Rejeter</button>
+                      </span>
+                      
+                    </td>
                   </tr>
                 ))}
               </tbody>

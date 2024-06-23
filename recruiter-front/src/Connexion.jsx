@@ -50,7 +50,7 @@ function Connexion() {
             <input type="password" id="password" onChange={handleChange} />
             <div className={styles.checkboxContainer}>
               <label htmlFor="terms">
-                <a href="#">Mot de passe oublié ?</a>
+                {/* <a href="#">Mot de passe oublié ?</a> */}
               </label>
             </div>
             <button type="submit">Se connecter</button>

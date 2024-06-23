@@ -35,8 +35,8 @@ const Accueil = () => {
         <div className={isMenuOpen ? `${styles.navLinks} ${styles.navLinksOpen}` : styles.navLinks}>
           <Link to="/offres">Les Offres</Link>
           {isLoggedIn ? (
-            <div>
-              <Link to="/calendar" onClick={handleClick}>Mes Congés</Link> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <div className={styles.navLinks}>
+              <Link to="/calendar" onClick={handleClick}>Mes Congés</Link>  
               <Link to="/dashboard" onClick={handleClick}>Dashboard</Link>
             </div>
             

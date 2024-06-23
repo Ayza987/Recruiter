@@ -5,6 +5,8 @@ namespace App\Http\Api;
 use App\Models\Candidat;
 use App\Mail\CandidatMail;
 use App\Mail\AdminMail;
+use App\Mail\ApproveMail;
+use App\Mail\RejectMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -110,6 +112,25 @@ class CandidatController extends Controller
          
 
     }
+
+    public function approve(Request $request)
+    {
+        $data = $request->all();
+
+        Mail::to($data['email'])->send(new ApproveMail($data));
+
+        return response()->json(['message' => 'Un email a été envoyé au candidat.']);
+    }
+
+    public function reject(Request $request)
+    {
+        $data = $request->all();
+
+        Mail::to($data['email'])->send(new RejectMail($data));
+
+        return response()->json(['message' => 'Un email a été envoyé au candidat']);
+    }
+
 
     public function update(Request $request, int $id){
 

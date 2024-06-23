@@ -258,7 +258,7 @@ const Dashboard = () => {
           <textarea name='description'  value={newJob.description} onChange={handleInputChange} required></textarea>
           <label>Département:</label>
           <select className={styles.dashboardFilter} name='departement' value={newJob.type_offre} onChange={handleInputChange} required>
-          <option value="Soft">Soft</option>
+              <option value="Soft">Soft</option>
               <option value="Bon Comptoir">Bon Comptoir</option>
               <option value="Marketing">Marketing</option>
               <option value="Technique">Technique</option>
@@ -274,7 +274,7 @@ const Dashboard = () => {
           <input type="date" name='date_butoir'  value={newJob.date_butoir} onChange={handleInputChange} required />
           <button type="submit">Publier</button>
         </form>
-        <button type="close" onClick={closeModal}>Fermer</button>
+        {/* <button type="close" onClick={closeModal}>Fermer</button> */}
       </Modal>
     </div>
   );

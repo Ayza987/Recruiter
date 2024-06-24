@@ -26,7 +26,7 @@ class CandidatController extends Controller
         ], 200);
     }else{
         return response()->json([
-            'message' => 'No data found'
+            'message' => 'No candidat found'
 
 
         ], 404);

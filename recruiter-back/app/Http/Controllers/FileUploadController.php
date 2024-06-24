@@ -38,4 +38,5 @@ class FileUploadController extends Controller
 
         $file->move(public_path($destinationPath), $filename);
     }
+
 }

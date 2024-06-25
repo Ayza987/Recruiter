@@ -159,6 +159,7 @@ if (filteredConges.length > 0) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('token');
     const formattedConge = {
       ...newConge,
       date_debut: new Date(newConge.date_debut).toISOString().split('T')[0],
@@ -168,7 +169,11 @@ if (filteredConges.length > 0) {
       .then(response => {
         console.log(response.data);
         closeModal();
-        axios.get('http://127.0.0.1:8000/congés')
+        axios.get('http://127.0.0.1:8000/congés', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
           .then(response => {
             setConges(response.data.congés);
           })
@@ -183,27 +188,42 @@ if (filteredConges.length > 0) {
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('token');
+
     const formattedConge = {
       ...editConge,
       date_debut: new Date(editConge.date_debut).toISOString().split('T')[0],
       date_fin: new Date(editConge.date_fin).toISOString().split('T')[0]
     };
-    axios.put(`http://127.0.0.1:8000/congés/${editConge.id}/edit`, formattedConge)
+    
+    axios.put(`http://127.0.0.1:8000/congés/${editConge.id}/edit`, formattedConge, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(response => {
+      console.log(response.data);
+      closeEditModal();
+      axios.get('http://127.0.0.1:8000/congés', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       .then(response => {
-        console.log(response.data);
-        closeEditModal();
-        axios.get('http://127.0.0.1:8000/congés')
-          .then(response => {
-            setConges(response.data.congés);
-          })
-          .catch(error => {
-            console.error('Error fetching data:', error);
-          });
+        setConges(response.data.congés);
       })
       .catch(error => {
-        console.error('Error updating congé:', error);
+        console.error('Error fetching data:', error);
       });
+    })
+    .catch(error => {
+      console.error('Error updating congé:', error);
+      if (error.response && error.response.status === 401) {
+        navigate('/login');
+      }
+    });
   };
+
 
   const handleDeleteConge = () => {
     axios.delete(`http://127.0.0.1:8000/congés/${selectedCongeId}/delete`)
@@ -408,8 +428,8 @@ if (filteredConges.length > 0) {
         <h2>Confirmer la suppression</h2>
         <p>Êtes-vous sûr de vouloir supprimer ce congé ?</p>
         <div className={styles.modalButtons}>
-          <button onClick={handleDeleteConge}>Supprimer</button> 
-          <button onClick={closeConfirmDeleteModal}>Annuler</button>
+          <button type="submit" onClick={handleDeleteConge}>Supprimer</button> 
+          <button type="close" onClick={closeConfirmDeleteModal}>Annuler</button>
         </div>
       </Modal>
     </div>

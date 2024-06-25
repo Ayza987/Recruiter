@@ -434,6 +434,38 @@ h1 {
   background-color: #0056b3;
 }
 
+.modalButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center; 
+}
+
+.modal button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.modal  button[type="submit"] {
+
+  background-color: #003366;
+}
+
+.modal button[type="submit"]:hover {
+  background-color:  #0056b3;
+}
+
+.modal  button[type="close"] {
+
+  background-color: #003366;
+}
+
+.modal button[type="submit"]:hover {
+  background-color:  #0056b3;
+}
+
 
 @media (max-width: 768px) {
   .calendarContainer {

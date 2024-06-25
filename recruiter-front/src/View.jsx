@@ -1,5 +1,12 @@
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Modal from 'react-modal';
 import styles from './View.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaChartLine, FaChartPie } from 'react-icons/fa';
@@ -7,6 +14,10 @@ import { FaUser, FaTasks, FaChartBar, FaQuestionCircle, FaSignOutAlt, FaChartLin
 const View = () => {
   const navigate = useNavigate();
   const [candidatures, setCandidatures] = useState([]);
+  const [confirmModalIsOpen, setConfirmModalIsOpen] = useState(false);
+const [selectedJob, setSelectedJob] = useState(null);
+const [action, setAction] = useState(''); // 'approve' ou 'reject'
+
   const [search, setSearch] = useState('');
   const [offreMaxCandidatures, setOffreMaxCandidatures] = useState('');
 
@@ -51,6 +62,19 @@ const View = () => {
         window.alert('Erreur lors de la déconnexion. Veuillez réessayer.');
       });
   };
+
+  const openConfirmModal = (job, actionType) => {
+    setSelectedJob(job);
+    setAction(actionType);
+    setConfirmModalIsOpen(true);
+  };
+  
+  const closeConfirmModal = () => {
+    setSelectedJob(null);
+    setAction('');
+    setConfirmModalIsOpen(false);
+  };
+  
 
 
   const handleApprove = (job) => {
@@ -205,12 +229,12 @@ const View = () => {
                     <td data-label="Adresse">{job.Adresse}</td>
                     <td data-label="Offre">{job.intitule}</td>
                     <td data-label="Action">
-                      <span className={styles.buttons}> 
-                      <button className={styles.approveButton} onClick={() => handleApprove(job)}>Approuver</button>
-                      <button className={styles.rejectButton} onClick={() => handleReject(job)}>Rejeter</button>
-                      </span>
-                      
-                    </td>
+                       <span className={styles.buttons}>
+                       <button className={styles.approveButton} onClick={() => openConfirmModal(job, 'approve')}>Approuver</button>
+                       <button className={styles.rejectButton} onClick={() => openConfirmModal(job, 'reject')}>Rejeter</button>
+                       </span>
+                       </td>
+
                   </tr>
                 ))}
               </tbody>
@@ -218,6 +242,31 @@ const View = () => {
           </div>
         </div>
       </section>
+
+      <Modal
+  isOpen={confirmModalIsOpen}
+  onRequestClose={closeConfirmModal}
+  contentLabel="Confirmer l'action"
+  className={styles.modal}
+  overlayClassName={styles.overlay}
+>
+  <h2>Confirmer {action === 'approve' ? 'l\'approbation' : 'le rejet'}</h2>
+  <p>Êtes-vous sûr de vouloir {action === 'approve' ? 'approuver' : 'rejeter'} ce candidat ?</p>
+  <div className={styles.modalButtons}>
+    <button type="submit" onClick={() => {
+      if (action === 'approve') {
+        handleApprove(selectedJob);
+      } else {
+        handleReject(selectedJob);
+      }
+      closeConfirmModal();
+    }}>
+      {action === 'approve' ? 'Approuver' : 'Rejeter'}
+    </button>
+    <button type="button" onClick={closeConfirmModal}>Annuler</button>
+  </div>
+</Modal>
+
     </div>
   );
 };

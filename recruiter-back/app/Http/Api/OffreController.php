@@ -14,7 +14,7 @@ class OffreController extends Controller
         if ($offres->count() > 0){
             return response()->json(['offres' => $offres], 200);
         }else{
-            return response()->json(['message' => 'No data found'], 404);
+            return response()->json(['message' => 'No offer found'], 404);
         }
     }
 

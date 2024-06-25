@@ -31,7 +31,6 @@ const Candidature = () => {
     intitule: intitule || 'Intitulé non spécifié'
   });
 
-  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -40,11 +39,47 @@ const Candidature = () => {
     setFormData({ ...formData, [e.target.name]: e.target.files[0] });
   };
 
+  const validateForm = () => {
+    const nameRegex = /^[a-zA-ZÀ-ÿ\s-]+$/;
+    const phoneRegex = /^[0-9]{9}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!nameRegex.test(formData.nom) || !nameRegex.test(formData.prenom) || !nameRegex.test(formData.Adresse)) {
+      alert("Le nom, le prénom et l'adresse ne doivent pas contenir de caractères spéciaux.");
+      return false;
+    }
+    if (!phoneRegex.test(formData.telephone)) {
+      alert("Le numéro de téléphone doit contenir exactement 9 chiffres.");
+      return false;
+    }
+    if (!emailRegex.test(formData.email)) {
+      alert("L'email doit contenir un '@' et un domaine valide.");
+      return false;
+    }
+    if (formData.cv && formData.cv.type !== 'application/pdf') {
+      alert("Le CV doit être au format PDF.");
+      return false;
+    }
+    if (formData.lettre_motivation && formData.lettre_motivation.type !== 'application/pdf') {
+      alert("La lettre de motivation doit être au format PDF.");
+      return false;
+    }
+    if (formData.diplomes && formData.diplomes.type !== 'application/pdf') {
+      alert("Les diplômes doivent être au format PDF.");
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formDataToSend = new FormData(); 
-    const fileData = new FormData(); 
+    if (!validateForm()) {
+      return;
+    }
+
+    const formDataToSend = new FormData();
+    const fileData = new FormData();
 
     for (let key in formData) {
       formDataToSend.append(key, formData[key]);
@@ -61,7 +96,15 @@ const Candidature = () => {
         alert("Votre candidature a été envoyée avec succès, vous recevrez un mail de confirmation");
       })
       .catch(error => {
-        console.error(error);
+        if (error.response) {
+          if (error.response.status === 422) {
+            alert("Veuillez vérifier vos informations.");
+          } else if (error.response.status === 500) {
+            alert("Erreur d'envoi.");
+          }
+        } else {
+          console.error(error);
+        }
       });
 
     axios.post('http://127.0.0.1:8000/upload', fileData, {
@@ -94,27 +137,27 @@ const Candidature = () => {
             <tbody>
               <tr>
                 <td><label>Prénom</label></td>
-                <td><input type="text" name="prenom" onChange={handleChange} required/></td>
+                <td><input type="text" name="prenom" onChange={handleChange} required /></td>
               </tr>
               <tr>
                 <td><label>Nom</label></td>
-                <td><input type="text" name="nom" onChange={handleChange} required/></td>
+                <td><input type="text" name="nom" onChange={handleChange} required /></td>
               </tr>
               <tr>
                 <td><label>Date de naissance</label></td>
-                <td><input type="date" name="Date_de_naissance" placeholder='aaaa/mm/jj' onChange={handleChange} required/></td>
+                <td><input type="date" name="Date_de_naissance" placeholder='aaaa/mm/jj' onChange={handleChange} required /></td>
               </tr>
               <tr>
                 <td><label>Email</label></td>
-                <td><input type="text" name="email" onChange={handleChange} required/></td>
+                <td><input type="text" name="email" onChange={handleChange} required /></td>
               </tr>
               <tr>
                 <td><label>Téléphone</label></td>
-                <td><input type="text" name="telephone" onChange={handleChange} required/></td>
+                <td><input type="text" name="telephone" onChange={handleChange} required /></td>
               </tr>
               <tr>
                 <td><label>Adresse</label></td>
-                <td><input type="text" name="Adresse" onChange={handleChange} required/></td>
+                <td><input type="text" name="Adresse" onChange={handleChange} required /></td>
               </tr>
               <tr>
                 <td><label>Sexe</label></td>
@@ -138,9 +181,9 @@ const Candidature = () => {
                 <td><label>+ Diplômes requis</label></td>
               </tr>
               <tr>
-                <td><input type="file" name="cv" accept="application/pdf" onChange={handleFileChange} required/></td>
-                <td><input type="file" name="lettre_motivation" accept="application/pdf" onChange={handleFileChange} required/></td>
-                <td><input type="file" name="diplomes" accept="application/pdf" onChange={handleFileChange} required/></td>
+                <td><input type="file" name="cv" accept="application/pdf" onChange={handleFileChange} required /></td>
+                <td><input type="file" name="lettre_motivation" accept="application/pdf" onChange={handleFileChange} required /></td>
+                <td><input type="file" name="diplomes" accept="application/pdf" onChange={handleFileChange} required /></td>
               </tr>
               <tr>
                 <td colSpan="3"><p className="note">*Taille maximum 5Mo, format PDF</p></td>

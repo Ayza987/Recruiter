@@ -40,7 +40,7 @@
   margin-left: -160px;
   bottom: 0;
   width: 280px;
-  height: 110vh;
+  height: 200vh;
   background: #003366;
 }
 
@@ -93,6 +93,15 @@ li a {
   position: absolute;
   gap: 10px; 
   bottom: 20px;
+}
+
+li a:hover{
+  font-size: 17.5px;
+  color:#007bff;
+}
+.logout:hover{
+  color: #007bff;
+  font-size: 17px;
 }
 
 .viewStat {

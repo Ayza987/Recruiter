@@ -66,6 +66,28 @@
   max-width: 100%;
 }
 
+.error {
+  color: red;
+  animation: blink 1.5s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .appFormContainer form {
   display: flex;
   flex-direction: column;

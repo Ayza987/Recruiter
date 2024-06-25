@@ -38,7 +38,7 @@
   margin-left: -160px;
   margin-bottom: -200px;
   width: 280px;
-  height: 110vh;
+  height: 113vh;
   background: #003366;
 }
 
@@ -93,6 +93,15 @@ li a {
   gap: 10px; 
   bottom: 20px;
 }
+
+li a:hover{
+  font-size: 17.5px;
+  color:#007bff;
+}
+.logout:hover{
+  color: #007bff;
+  font-size: 17px;
+}
 .calendarStat {
   display: flex; 
   justify-content: space-around; 
@@ -135,6 +144,7 @@ li a {
 
 
 .calendarMain {
+  height: 110vh;
   width: 100%;
   margin-right: -200px;
   background-color: #e9e8e8;

@@ -21,6 +21,8 @@ const Dashboard = () => {
   const [search, setSearch] = useState('');
   const [department, setDepartment] = useState('');
   const [jobs, setJobs] = useState([]);
+  const [editModalIsOpen, setEditModalIsOpen] = useState(false);
+const [selectedJob, setSelectedJob] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [newJob, setNewJob] = useState({
     intitulé: '',
@@ -118,6 +120,38 @@ const Dashboard = () => {
     setModalIsOpen(false);
   };
 
+  
+
+const openEditModal = (job) => {
+  setSelectedJob(job);
+  setEditModalIsOpen(true);
+};
+
+const closeEditModal = () => {
+  setEditModalIsOpen(false);
+  setSelectedJob(null);
+};
+
+const handleUpdate = (e) => {
+  e.preventDefault();
+  axios.put(`http://127.0.0.1:8000/offre/${selectedJob.id}/edit`, selectedJob)
+    .then(response => {
+      console.log(response.data);
+      closeEditModal();
+      fetchJobs(); // Rafraîchir les offres après la modification
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+const handleEditInputChange = (e) => {
+  setSelectedJob({ ...selectedJob, [e.target.name]: e.target.value });
+};
+
+
+
+
   const handleInputChange = (e) => {
     setNewJob({ ...newJob, [e.target.name]: e.target.value });
   };
@@ -157,11 +191,11 @@ const Dashboard = () => {
                 <span className={styles.dashboardNavItem}>Gestion des congés</span>
               </Link>
             </li>
-            <li>
-              <a href="/Dashboard">
+            <li> <div className={styles.selected}> <a href="/Dashboard">
                 <FaChartBar />
                 <span className={styles.dashboardNavItem}>Offres d'emploi</span>
-              </a>
+              </a></div>
+              
             </li>
             <li>
               <Link to="/View">
@@ -229,13 +263,14 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className={styles.jobSalary}>
-                
+              <button className={styles.deleteButton} onClick={() => openEditModal(job)}>Modifier</button>
                 <button
                   className={styles.publishButton}
                   onClick={() => handleToggleStatus(job.id)}>
                   {job.statut_offre === 'Publié' ? 'Dépublier' : 'Publier'}
                 </button>
                 <button className={styles.deleteButton} onClick={() => handleDelete(job.id)}>Supprimer</button>
+                
                 
               </div>
             </div>
@@ -257,7 +292,7 @@ const Dashboard = () => {
           <label>Description:</label>
           <textarea name='description'  value={newJob.description} onChange={handleInputChange} required></textarea>
           <label>Département:</label>
-          <select className={styles.dashboardFilter} name='departement' value={newJob.type_offre} onChange={handleInputChange} required>
+          <select className={styles.dashboardFilter} name='departement' value={newJob.departement} onChange={handleInputChange} required>
               <option value="Soft">Soft</option>
               <option value="Bon Comptoir">Bon Comptoir</option>
               <option value="Marketing">Marketing</option>
@@ -276,8 +311,54 @@ const Dashboard = () => {
         </form>
         {/* <button type="close" onClick={closeModal}>Fermer</button> */}
       </Modal>
+
+
+      <Modal
+  isOpen={editModalIsOpen}
+  onRequestClose={closeEditModal}
+  contentLabel="Modifier une Offre"
+  className={styles.modal}
+  overlayClassName={styles.overlay}
+>
+  <h2>Modifier une Offre</h2>
+  {selectedJob && (
+    <form onSubmit={handleUpdate}>
+      <label>Intitulé:</label>
+      <input type="text" name="intitulé" value={selectedJob.intitulé} onChange={handleEditInputChange} required />
+      <label>Description:</label>
+      <textarea name="description" value={selectedJob.description} onChange={handleEditInputChange} required></textarea>
+      <label>Département:</label>
+      <select className={styles.dashboardFilter} name="departement" value={selectedJob.departement} onChange={handleEditInputChange} required>
+        <option value="Soft">Soft</option>
+        <option value="Bon Comptoir">Bon Comptoir</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Technique">Technique</option>
+      </select>
+      <label>Type d'offre:</label>
+      <select className={styles.dashboardFilter} name="type_offre" value={selectedJob.type_offre} onChange={handleEditInputChange} required>
+        <option value="CDI">CDI</option>
+        <option value="CDD">CDD</option>
+        <option value="Stage professionel">Stage professionel</option>
+        <option value="Stage académique">Stage académique</option>
+      </select>
+      <label>Date Butoir:</label>
+      <input type="date" name="date_butoir" value={selectedJob.date_butoir} onChange={handleEditInputChange} required />
+      <button type="submit">Enregistrer les modifications</button>
+    </form>
+  )}
+  
+</Modal>
     </div>
   );
+
+ 
+
+
+
+
+
+
+
 };
 
 export default Dashboard;

@@ -7,19 +7,29 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './Offres.module.css'; 
+import styles from './Offres.module.css';
 import offer from './offer.jpg';
 
 const Offres = () => {
   const [offres, setOffres] = useState([]);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/offre/publish')
       .then(response => {
-        setOffres(response.data.offres);
+        if (response.status === 200 && response.data.offres && response.data.offres.length > 0) {
+          setOffres(response.data.offres);
+        } else {
+          setError('Il n\'y a pas d\'offres disponibles pour l\'instant');
+        }
       })
       .catch(error => {
+        if (error.response && error.response.status === 404) {
+          setError('Il n\'y a pas d\'offres disponibles pour l\'instant');
+        } else {
+          setError('Une erreur s\'est produite lors de la récupération des offres');
+        }
         console.error('There was an error!', error);
       });
   }, []);
@@ -33,14 +43,14 @@ const Offres = () => {
       <header className={styles.offresHeader}>
         <h1>We Recruit!</h1>
       </header>
+      {error && <p className={styles.errorMessage}>{error}</p>}
       {offres.map((offre, index) => (
         <section key={index} className={styles.offre}>
           <h2>{offre.intitulé}</h2>
-          <h3> <u>Description du poste </u></h3>
+          <h3><u>Description du poste</u></h3>
           <p>{offre.description}</p>
-          <p> Offre valide jusqu'à la date : <strong>{offre.date_butoir} </strong> </p>
-          <h4>Type d'offre :  {offre.type_offre}  </h4>
-          
+          <p>Offre valide jusqu'à la date : <strong>{offre.date_butoir}</strong></p>
+          <h4>Type d'offre : {offre.type_offre}</h4>
           <button className={styles.postulerBtn} onClick={() => handlePostuler(offre.intitulé)}>Postuler</button>
         </section>
       ))}

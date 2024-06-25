@@ -30,7 +30,7 @@ function Connexion() {
       .then(response => {
         console.log(response.data);
         localStorage.setItem('token', response.data.access_token); 
-        navigate('/dashboard'); 
+        navigate('/'); 
       })
       .catch(error => {
         console.error(error);

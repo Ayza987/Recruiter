@@ -113,24 +113,39 @@ class CandidatController extends Controller
 
     }
 
-    public function approve(Request $request)
-    {
-        $data = $request->all();
+    public function approve(Request $request, $id)
+{
+    $candidat = Candidat::find($id);
 
-        Mail::to($data['email'])->send(new ApproveMail($data));
-
-        return response()->json(['message' => 'Un email a été envoyé au candidat.']);
+    if (!$candidat) {
+        return response()->json(['message' => 'Candidat non trouvé'], 404);
     }
 
-    public function reject(Request $request)
-    {
-        $data = $request->all();
+    if ($candidat->statut === 'Aucun') {
+        $candidat->update(['statut' => 'Approuvé']);
+        Mail::to($candidat->email)->send(new ApproveMail($candidat));
+        return response()->json(['message' => 'Le candidat a été approuvé et un email a été envoyé.']);
+    } else {
+        return response()->json(['message' => 'Vous ne pouvez pas effectuer cette action'], 400);
+    }
+}
 
-        Mail::to($data['email'])->send(new RejectMail($data));
+public function reject(Request $request, $id)
+{
+    $candidat = Candidat::find($id);
 
-        return response()->json(['message' => 'Un email a été envoyé au candidat']);
+    if (!$candidat) {
+        return response()->json(['message' => 'Candidat non trouvé'], 404);
     }
 
+    if ($candidat->statut === 'Aucun') {
+        $candidat->update(['statut' => 'Rejeté']);
+        Mail::to($candidat->email)->send(new RejectMail($candidat));
+        return response()->json(['message' => 'Le candidat a été rejeté et un email a été envoyé.']);
+    } else {
+        return response()->json(['message' => 'Vous ne pouvez pas effectuer cette action'], 400);
+    }
+}
 
     public function update(Request $request, int $id){
 

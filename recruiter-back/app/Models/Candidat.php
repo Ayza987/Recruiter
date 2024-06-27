@@ -19,6 +19,7 @@ class Candidat extends Model
         'Date_de_naissance',
         'telephone',
         'Adresse',
+        'statut',
         'intitule'
         
     ];

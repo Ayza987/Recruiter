@@ -10,7 +10,6 @@ import App from './App';
 import Connexion from './Connexion';
 import Dashboard from './Dashboard'; 
 import Accueil from './Accueil';
-import Congés from './Congés';
 import Candidature from './Candidature';
 import Offres from './Offres';
 import View from './View';
@@ -31,7 +30,7 @@ root.render(
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<App />} />
         <Route path="/candidature" element={<Candidature />} />
-        <Route path="/congés" element={<Congés />} />
+        
         <Route path="/offres" element={<Offres />} /> 
         <Route path="/view" element={<View />} />
         <Route path="/calendar" element={<Calendar />} />

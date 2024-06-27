@@ -41,6 +41,7 @@ const [action, setAction] = useState('');
     job.email.toLowerCase().includes(search.toLowerCase()) ||
     job.telephone.toLowerCase().includes(search.toLowerCase()) ||
     job.Adresse.toLowerCase().includes(search.toLowerCase()) ||
+    job.statut.toLowerCase().includes(search.toLowerCase()) ||
     job.intitule.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -78,34 +79,45 @@ const [action, setAction] = useState('');
 
 
   const handleApprove = (job) => {
-    axios.post(`http://127.0.0.1:8000/candidat/approve`, {
+    axios.post(`http://127.0.0.1:8000/candidat/${job.id}/approve`, {
       email: job.email,
       name: job.prenom,
       surname: job.nom,
       offer: job.intitule
     })
     .then(response => {
-      alert('Email sent successfully');
+      alert(response.data.message);
     })
     .catch(error => {
-      console.error('There was an error sending the email!', error);
+      if (error.response && error.response.status === 400) {
+        alert('Vous ne pouvez pas effectuer cette action');
+      } else {
+        console.error('Erreur lors de l\'envoi', error);
+        alert('Erreur lors de l\'envoi');
+      }
     });
   };
-
+  
   const handleReject = (job) => {
-    axios.post(`http://127.0.0.1:8000/candidat/reject`, {
+    axios.post(`http://127.0.0.1:8000/candidat/${job.id}/reject`, {
       email: job.email,
       name: job.prenom,
       surname: job.nom,
       offer: job.intitule
     })
     .then(response => {
-      alert('Email sent successfully');
+      alert(response.data.message);
     })
     .catch(error => {
-      console.error('There was an error sending the email!', error);
+      if (error.response && error.response.status === 400) {
+        alert('Vous ne pouvez pas effectuer cette action');
+      } else {
+        console.error('Erreur lors de l\'envoi', error);
+        alert('Erreur lors de l\'envoi');
+      }
     });
   };
+  
 
   useEffect(() => {
     if (filteredJobs.length > 0) {
@@ -215,6 +227,7 @@ const [action, setAction] = useState('');
                   <th>Téléphone</th>
                   <th>Adresse</th>
                   <th>Offre</th>
+                  <th>Statut</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -228,6 +241,7 @@ const [action, setAction] = useState('');
                     <td data-label="Téléphone">{job.telephone}</td>
                     <td data-label="Adresse">{job.Adresse}</td>
                     <td data-label="Offre">{job.intitule}</td>
+                    <td data-label="Statut">{job.statut}</td>
                     <td data-label="Action">
                        <span className={styles.buttons}>
                        <button className={styles.approveButton} onClick={() => openConfirmModal(job, 'approve')}>Approuver</button>

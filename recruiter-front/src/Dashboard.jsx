@@ -102,6 +102,7 @@ const [selectedJobToDelete, setSelectedJobToDelete] = useState(null);
       })
       .catch(error => {
         console.error(error);
+        window.alert('Erreur, veuillez réessayer.');
       });
   };
 
@@ -143,6 +144,7 @@ const [selectedJobToDelete, setSelectedJobToDelete] = useState(null);
       })
       .catch(error => {
         console.error(error);
+        window.alert('Erreur, veuillez réessayer.');
       });
   };
   
@@ -164,10 +166,11 @@ const handleUpdate = (e) => {
     .then(response => {
       console.log(response.data);
       closeEditModal();
-      fetchJobs(); // Rafraîchir les offres après la modification
+      fetchJobs(); 
     })
     .catch(error => {
       console.error(error);
+      window.alert('Erreur, veuillez réessayer.');
     });
 };
 
@@ -194,6 +197,7 @@ const handleEditInputChange = (e) => {
       })
       .catch(error => {
         console.error(error);
+        window.alert('Erreur, veuillez réessayer.');
       });
   };
 

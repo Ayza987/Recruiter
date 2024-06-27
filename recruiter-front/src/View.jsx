@@ -16,7 +16,7 @@ const View = () => {
   const [candidatures, setCandidatures] = useState([]);
   const [confirmModalIsOpen, setConfirmModalIsOpen] = useState(false);
 const [selectedJob, setSelectedJob] = useState(null);
-const [action, setAction] = useState(''); // 'approve' ou 'reject'
+const [action, setAction] = useState(''); 
 
   const [search, setSearch] = useState('');
   const [offreMaxCandidatures, setOffreMaxCandidatures] = useState('');

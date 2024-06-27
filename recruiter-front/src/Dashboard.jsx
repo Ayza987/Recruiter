@@ -23,6 +23,9 @@ const Dashboard = () => {
   const [jobs, setJobs] = useState([]);
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
 const [selectedJob, setSelectedJob] = useState(null);
+const [confirmDeleteModalIsOpen, setConfirmDeleteModalIsOpen] = useState(false);
+const [selectedJobToDelete, setSelectedJobToDelete] = useState(null);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [newJob, setNewJob] = useState({
     intitulé: '',
@@ -120,6 +123,29 @@ const [selectedJob, setSelectedJob] = useState(null);
     setModalIsOpen(false);
   };
 
+
+  const openConfirmDeleteModal = (job) => {
+    setSelectedJobToDelete(job);
+    setConfirmDeleteModalIsOpen(true);
+  };
+  
+  const closeConfirmDeleteModal = () => {
+    setSelectedJobToDelete(null);
+    setConfirmDeleteModalIsOpen(false);
+  };
+  
+  const confirmDelete = () => {
+    axios.delete(`http://127.0.0.1:8000/offre/${selectedJobToDelete.id}/delete`)
+      .then(response => {
+        console.log(response.data);
+        fetchJobs();
+        closeConfirmDeleteModal();
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+  
   
 
 const openEditModal = (job) => {
@@ -269,7 +295,8 @@ const handleEditInputChange = (e) => {
                   onClick={() => handleToggleStatus(job.id)}>
                   {job.statut_offre === 'Publié' ? 'Dépublier' : 'Publier'}
                 </button>
-                <button className={styles.deleteButton} onClick={() => handleDelete(job.id)}>Supprimer</button>
+                <button className={styles.deleteButton} onClick={() => openConfirmDeleteModal(job)}>Supprimer</button>
+
                 
                 
               </div>
@@ -348,15 +375,24 @@ const handleEditInputChange = (e) => {
   )}
   
 </Modal>
+
+<Modal
+  isOpen={confirmDeleteModalIsOpen}
+  onRequestClose={closeConfirmDeleteModal}
+  contentLabel="Confirmer la suppression"
+  className={styles.modal}
+  overlayClassName={styles.overlay}
+>
+  <h2>Confirmer la suppression</h2>
+  <p>Êtes-vous sûr de vouloir supprimer cette offre ?</p>
+  <div className={styles.modalButtons}>
+    <button type="button" onClick={confirmDelete}>Supprimer</button>
+    <button type="button" onClick={closeConfirmDeleteModal}>Annuler</button>
+  </div>
+</Modal>
+
     </div>
   );
-
- 
-
-
-
-
-
 
 
 };

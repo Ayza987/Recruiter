@@ -389,7 +389,39 @@ h1 {
   background-color: #c82333;
 }
 
-/* Responsivité pour les tablettes */
+.modalButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center; 
+}
+
+.modal button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.modal  button[type="button"] {
+
+  background-color: #003366;
+}
+
+.modal button[type="button"]:hover {
+  background-color:  #0056b3;
+}
+
+.modal  button[type="button"] {
+
+  background-color: #003366;
+}
+
+.modal button[type="button"]:hover {
+  background-color:  #0056b3;
+}
+
+
 @media (max-width: 768px) {
   .dashboardContainer {
     flex-direction: column;

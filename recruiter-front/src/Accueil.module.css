@@ -13,7 +13,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  overflow: hidden; /* Ajouter cette ligne */
+  overflow: hidden; 
 }
 
 .navbar {
@@ -24,8 +24,8 @@
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; /* Ajouter cette ligne */
-  z-index: 10; /* Ajouter cette ligne */
+  position: relative; 
+  z-index: 10; 
 }
 
 .logo {
@@ -89,7 +89,7 @@
   transform: translateY(-50%);
   text-align: center;
   color: white;
-  z-index: 1; /* Ajouter cette ligne */
+  z-index: 1; 
 }
 
 .heroText h1 {
@@ -145,7 +145,7 @@
       padding: 10px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      z-index: 1000; /* Ajouter cette ligne */
+      z-index: 1000; 
   }
 
   .menuIcon {

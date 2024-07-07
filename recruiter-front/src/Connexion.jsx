@@ -16,6 +16,7 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import styles from './Connexion.module.css'; 
 import { Link } from 'react-router-dom';
 
+
 function Connexion() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ function Connexion() {
           <Link to="/">Accueil</Link>
           <a href="https://www.gsc-technology.com/contact/">Contact Us</a>
           <a href="#">Mentions légales</a>
-          <a href="#">Politique de confidentialité</a>
+          <a href="./Politique.html">Politique de confidentialité</a>
           <div className={styles.ConnexionSocialIcons}>
             <a href="#"><FaInstagram /></a>
             <a href="https://td.linkedin.com/company/global-soft-and-communication"><FaLinkedinIn /></a>

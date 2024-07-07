@@ -328,40 +328,45 @@ if (filteredConges.length > 0) {
           </div>
          
 
-          <div className={styles.calendarTable}>
-            <table className={styles.jobTable}>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nom</th>
-                  <th>Email</th>
-                  <th>Date de Début</th>
-                  <th>Date de Fin</th>
-                  <th>Type de Congés</th>
-                  <th>Statut des Congés</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredConges.map(conge => (
-                  <tr key={conge.id}>
-                    <td data-label='ID'>{conge.id}</td>
-                    <td data-label='Nom'>{conge.nom_personnel}</td>
-                    <td data-label='Email'>{conge.email}</td>
-                    <td data-label='Date de début'>{conge.date_debut}</td>
-                    <td data-label='Date de fin'>{conge.date_fin}</td>
-                    <td data-label='Type de congés'>{conge.type_congés}</td>
-                    <td data-label='Statut '>{conge.statut_congés}</td>
-                    <td data-label='Action'>
-                      <span className={styles.calendarIcons}>  <FaRegTrashAlt onClick={() => openConfirmDeleteModal(conge.id)} /> <br />
-                      <FaRegEdit onClick={() => openEditModal(conge)} /></span>
-                     
-                    </td>
+          {filteredConges.length > 0 ? (
+            <div className={styles.calendarTable}>
+              <table className={styles.jobTable}>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Date de Début</th>
+                    <th>Date de Fin</th>
+                    <th>Type de Congés</th>
+                    <th>Statut des Congés</th>
+                    <th>Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {filteredConges.map(conge => (
+                    <tr key={conge.id}>
+                      <td data-label='ID'>{conge.id}</td>
+                      <td data-label='Nom'>{conge.nom_personnel}</td>
+                      <td data-label='Email'>{conge.email}</td>
+                      <td data-label='Date de début'>{conge.date_debut}</td>
+                      <td data-label='Date de fin'>{conge.date_fin}</td>
+                      <td data-label='Type de congés'>{conge.type_congés}</td>
+                      <td data-label='Statut '>{conge.statut_congés}</td>
+                      <td data-label='Action'>
+                        <span className={styles.calendarIcons}>
+                          <FaRegTrashAlt onClick={() => openConfirmDeleteModal(conge.id)} /> <br />
+                          <FaRegEdit onClick={() => openEditModal(conge)} />
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p>Aucun congé trouvé.</p>
+          )}
         </div>
       </section>
 

@@ -219,9 +219,6 @@ footer {
   color: #0055cc;
 }
 
-/* Ajoutez ce CSS en bas de votre fichier CSS existant */
-
-/* Responsivité pour les écrans de 768px et moins */
 @media (max-width: 768px) {
   .appContent {
     flex-direction: column;

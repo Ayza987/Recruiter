@@ -125,14 +125,14 @@
   background-color: #0055cc;
 }
 
-/* Styles pour le menu hamburger */
+
 .menuIcon {
   display: none;
   font-size: 30px;
   cursor: pointer;
 }
 
-/* Media Queries pour la responsivité */
+
 @media (max-width: 768px) {
   .navLinks {
       display: none;

@@ -62,7 +62,7 @@
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    position: relative;
+    position: fixed;
     bottom: -240px;
   }
   

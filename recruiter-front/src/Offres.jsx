@@ -41,7 +41,7 @@ const Offres = () => {
   return (
     <div className={styles.offresContainer}>
       <header className={styles.offresHeader}>
-        <h1>We Recruit!</h1>
+        <h1>Nous Recrutons!</h1>
       </header>
       {error && <p className={styles.errorMessage}>{error}</p>}
       {offres.map((offre, index) => (
